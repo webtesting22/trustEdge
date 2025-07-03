@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+:root {
+  /* overflow: hidden; */
+  font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  --color--body: #52535c;
+  --color--heading: rgb(1 24 48);
+  --brand--back: #F9F5F3;
+  font-family: "Nunito Sans", sans-serif;
+
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  height: 100%;
+  width: 100%;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Container {
+  max-width: 1200px;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  /* padding-left: 2rem; */
+  /* padding-right: 2rem; */
+}
+
+.paddingSlite {
+  padding-top: 3rem !important;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+h1 {
+  color: var(--color--heading);
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 60px;
+  font-weight: 500;
+  line-height: 1.2em;
+  font-family: "Lora", serif;
+}
+
+h2 {
+  font-family: "Lora", serif;
+  color: var(--color--heading);
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.2em;
+}
+
+h3 {
+
+  font-family: "Lora", serif;
+  color: var(--color--heading);
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.2em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+p {
+  color: var(--color--body);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5em;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.paddingRight {
+  padding-right: 40px;
+}
+
+.paddingLeft {
+  padding-left: 40px;
+}
+
+.paddingTop {
+  padding-top: 50px;
+}
+
+.paddingBottom {
+  padding-bottom: 50px;
+}
+
+.white {
+  color: white;
+}
+
+.black {
+  color: black;
+}

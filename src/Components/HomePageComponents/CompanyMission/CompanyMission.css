@@ -1,0 +1,164 @@
+/* Animated Icon Styles */
+.mission-card {
+    background-color: #f7f7f7;
+    padding: 40px;
+    border-radius: 0px 100px 0px 0px;
+    border: 1px solid transparent;
+    transition: .5s;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.mission-card:hover {
+    border: 1px solid #001f3f1e;
+    transition: .5s;
+}
+
+.animated-icon {
+    color: #D34400;
+    transition: all 0.4s ease;
+    height: 100px;
+    width: 100px;
+}
+
+.mission-card:hover .animated-icon {
+    color: var(--color--heading);
+    transform: scale(1.05);
+}
+
+/* Cube Icon Animations */
+.animated-icon .cube-main {
+    animation: cubeMainFloat 4s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.animated-icon .cube-left {
+    animation: cubeLeftFloat 2s ease-in-out infinite 0.5s;
+    transform-origin: center;
+}
+
+.animated-icon .cube-right {
+    animation: cubeRightFloat 2s ease-in-out infinite 1s;
+    transform-origin: center;
+}
+
+@keyframes cubeMainFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: translateY(-3px) rotate(1deg);
+        opacity: 1;
+    }
+}
+
+@keyframes cubeLeftFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(-2px) rotate(-1deg);
+        opacity: 0.8;
+    }
+}
+
+@keyframes cubeRightFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(-4px) rotate(2deg);
+        opacity: 0.8;
+    }
+}
+
+/* Data Analysis Icon Animations */
+.animated-icon .data-circle {
+    animation: dataCirclePulse 3s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.animated-icon .magnifying-glass {
+    animation: magnifyingGlassFloat 4s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.animated-icon .analysis-lines {
+    animation: linesFlicker 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes dataCirclePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.03);
+        opacity: 0.9;
+    }
+}
+
+@keyframes magnifyingGlassFloat {
+
+    0%,
+    100% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    75% {
+        transform: translate(-1px, 1px) rotate(-1deg);
+    }
+}
+
+@keyframes linesFlicker {
+    0% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Enhanced Hover Effects for Icons */
+@media (hover: hover) {
+    .mission-card:hover .animated-icon .cube-main {
+        animation-duration: 2s;
+    }
+
+    .mission-card:hover .animated-icon .cube-left {
+        animation-duration: 2s;
+    }
+
+    .mission-card:hover .animated-icon .cube-right {
+        animation-duration: 2s;
+    }
+
+    .mission-card:hover .animated-icon .data-circle {
+        animation-duration: 1.5s;
+    }
+
+    .mission-card:hover .animated-icon .magnifying-glass {
+        animation-duration: 2s;
+    }
+}

@@ -1,0 +1,213 @@
+.AdjustHeightContainer {
+    height: 800px;
+    background-color: var(--brand--back);
+}
+
+.adjustImageStyle {
+    border-radius: 0px 0px 0px 100px;
+    overflow: hidden;
+}
+
+.adjustImageStyle img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.AdjustHeadingContainer {
+    display: flex;
+    align-items: center;
+
+}
+
+.AdjustGapContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+/* Embedded Text Heading Styles */
+.embedded-text-heading {
+    font-size: 2.5rem;
+    line-height: 1.4;
+    color: #2c3e50;
+    font-weight: 600;
+    text-align: left;
+    margin: 2rem 0;
+    display: inline;
+    position: relative;
+}
+
+.embedded-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 8px;
+    padding: 8px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    top: -2px;
+}
+
+.embedded-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .embedded-text-heading {
+        font-size: 2.2rem;
+    }
+
+    .embedded-icon {
+        width: 35px;
+        height: 35px;
+        padding: 6px;
+        margin: 0 6px;
+    }
+}
+
+@media (max-width: 992px) {
+    .embedded-text-heading {
+        font-size: 2rem;
+        line-height: 1.5;
+    }
+
+    .embedded-icon {
+        width: 32px;
+        height: 32px;
+        padding: 5px;
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .embedded-text-heading {
+        font-size: 1.8rem;
+        line-height: 1.6;
+        text-align: center;
+    }
+
+    .embedded-icon {
+        width: 28px;
+        height: 28px;
+        padding: 4px;
+        margin: 0 4px;
+        top: -1px;
+    }
+}
+
+@media (max-width: 576px) {
+    .embedded-text-heading {
+        font-size: 1.5rem;
+        line-height: 1.7;
+        padding: 0 10px;
+    }
+
+    .embedded-icon {
+        width: 24px;
+        height: 24px;
+        padding: 3px;
+        margin: 0 3px;
+        top: 0px;
+    }
+}
+
+@media (max-width: 400px) {
+    .embedded-text-heading {
+        font-size: 1.3rem;
+        line-height: 1.8;
+    }
+
+    .embedded-icon {
+        width: 20px;
+        height: 20px;
+        padding: 2px;
+        margin: 0 2px;
+    }
+}
+
+/* Professional Marquee Styles */
+.InfiniteMarqueeContainer {
+    width: 100%;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 12px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: absolute;
+    bottom: -38px;
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marqueeScroll 70s linear infinite;
+    white-space: nowrap;
+}
+
+.marquee-word {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0;
+    font-weight: 600;
+    font-size: 80px;
+    color: rgba(0, 31, 63, 0.091);
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+    /* background-clip: text;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent; */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+/* .marquee-word::after {
+     content: '•';
+     margin: 0 8px;
+     color: #667eea;
+     -webkit-text-fill-color: #667eea;
+     background: none;
+ }
+ 
+ .marquee-word:last-child::after {
+     display: none;
+ } */
+
+@keyframes marqueeScroll {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .marquee-word {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .marquee-content {
+        animation-duration: 25s;
+    }
+}
+
+/* Hover effect to pause animation */
+.InfiniteMarqueeContainer:hover .marquee-content {
+    animation-play-state: paused;
+}
