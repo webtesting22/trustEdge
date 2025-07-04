@@ -27,3 +27,39 @@
     position: relative;
     z-index: 3;
 }
+.StickyImageContainer::before{
+    content: "";
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.heading-container {
+    min-height: 120px; /* Adjust based on your heading size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+}
+
+.heading-container h2 {
+    /* text-align: center; */
+    font-size: 48px;
+    line-height: 1.2;
+    margin: 0;
+    position: relative;
+    will-change: opacity;
+}
+
+@media (max-width: 768px) {
+    .heading-container h2 {
+        font-size: 32px;
+    }
+    
+    .heading-container {
+        min-height: 100px;
+    }
+}

@@ -197,6 +197,71 @@ p {
   right: 0px;
 
 }
+.IconsContainer{
+  display: flex;
+  justify-content: center;
+}
+.IconsContainer img{
+  width: 100px;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  opacity: 0.1;
+  transition: all 0.5s ease-in-out;
+  animation: diagonalFloat 6s infinite ease-in-out;
+}
+
+@keyframes diagonalFloat {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.1;
+    filter: brightness(1);
+  }
+  25% {
+    transform: translate(-10px, -10px) rotate(-5deg);
+    opacity: 0.3;
+    filter: brightness(1.2);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.1;
+    filter: brightness(1);
+  }
+  75% {
+    transform: translate(10px, -10px) rotate(5deg);
+    opacity: 0.3;
+    filter: brightness(1.2);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.1;
+    filter: brightness(1);
+  }
+}
+
+.IconsContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+.IconsContainer::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  animation: rotateGradient 8s linear infinite;
+}
+
+@keyframes rotateGradient {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 @media (max-width: 768px) {
   h1 {
@@ -302,3 +367,4 @@ p {
   opacity: 1;
   transform: translateX(0);
 }
+
