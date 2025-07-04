@@ -104,7 +104,7 @@ const NavigationCode = ({ onShowModal }) => {
                     <ul>
                         {NavigationLinks.map((link) => (
                             <li key={link.id}>
-                                {(link.link === 'About' || link.link === 'Services') ? (
+                                {(link.link === 'About' || link.link === 'Products') ? (
                                     <a href="#" onClick={e => { e.preventDefault(); onShowModal && onShowModal(); }}>{link.link}</a>
                                 ) : (
                                     <Link to={link.path} onClick={onClose}>{link.link}</Link>
