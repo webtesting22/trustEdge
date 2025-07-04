@@ -1,6 +1,7 @@
 .AboutPaddingContainer {
     border-radius: 0px 0px 200px 0px;
     background-color: var(--brand--back);
+
 }
 .AboutImageContainer{
     min-height: 400px;
@@ -19,4 +20,10 @@
     display: flex;
     align-items: center;
     height: 100%;
+}
+
+@media (max-width: 768px) {
+    .AboutPaddingContainer{
+        padding-bottom: 4rem;
+    }
 }

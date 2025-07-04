@@ -243,6 +243,7 @@
   }
   .step-panel {
     padding: 10px 12px;
+    padding-bottom: 20px;
   }
   .step-panel-header {
     font-size: 1rem;
