@@ -61,5 +61,11 @@
     
     .heading-container {
         min-height: 100px;
+        width: 100% !important;
+    }
+    .StickyImageContainer {
+        background-attachment: scroll !important;
+        min-height: 400px;
+        max-height: 400px;
     }
 }

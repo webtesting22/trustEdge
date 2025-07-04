@@ -143,4 +143,7 @@
     .QuateContainer-content {
         width: 100%;
     }
+    .UpdatedMobile{
+        padding: 0px !important;
+    }
 }

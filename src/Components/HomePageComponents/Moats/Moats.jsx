@@ -34,8 +34,8 @@ const Moats = () => {
                     <h2 className="white"  data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">Our Moat: A Shield of Sustainable Advantage</h2>
                     <p className="white"  data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">A "moat" represents a company’s enduring competitive edge — much like the protective moat surrounding a castle. It safeguards the business from competitors by building barriers through innovation, efficiency, customer trust, or unique offerings that are hard to replicate.</p>
                 </div>
-                <div className="w-100 Container paddingTop paddingBottom">
-                    <Row gutter={[30, 30]} className="paddingTop">
+                <div className="w-100 Container paddingTop paddingBottom UpdatedMobile" style={{display:"flex",justifyContent:"center"}}>
+                    <Row gutter={[30, 30]} className="paddingTop w-100" >
                         {moatsData.map((moat, index) => (
                             <Col lg={8} md={8} sm={24} xs={24} key={index}  data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                 <div className="moat-card">

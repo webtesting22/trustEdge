@@ -3,7 +3,7 @@ import "./About.css";
 import { Row, Col } from "antd";
 
 const About = () => {
-    const image = "https://assets-global.website-files.com/65fbd43381ccee5cec1b44da/65fd4af7c42184b7ab2ee553_step-01.jpg"
+    const image = "https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/Growth & Transformation.jpg"
     const imageRef = useRef(null);
     const [parallax, setParallax] = useState(0);
     const [inView, setInView] = useState(false);
@@ -69,7 +69,7 @@ const About = () => {
                                 <div>
                                     {/* <span className="sectionKeywordDesign">About Us</span> */}
                                     <h2 data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">Our Legacy of Growth & Transformation</h2>
-                                    <p data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">Adinath Exim Resources Ltd. was incorporated on January 20, 1995, with Registration No. 04-24300 under the Registrar of Companies, Gujarat, Dadra & Nagar Haveli. The company received its Certificate of Commencement of Business on January 25, 1995, and has been proudly listed on the Bombay Stock Exchange (BSE) since October 14, 1996.</p>
+                                    <p data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500"><b>Adinath Exim Resources Ltd.</b> was incorporated on January 20, 1995, with Registration No. 04-24300 under the Registrar of Companies, Gujarat, Dadra & Nagar Haveli. The company received its Certificate of Commencement of Business on January 25, 1995, and has been proudly listed on the Bombay Stock Exchange (BSE) since October 14, 1996.</p>
                                     <p data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">Originally established with the objective of operating as a merchant exporter, the company has evolved strategically over the years. Today, it actively operates in the Non-Banking Financial sector, offering a diversified and forward-looking approach to business.</p>
                                 </div>
                                 <div className="TagBoxesContainer" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
