@@ -1,16 +1,67 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "./About.css";
 import { Row, Col } from "antd";
+
 const About = () => {
     const image = "https://assets-global.website-files.com/65fbd43381ccee5cec1b44da/65fd4af7c42184b7ab2ee553_step-01.jpg"
+    const imageRef = useRef(null);
+    const [parallax, setParallax] = useState(0);
+    const [inView, setInView] = useState(false);
+
+    useEffect(() => {
+        const observer = new window.IntersectionObserver(
+            ([entry]) => {
+                setInView(entry.isIntersecting);
+            },
+            { threshold: 0.1 }
+        );
+        if (imageRef.current) observer.observe(imageRef.current);
+        return () => {
+            if (imageRef.current) observer.unobserve(imageRef.current);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (!inView) return;
+
+        const handleScroll = () => {
+            if (!imageRef.current) return;
+            const rect = imageRef.current.getBoundingClientRect();
+            // The further from the center of the viewport, the more translate
+            const windowHeight = window.innerHeight;
+            const offset = (rect.top - windowHeight / 2) / 8; // more subtle parallax
+            setParallax(offset);
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        // Initial call
+        handleScroll();
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [inView]);
+
     return (
         <section className="AboutPaddingContainer">
             <div className="Container">
                 <div>
                     <Row>
                         <Col lg={12} md={12} sm={24} xs={24}>
-                            <div className="AboutImageContainer" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
-                                <img src={image} alt="" />
+                            <div
+
+                                className="AboutImageContainer"
+                                data-aos="blur-to-clear"
+                                data-aos-delay="100"
+                                data-aos-duration="1500"
+                                style={{
+
+                                    overflow: "hidden"
+                                }}
+                            >
+                                <img src={image} alt="" ref={imageRef} style={{
+                                    transform: `translateY(${parallax}px)`,
+                                    transition: "transform 0.2s cubic-bezier(0.22, 1, 0.36, 1)",
+                                    willChange: "transform",
+                                }} />
                             </div>
                         </Col>
                         <Col lg={12} md={12} sm={24} xs={24}>

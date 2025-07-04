@@ -51,7 +51,7 @@ const CompanyMission = () => {
     );
 
     return (
-        <section>
+        <section style={{ overflow: "hidden" }}>
             <div className="w-100 Container">
                 <div className="IconsContainer">
                     <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/UpdatedBrandIcons.png" alt="" />
