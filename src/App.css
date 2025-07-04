@@ -240,7 +240,7 @@ p {
 
 .IconsContainer {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .IconsContainer::before {

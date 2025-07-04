@@ -4,6 +4,7 @@ import NavigationLinks from "./NavigationLinks";
 import "./NavigationCode.css";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { MenuOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 const NavigationCode = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -57,7 +58,9 @@ const NavigationCode = () => {
                         <Col lg={scrolled ? 14 : 12} xs={12}>
                             <div className="LogoAndLinksContainer paddingRight">
                                 <div>
-                                    <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/png (2) (1).png" alt="logo" />
+                                    <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                                        <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/HighQualityBlue.png" alt="logo" />
+                                    </Link>
                                 </div>
                                 <div className="desktop-menu">
                                     <ul>

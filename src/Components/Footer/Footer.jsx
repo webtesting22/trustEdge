@@ -4,6 +4,7 @@ import { Row, Col, Input } from "antd";
 import { IoCallOutline, IoLocationOutline, IoSendSharp } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
 
@@ -85,7 +86,7 @@ const Footer = () => {
                                 <Row gutter={[16, 16]}>
                                     <Col lg={24} md={24} sm={24} xs={24}>
                                         <div className="footer-logo">
-                                            <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/png 12.png" alt="Logo" />
+                                            <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/HighQualityLogo.png" alt="Logo" />
                                         </div>
                                     </Col>
                                     <Col lg={24} md={24} sm={24} xs={24}    >

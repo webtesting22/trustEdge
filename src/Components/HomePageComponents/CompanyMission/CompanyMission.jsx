@@ -54,7 +54,7 @@ const CompanyMission = () => {
         <section>
             <div className="w-100 Container">
                 <div className="IconsContainer">
-                    <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/png 1.png" alt="" />
+                    <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/UpdatedBrandIcons.png" alt="" />
                 </div>
                 <h2 className="text-center mission-heading" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                     We provide businesses with agile, customized financing solutions that adapt to their unique needs.
