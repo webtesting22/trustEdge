@@ -53,7 +53,7 @@ const CompanyMission = () => {
     return (
         <section>
             <div className="w-100 Container">
-                <h2 className="text-center mission-heading">
+                <h2 className="text-center mission-heading" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                     We provide businesses with agile, customized financing solutions that adapt to their unique needs. 
                     With a focus on innovation, operational excellence, and a customer-centric mindset, we enable 
                     enterprises to unlock new opportunities and achieve lasting growth.
@@ -62,11 +62,11 @@ const CompanyMission = () => {
                 <div className="paddingTop paddingBottom">
                     <Row gutter={[40, 40]} className="mission-cards-container">
                         <Col lg={12} md={12} sm={24} xs={24}>
-                            <div className="mission-card">
-                                <div className="card-icon-container">
+                            <div className="mission-card" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
+                                <div className="card-icon-container" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                     <CubeIcon />
                                 </div>
-                                <p className="card-description">
+                                <p className="card-description" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                     To empower businesses with seamless access to timely and flexible financing, 
                                     ensuring they can seize opportunities without delay.
                                 </p>
@@ -74,11 +74,11 @@ const CompanyMission = () => {
                         </Col>
                         
                         <Col lg={12} md={12} sm={24} xs={24}>
-                            <div className="mission-card">
-                                <div className="card-icon-container">
+                            <div className="mission-card" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
+                                <div className="card-icon-container" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                     <DataAnalysisIcon />
                                 </div>
-                                <p className="card-description">
+                                <p className="card-description" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                     By leveraging innovation, efficiency, tech support and a customer-centric 
                                     approach, we provide tailored financial solutions that will fuel growth, 
                                     stability, and success.

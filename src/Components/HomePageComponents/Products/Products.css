@@ -1,0 +1,268 @@
+/* Main Container */
+.ProductsContainer {
+    width: 100%;
+    background-color: #f8f9fa;
+}
+
+.ProductsIntroSection {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Stack Animation Container */
+.StackContainersAnimation {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Products Card Container */
+.ProductsCardContainer {
+    width: 100%;
+    background-color: #ededed;
+    position: relative;
+    overflow: hidden;
+    position: sticky;
+    top: 70px;
+}
+
+
+
+/* Section Header */
+.ProductsSectionHeader {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.ProductsSectionHeader::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+            rgba(211, 68, 0, 0.15) 0%,
+            rgba(211, 68, 0, 0.08) 25%,
+            rgba(211, 68, 0, 0.05) 50%,
+            rgba(211, 68, 0, 0.08) 75%,
+            rgba(211, 68, 0, 0.12) 100%);
+    z-index: 1;
+}
+
+.ProductsSectionHeader::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle,
+            rgba(211, 68, 0, 0.18) 0%,
+            rgba(211, 68, 0, 0.12) 40%,
+            transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.ProductsSectionHeader p {
+    text-align: center;
+    padding: 30px 0px;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(248, 250, 252, 0.9) 50%,
+            rgba(241, 245, 249, 0.85) 100%);
+    color: var(--color--heading) !important;
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* border-bottom: 1px solid rgba(211, 68, 0, 0.2); */
+}
+
+/* Wave effect for the header */
+.ProductsSectionHeader p::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(211, 68, 0, 0.10),
+            transparent);
+    animation: wave 5s infinite;
+}
+
+@keyframes wave {
+    0% {
+        left: -100%;
+    }
+
+    50% {
+        left: 100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Section Content */
+.ProductsSectionContent {
+    position: relative;
+    z-index: 2;
+}
+
+/* Background Text Effect */
+.BackgroundText {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8rem;
+    font-weight: 600;
+    color: rgba(175, 175, 175, 0.3);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1;
+    user-select: none;
+}
+
+/* Services Grid */
+.ServicesGrid {
+    position: relative;
+    z-index: 2;
+    padding-top: 2rem;
+}
+
+/* Service Card */
+.ServiceCard {
+    background: white;
+    border-radius: 16px;
+    padding: 40px 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.ServiceCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12), 0 0 20px rgba(211, 68, 0, 0.1);
+    border-top: 3px solid rgba(211, 68, 0, 0.3);
+}
+
+/* Service Icon */
+.ServiceIcon {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    position: relative;
+}
+
+.ServiceIcon::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: var(--color--heading);
+    opacity: 0.1;
+}
+
+.ServiceCard:hover .ServiceIcon {
+    opacity: 1;
+}
+
+/* Service Content */
+.ServiceContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.ServiceContent h3 {
+    text-align: start;
+}
+
+.ServiceContent p {
+    text-align: start;
+}
+
+.StackContainersAnimation .ButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .BackgroundText {
+        font-size: 6rem;
+    }
+
+    .ServiceCard {
+        padding: 32px 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ProductsCardContainer {
+        position: static !important;
+    }
+
+    .BackgroundText {
+        font-size: 4rem;
+    }
+
+    .ProductsCardContainer {
+        padding: 60px 0;
+    }
+
+    .ServiceCard {
+        padding: 24px 20px;
+    }
+
+    .ServiceTitle {
+        font-size: 1.3rem;
+    }
+
+    .ProductsSectionHeader h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .BackgroundText {
+        font-size: 3rem;
+    }
+
+    .ProductsCardContainer {
+        padding: 40px 0;
+    }
+
+    .ServiceCard {
+        padding: 20px 16px;
+    }
+}

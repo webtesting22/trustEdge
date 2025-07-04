@@ -16,6 +16,7 @@ const About = () => {
                         <Col lg={12} md={12} sm={24} xs={24}>
                             <div className="paddingLeft FlexContainer">
                                 <div>
+                                    {/* <span className="sectionKeywordDesign">About Us</span> */}
                                     <h2>Our Legacy of Growth & Transformation</h2>
                                     <p>Adinath Exim Resources Ltd. was incorporated on January 20, 1995, with Registration No. 04-24300 under the Registrar of Companies, Gujarat, Dadra & Nagar Haveli. The company received its Certificate of Commencement of Business on January 25, 1995, and has been proudly listed on the Bombay Stock Exchange (BSE) since October 14, 1996.</p>
                                     <p>Originally established with the objective of operating as a merchant exporter, the company has evolved strategically over the years. Today, it actively operates in the Non-Banking Financial sector, offering a diversified and forward-looking approach to business.</p>

@@ -14,6 +14,162 @@
     height: 100%;
 }
 
+/* Image Slider Styles */
+.image-slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slider-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slider-image.active {
+    opacity: 1;
+}
+
+/* Ensure first image loads immediately */
+.slider-image:first-child {
+    opacity: 1;
+}
+
+/* Smooth loading for better performance */
+.slider-image {
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: opacity;
+}
+
+/* Loading state styles */
+.slider-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hide images until loaded */
+.slider-image:not(.loaded) {
+    opacity: 0 !important;
+}
+
+.slider-image.loaded {
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* Slider indicators */
+.slider-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 5;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.indicator:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.1);
+}
+
+.indicator.active {
+    background-color: #ffffff;
+    border-color: rgba(0, 0, 0, 0.3);
+    transform: scale(1.2);
+}
+
+/* Hover effect for slider container */
+.image-slider-container:hover .slider-indicators {
+    opacity: 1;
+}
+
+.slider-indicators {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+/* Responsive slider adjustments */
+@media (max-width: 768px) {
+    .image-slider-container {
+        height: 300px;
+    }
+    
+    .slider-image {
+        transition: opacity 0.6s ease-in-out;
+    }
+    
+    .slider-indicators {
+        bottom: 15px;
+        opacity: 1;
+    }
+    
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .image-slider-container {
+        height: 250px;
+    }
+    
+    .adjustImageStyle {
+        border-radius: 0px 0px 0px 50px;
+    }
+    
+    .slider-indicators {
+        bottom: 10px;
+        gap: 8px;
+    }
+    
+    .indicator {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .loading-spinner {
+        width: 30px;
+        height: 30px;
+        border-width: 2px;
+    }
+}
+
 .AdjustHeadingContainer {
     display: flex;
     align-items: center;
@@ -153,7 +309,7 @@
 
 .marquee-content {
     display: inline-block;
-    animation: marqueeScroll 70s linear infinite;
+    animation: marqueeScroll 100s linear infinite;
     white-space: nowrap;
 }
 
@@ -198,16 +354,31 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .marquee-word {
-        font-size: 12px;
+        font-size: 30px;
         padding: 6px 12px;
     }
 
     .marquee-content {
-        animation-duration: 25s;
+        animation-duration: 90s;
+    }
+    .InfiniteMarqueeContainer{
+        position: static !important;
+    }
+    .AdjustHeightContainer{
+        height: 100% !important;
+        padding-top: 5rem;
     }
 }
 
 /* Hover effect to pause animation */
 .InfiniteMarqueeContainer:hover .marquee-content {
     animation-play-state: paused;
+}
+
+
+@media (min-width:1500px) and (max-width:2000px) {
+    .AdjustHeightContainer{
+        height: 900px;
+      
+    }
 }

@@ -1,0 +1,262 @@
+.LogoAndLinksContainer {
+    display: flex;
+    align-items: center;
+    /* gap: 50px; */
+    height: 100%;
+    justify-content: space-between;
+}
+
+.LogoAndLinksContainer>div img {
+    width: 150px;
+    transition: all 0.3s ease;
+}
+
+.LogoAndLinksContainer>div ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 20px;
+}
+
+.LogoAndLinksContainer>div ul li a {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color--heading);
+    text-decoration: none;
+    font-family: "Lora", serif;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.LogoAndLinksContainer>div ul li:hover a {
+    font-size: 16px;
+    font-weight: 500;
+    color: #FF6518;
+    text-decoration: none;
+    font-family: "Lora", serif;
+    transition: .5s;
+}
+
+.NavigationContactContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+/* Adjust button positioning based on scroll state */
+.NavigationCode .NavigationContactContainer {
+    justify-content: flex-end;
+}
+
+.NavigationCode.scrolled .NavigationContactContainer {
+    justify-content: end;
+}
+
+/* Navigation Animation Styles */
+.NavigationCode {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: .5s;
+    /* padding: 15px 0; */
+}
+
+/* Scrolled state - white background */
+.NavigationCode.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: .5s;
+}
+
+/* Smooth column transitions */
+.NavigationCode .ant-col {
+    transition: all 0.3s ease;
+}
+
+/* Adjust layout responsively based on scroll state */
+.NavigationCode.scrolled .LogoAndLinksContainer {
+    justify-content: space-between;
+}
+
+.NavigationCode .LogoAndLinksContainer {
+    justify-content: space-between;
+}
+
+/* Visible state */
+.NavigationCode.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Hidden state */
+.NavigationCode.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+/* Smooth animation for logo and links */
+
+.NavigationCode.scrolled .LogoAndLinksContainer>div img {
+    width: 110px;
+}
+
+/* Enhanced link animations */
+
+.LogoAndLinksContainer>div ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #FF6518;
+    transition: width 0.3s ease;
+}
+
+.LogoAndLinksContainer>div ul li:hover a::after {
+    width: 100%;
+}
+
+/* Mobile Menu Styles */
+.mobile-menu-button {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--color--heading);
+}
+
+.mobile-menu-button .anticon {
+    transition: color 0.3s ease;
+}
+
+.mobile-menu-button:hover .anticon {
+    color: #FF6518;
+}
+
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mobile-menu ul li a {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color--heading);
+    text-decoration: none;
+    font-family: "Lora", serif;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 10px 0;
+}
+
+.mobile-menu ul li a:hover {
+    color: #FF6518;
+}
+
+.mobile-button {
+    margin-top: 20px;
+}
+
+/* Drawer Custom Styles */
+.mobile-drawer .ant-drawer-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.mobile-drawer .ant-drawer-body {
+    padding: 24px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .desktop-menu {
+        display: none;
+    }
+
+    .mobile-menu-button {
+        display: block;
+    }
+
+    .NavigationCode {
+        padding: 10px 15px;
+    }
+
+    .NavigationCode.scrolled {
+        padding: 8px 15px;
+    }
+
+    .LogoAndLinksContainer>div img {
+        width: 150px;
+    }
+
+    .NavigationCode.scrolled .LogoAndLinksContainer>div img {
+        width: 130px;
+    }
+
+    .NavigationContactContainer {
+        justify-content: flex-end;
+    }
+
+    .mobile-drawer .ant-drawer-content-wrapper {
+        width: 300px !important;
+    }
+}
+
+/* Animation for drawer items */
+.mobile-menu ul li {
+    opacity: 0;
+    transform: translateX(20px);
+    animation: slideIn 0.3s forwards;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.mobile-menu ul li:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.mobile-menu ul li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.mobile-menu ul li:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.mobile-menu ul li:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.mobile-menu ul li:nth-child(5) {
+    animation-delay: 0.5s;
+}

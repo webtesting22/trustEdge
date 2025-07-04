@@ -1,7 +1,7 @@
 import React from "react";
 import "./Moats.css";
 import { Row, Col } from "antd";
-
+import { FaArrowRightLong } from "react-icons/fa6";
 const Moats = () => {
     const moatsData = [
         {
@@ -30,16 +30,16 @@ const Moats = () => {
     return (
         <section className="MoatsContainer">
             <div className="Container">
-                <div>
-                    <h2 className="white">Our Moat: A Shield of Sustainable Advantage</h2>
-                    <p className="white">A "moat" represents a company’s enduring competitive edge — much like the protective moat surrounding a castle. It safeguards the business from competitors by building barriers through innovation, efficiency, customer trust, or unique offerings that are hard to replicate.</p>
+                <div >
+                    <h2 className="white"  data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">Our Moat: A Shield of Sustainable Advantage</h2>
+                    <p className="white"  data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">A "moat" represents a company’s enduring competitive edge — much like the protective moat surrounding a castle. It safeguards the business from competitors by building barriers through innovation, efficiency, customer trust, or unique offerings that are hard to replicate.</p>
                 </div>
                 <div className="w-100 Container paddingTop paddingBottom">
                     <Row gutter={[30, 30]} className="paddingTop">
                         {moatsData.map((moat, index) => (
-                            <Col lg={8} md={8} sm={24} xs={24} key={index}>
+                            <Col lg={8} md={8} sm={24} xs={24} key={index}  data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                 <div className="moat-card">
-                                    <div className="moat-card-img">
+                                    <div className="moat-card-img" >
                                         <img src={moat.img} alt="" />
 
                                     </div>
@@ -66,16 +66,16 @@ const Moats = () => {
                     <div className="QuateContainer">
                         <div className="QuateContainer-content">
                             <Row>
-                                <Col lg={18} md={12} sm={24} xs={24}>
+                                <Col lg={18} md={12} sm={24} xs={24}  data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                     <div>
                                         <h3 className="white">
-                                        Maximize productivity by simplifying solution search
+                                            Maximize productivity by simplifying solution search
                                         </h3>
                                     </div>
                                 </Col>
-                                <Col lg={6} md={12} sm={24} xs={24}>
+                                <Col lg={6} md={12} sm={24} xs={24}  data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                     <div className="ButtonContainer">
-                                    <button>Hello</button>
+                                        <button className="BtnCommonStyle addonStyles">Book&nbsp;a&nbsp;call <FaArrowRightLong /></button>
                                     </div>
                                 </Col>
                             </Row>

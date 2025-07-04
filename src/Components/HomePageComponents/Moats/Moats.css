@@ -120,3 +120,27 @@
     align-items: center;
     height: 100%;
 }
+
+
+@media (max-width: 768px) {
+    .moat-card .moat-card-img {
+        transform: translateX(00px);
+        transition: 1s;
+        width: 00%;
+        height: 100%;
+        /* object-fit: cover; */
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+    }
+
+    .moat-card-content img {
+        display: none;
+    }
+
+    .QuateContainer-content {
+        width: 100%;
+    }
+}
