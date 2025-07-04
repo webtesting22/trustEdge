@@ -7,7 +7,7 @@ const Moats = () => {
         {
             number: "01",
             title: "Smart Entry",
-            icon: "/Images/Icons/smart.png",
+            icon: "https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/15 (1).png",
             img: "https://cdn.prod.website-files.com/65fbd43381ccee5cec1b44da/65fd32c4db24b3e040365d26_service-02.jpg",
             description: "We begin with deep market research and data-driven insights to ensure every investment or partnership starts on a strong foundation. maximize potential."
         },
