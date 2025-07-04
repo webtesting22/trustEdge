@@ -159,7 +159,7 @@
 }
 
 .step-number {
-  background: #A89CC8;
+  background: var(--color--heading);
   color: #fff;
   font-size: 1.1rem;
   font-weight: 700;
@@ -184,7 +184,7 @@
 
 .step-arrow {
   font-size: 1.2rem;
-  color: #A89CC8;
+  color: var(--color--heading);
   margin-left: 16px;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   transform: rotate(180deg);
