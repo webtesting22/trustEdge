@@ -11,8 +11,8 @@ const NavigationLinks = [
     },
     {
         id: 3,
-        link: "Services",
-        path: "/services"
+        link: "Products",
+        path: "/products"
     },
 
 ]

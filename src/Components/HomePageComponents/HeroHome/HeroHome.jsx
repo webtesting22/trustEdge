@@ -75,9 +75,9 @@ const HeroHome = () => {
                                     Innovative consulting for <span className="borderSpanStyle">sustainable</span> <br /> growth
                                 </h1>
                                 <p data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">From strategic guidance to actionable insights, we're committed to propelling your business forward. Let's collaborate and achieve your goals together.</p>
-                                <div data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">
+                                {/* <div data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">
                                     <button className="BtnCommonStyle">Book&nbsp;a&nbsp;call <FaArrowRightLong /></button>
-                                </div>
+                                </div> */}
                                 <div className="InfiniteMarqueeContainer" data-aos="fade-left" data-aos-delay="400" data-aos-duration="1200">
                                     <div className="marquee-container">
                                         <div className="marquee-content">
