@@ -22,7 +22,7 @@ const Moats = () => {
             number: "03",
             title: "Strategic Exit",
             icon: "/Images/Icons/strategic.png",
-            img: "https://cdn.prod.website-files.com/65fbd43381ccee5cec1b44da/65fd32c37226fc29aa310fdd_service-01.jpg",
+            img: "https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/Strategic Exit.jpg",
             description: "We don't just plan how to enter — we plan how to exit. Our exit strategies are carefully crafted to align with market conditions and value maximization."
         }
     ]

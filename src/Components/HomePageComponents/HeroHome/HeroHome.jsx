@@ -28,9 +28,9 @@ const HeroHome = () => {
     ];
 
     const sliderImages = [
-        "https://assets-global.website-files.com/65fbd43381ccee5cec1b44da/660fa1c623b47130d92450b6_home-01.jpg",
+        "https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/01 (2).jpg",
         "https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/Slider2.jpg",
-        "https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/slider3.jpg"
+        "https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/03 (3).jpg"
     ];
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);

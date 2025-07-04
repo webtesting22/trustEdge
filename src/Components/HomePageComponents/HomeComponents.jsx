@@ -5,6 +5,7 @@ import About from "./About/About";
 import Moats from "./Moats/Moats";
 import StickyImage from "./StickyImage/StickyImage";
 import Products from "./Products/Products";
+import TargetMarket from "./MarketTarget/TargetMarket";
 const HomeComponents = () => {
     return (
         <div>
@@ -14,6 +15,7 @@ const HomeComponents = () => {
             <About />
             <StickyImage />
             <Products />
+            <TargetMarket />
         </div>
     )
 }
