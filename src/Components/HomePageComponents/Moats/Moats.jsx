@@ -6,24 +6,24 @@ const Moats = () => {
     const moatsData = [
         {
             number: "01",
-            title: "Smart Entry",
+            title: "Emerging Businesses",
             icon: "https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/15 (1).png",
             img: "https://cdn.prod.website-files.com/65fbd43381ccee5cec1b44da/65fd32c4db24b3e040365d26_service-02.jpg",
-            description: "We begin with deep market research and data-driven insights to ensure every investment or partnership starts on a strong foundation. maximize potential."
+            description: "Emerging businesses with turnover up to ₹1000 Cr looking to accelerate growth and establish market presence."
         },
         {
             number: "02",
-            title: "Sharp Monitoring",
+            title: "MSMEs Across Sectors",
             icon: "/Images/Icons/monitor-screen.png",
             img: "https://cdn.prod.website-files.com/65fbd43381ccee5cec1b44da/65fd32c31f010ba8054f27fd_service-03.jpg",
-            description: "Throughout the journey, we maintain rigorous oversight using advanced tools and regular performance evaluations."
+            description: "MSMEs across sectors: Manufacturing, Services, Wholesale Trade, and D2C businesses seeking strategic partnerships and growth opportunities."
         },
         {
             number: "03",
-            title: "Strategic Exit",
+            title: "Growth-Focused Promoters",
             icon: "/Images/Icons/strategic.png",
             img: "https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/Strategic Exit.jpg",
-            description: "We don't just plan how to enter — we plan how to exit. Our exit strategies are carefully crafted to align with market conditions and value maximization."
+            description: "Promoters looking to scale, modernize, or diversify their business operations with strategic guidance and investment support."
         }
     ]
 
@@ -31,8 +31,8 @@ const Moats = () => {
         <section className="MoatsContainer">
             <div className="Container">
                 <div >
-                    <h2 className="white"  data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">Our Moat: A Shield of Sustainable Advantage</h2>
-                    <p className="white"  data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">A "moat" represents a company’s enduring competitive edge — much like the protective moat surrounding a castle. It safeguards the business from competitors by building barriers through innovation, efficiency, customer trust, or unique offerings that are hard to replicate.</p>
+                    <h2 className="white"  data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">Whom We Serve</h2>
+                    <p className="white"  data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">We partner with ambitious businesses and entrepreneurs who are ready to take their ventures to the next level. Our expertise spans across various sectors and business stages, providing tailored solutions for sustainable growth.</p>
                 </div>
                 <div className="w-100 Container paddingTop paddingBottom UpdatedMobile" style={{display:"flex",justifyContent:"center"}}>
                     <Row gutter={[30, 30]} className="paddingTop w-100" >
