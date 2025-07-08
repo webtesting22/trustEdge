@@ -57,39 +57,54 @@ const CompanyMission = () => {
                     <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/UpdatedBrandIcons.png" alt="" />
                 </div>
                 <h2 className="text-center mission-heading" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
-                We enable businesses to access timely and adaptable financing solutions customized to their unique requirements. By prioritizing innovation, operational efficiency, and a customer-centric mindset, we empower them to seize new opportunities and achieve long-term, sustainable growth.
+                    We enable businesses to access timely and adaptable financing solutions customized to their unique requirements. By prioritizing innovation, operational efficiency, and a customer-centric mindset, we empower them to seize new opportunities and achieve long-term, sustainable growth.
                 </h2>
 
                 <div className="paddingTop paddingBottom">
                     <Row gutter={[40, 40]} className="mission-cards-container">
-                        <Col lg={12} md={12} sm={24} xs={24}>
+                        <Col lg={8} md={12} sm={24} xs={24}>
                             <div className="mission-card" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                 <div className="card-icon-container" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                     <CubeIcon />
                                 </div>
-                                <p className="card-description" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
-                                    To empower businesses with seamless access to timely and flexible financing,
-                                    ensuring they can seize opportunities without delay.
-                                </p>
+                                <div>
+                                    <p><b>Business Loans</b></p>
+                                    <p>Unsecured and secured term loans available up to ₹5 Cr.</p>
+                                    <p>Working capital financing tailored for manufacturers, traders, and service providers.</p>
+                                    <p>Tenure: 12–48 months | Flexible repayment terms.</p>
+                                </div>
                             </div>
                         </Col>
 
-                        <Col lg={12} md={12} sm={24} xs={24}>
+                        <Col lg={8} md={12} sm={24} xs={24}>
                             <div className="mission-card" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                 <div className="card-icon-container" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                     <DataAnalysisIcon />
                                 </div>
-                                <p className="card-description" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
-                                    By leveraging innovation, efficiency, tech support and a customer-centric
-                                    approach, we provide tailored financial solutions that will fuel growth,
-                                    stability, and success.
-                                </p>
+                                <div>
+                                    <p><b>Invoice Financing</b></p>
+                                    <p>Receivables-backed financing to bridge cash flow gaps effectively.</p>
+                                    <p>Perfect for MSMEs with a robust client base but extended payment cycles.</p>
+                                </div>
                             </div>
                         </Col>
+
+                        <Col lg={8} md={12} sm={24} xs={24}>
+                            <div className="mission-card" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
+                                <div className="card-icon-container" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
+                                    <DataAnalysisIcon />
+                                </div>
+                                <div>
+                                    <p><b>Equipment & Capex Finance</b></p>
+                                    <p>Financing options for machinery, tools, and plant upgrades to enhance operations.</p>
+                                </div>
+                            </div>
+                        </Col>
+
                     </Row>
                 </div>
             </div>
-        </section>
+        </section >
     )
 }
 

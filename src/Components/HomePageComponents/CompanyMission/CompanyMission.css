@@ -4,15 +4,18 @@
     padding: 40px;
     border-radius: 0px 100px 0px 0px;
     border: 1px solid transparent;
-    transition: .5s;
+    /* transition: .5s; */
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 20px;
+    border-top: 2px solid transparent;
 }
 
 .mission-card:hover {
+    border-top: 2px solid #001f3f1e !important;
     border: 1px solid #001f3f1e;
-    transition: .5s;
+    /* transition: .5s; */
+    transform: scale(1.05);
 }
 
 .animated-icon {

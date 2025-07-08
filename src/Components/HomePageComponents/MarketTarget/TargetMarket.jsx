@@ -46,7 +46,7 @@ const TargetMarket = () => {
             <div className="target-market-accordion">
               <h2>The TrustEdge Advantage</h2>
               <p>
-              Purpose-Built for MSMEs. Powered by Expertise. Driven by Trust.
+                Purpose-Built for MSMEs. Powered by Expertise. Driven by Trust.
               </p>
               <div className="custom-step-accordion">
                 {steps.map((step, idx) => (
