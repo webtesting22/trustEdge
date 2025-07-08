@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./About.css";
 import FAQ from "../FAQ/FAQ";
 import Investors from "../Investors/Investors";
 import AboutUs from "./AboutUs";
 const About = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <section id="aboutUsContainers">
             <div style={{ width: '100%' }}>

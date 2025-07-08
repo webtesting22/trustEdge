@@ -20,7 +20,7 @@ const App = () => {
         <NavigationCode onShowModal={showModal} />
         <Routes>
           <Route path='/' element={<HomeComponents />} />
-          <Route path='/about' element={<About />} />  
+          <Route path='/about' element={<About />} />
         </Routes>
         <Footer />
         <Action />

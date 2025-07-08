@@ -25,6 +25,16 @@ body {
   font-family: "Nunito Sans", sans-serif;
 }
 
+::selection {
+  background-color:#FF6518;
+  color: white;
+}
+
+::-moz-selection {
+  background-color:#FF6518;
+  color: white;
+}
+
 
 section {
   display: flex;

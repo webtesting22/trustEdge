@@ -17,7 +17,7 @@ const HomeComponents = () => {
             <StickyImage />
             <Products />
             <TargetMarket />
-            <FAQ />
+            {/* <FAQ /> */}
         </div>
     )
 }

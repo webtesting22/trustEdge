@@ -65,7 +65,7 @@ const AboutUs = () => {
                                             </div>
                                             <div className="highlight-content">
                                                 <h4>100+ Years Combined Experience</h4>
-                                                <p>We blend institutional-grade discipline with entrepreneurial agility to deliver exceptional financial solutions.</p>
+                                                <p style={{color: 'white'}}>We blend institutional-grade discipline with entrepreneurial agility to deliver exceptional financial solutions.</p>
                                             </div>
                                         </div>
                                     </div>

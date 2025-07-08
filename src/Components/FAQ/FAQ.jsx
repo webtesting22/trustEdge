@@ -52,8 +52,12 @@ const FAQ = () => {
                                     // data-aos-duration="1500"
                                 >
                                     <div 
+                                     data-aos="blur-to-clear" 
+                                     data-aos-delay={`${300 + index * 100}`} 
+                                     data-aos-duration="1500"
                                         className="faq-question" 
                                         onClick={() => toggleAccordion(index)}
+                                       
                                     >
                                         <h3>{item.question}</h3>
                                         <div className="faq-toggle">

@@ -57,7 +57,7 @@ const CompanyMission = () => {
                     <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/UpdatedBrandIcons.png" alt="" />
                 </div>
                 <h2 className="text-center mission-heading" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
-                    We enable businesses to access timely and adaptable financing solutions customized to their unique requirements. By prioritizing innovation, operational efficiency, and a customer-centric mindset, we empower them to seize new opportunities and achieve long-term, sustainable growth.
+                    We provide comprehensive financing solutions tailored to your business needs. From business loans and working capital to invoice financing and equipment funding, we empower MSMEs with flexible, accessible credit to fuel their growth and operational excellence.
                 </h2>
 
                 <div className="paddingTop paddingBottom">
