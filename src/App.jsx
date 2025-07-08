@@ -7,7 +7,7 @@ import Footer from './Components/Footer/Footer'
 import { Modal } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import Action from './Components/Action/Action'
-
+import About from './Components/AboutUs/About'
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -20,6 +20,7 @@ const App = () => {
         <NavigationCode onShowModal={showModal} />
         <Routes>
           <Route path='/' element={<HomeComponents />} />
+          <Route path='/about' element={<About />} />  
         </Routes>
         <Footer />
         <Action />

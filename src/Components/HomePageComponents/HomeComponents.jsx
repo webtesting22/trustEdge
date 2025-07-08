@@ -6,6 +6,7 @@ import Moats from "./Moats/Moats";
 import StickyImage from "./StickyImage/StickyImage";
 import Products from "./Products/Products";
 import TargetMarket from "./MarketTarget/TargetMarket";
+import FAQ from "../FAQ/FAQ";
 const HomeComponents = () => {
     return (
         <div>
@@ -16,6 +17,7 @@ const HomeComponents = () => {
             <StickyImage />
             <Products />
             <TargetMarket />
+            <FAQ />
         </div>
     )
 }

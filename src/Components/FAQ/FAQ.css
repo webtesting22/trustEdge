@@ -1,0 +1,154 @@
+.FAQContainer {
+    background-color: #fff;
+    /* padding: 60px 0; */
+}
+
+.faq-header {
+    margin-bottom: 60px;
+}
+
+.faq-header h2 {
+    margin-bottom: 20px;
+    color: var(--color--heading);
+}
+
+.faq-header p {
+    color: var(--color--body);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 0;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    color: var(--color--heading);
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--color--heading);
+    flex: 1;
+    padding-right: 20px;
+    transition: all 0.3s ease;
+}
+
+.faq-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #e5e5e5;
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--color--heading);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-item.active .faq-toggle {
+    background-color: var(--color--heading);
+    border-color: var(--color--heading);
+    color: white;
+}
+
+.faq-toggle svg {
+    transition: all 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    opacity: 0;
+    padding: 0 0 0 0;
+}
+
+.faq-answer.show {
+    max-height: 200px;
+    opacity: 1;
+    padding: 0 0 30px 0;
+}
+
+.faq-answer p {
+    margin: 0;
+    color: var(--color--body);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .FAQContainer {
+        padding: 40px 0;
+    }
+    
+    .faq-header {
+        margin-bottom: 40px;
+    }
+    
+    .faq-header h2 {
+        font-size: 32px;
+    }
+    
+    .faq-question {
+        padding: 20px 0;
+    }
+    
+    .faq-question h3 {
+        font-size: 18px;
+        padding-right: 15px;
+    }
+    
+    .faq-toggle {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .faq-answer.show {
+        padding: 0 0 20px 0;
+    }
+    
+    .faq-answer p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-question h3 {
+        font-size: 16px;
+    }
+    
+    .faq-toggle {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .faq-toggle svg {
+        width: 16px;
+        height: 16px;
+    }
+} 

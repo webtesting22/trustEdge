@@ -11,6 +11,7 @@ const NavigationCode = ({ onShowModal }) => {
     const [visible, setVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -55,7 +56,7 @@ const NavigationCode = ({ onShowModal }) => {
             <div style={{ width: "100%" }}>
                 <div>
                     <Row>
-                        <Col lg={scrolled ? 14 : 12} xs={12}>
+                        <Col lg={location.pathname === '/' ? (scrolled ? 14 : 12) : 14} xs={12}>
                             <div className="LogoAndLinksContainer paddingRight">
                                 <div>
                                     <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
@@ -66,7 +67,7 @@ const NavigationCode = ({ onShowModal }) => {
                                     <ul>
                                         {NavigationLinks.map((link) => (
                                             <li key={link.id}>
-                                                {(link.link === 'About' || link.link === 'Products') ? (
+                                                {(link.link === 'Products') ? (
                                                     <a href="#" onClick={e => { e.preventDefault(); onShowModal && onShowModal(); }}>{link.link}</a>
                                                 ) : (
                                                     <Link to={link.path}>{link.link}</Link>
@@ -77,7 +78,7 @@ const NavigationCode = ({ onShowModal }) => {
                                 </div>
                             </div>
                         </Col>
-                        <Col lg={scrolled ? 10 : 12} xs={12}>
+                        <Col lg={location.pathname === '/' ? (scrolled ? 10 : 12) : 10} xs={12}>
                             <div className="NavigationContactContainer">
                                 <div className="desktop-menu">
                                     <button className="BtnCommonStyle">Book&nbsp;a&nbsp;call <FaArrowRightLong /></button>

@@ -62,8 +62,8 @@ const CompanyMission = () => {
 
                 <div className="paddingTop paddingBottom">
                     <Row gutter={[40, 40]} className="mission-cards-container">
-                        <Col lg={8} md={12} sm={24} xs={24}>
-                            <div className="mission-card" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
+                        <Col lg={8} md={12} sm={24} xs={24} data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
+                            <div className="mission-card" >
                                 <div className="card-icon-container" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                     <CubeIcon />
                                 </div>
@@ -76,8 +76,8 @@ const CompanyMission = () => {
                             </div>
                         </Col>
 
-                        <Col lg={8} md={12} sm={24} xs={24}>
-                            <div className="mission-card" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
+                        <Col lg={8} md={12} sm={24} xs={24} data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
+                            <div className="mission-card" >
                                 <div className="card-icon-container" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                     <DataAnalysisIcon />
                                 </div>
@@ -89,8 +89,8 @@ const CompanyMission = () => {
                             </div>
                         </Col>
 
-                        <Col lg={8} md={12} sm={24} xs={24}>
-                            <div className="mission-card" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
+                        <Col lg={8} md={12} sm={24} xs={24} data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
+                            <div className="mission-card" >
                                 <div className="card-icon-container" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                     <DataAnalysisIcon />
                                 </div>
