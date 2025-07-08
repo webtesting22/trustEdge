@@ -1,12 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Footer.css";
 import { Row, Col, Input } from "antd";
-import { IoCallOutline, IoLocationOutline, IoSendSharp } from "react-icons/io5";
+import { IoCallOutline, IoLocationOutline, IoSendSharp, IoCheckmarkCircle } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+    const [email, setEmail] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [showNotification, setShowNotification] = useState(false);
+    const [emailError, setEmailError] = useState('');
+
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    const handleEmailChange = (e) => {
+        const value = e.target.value;
+        setEmail(value);
+        if (emailError) {
+            setEmailError('');
+        }
+    };
+
+    const handleNewsletterSubmit = async (e) => {
+        e.preventDefault();
+
+        if (!email.trim()) {
+            setEmailError('Email is required');
+            return;
+        }
+
+        if (!validateEmail(email)) {
+            setEmailError('Please enter a valid email address');
+            return;
+        }
+
+        setIsSubmitting(true);
+        setEmailError('');
+
+        try {
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            setIsSubmitted(true);
+            setShowNotification(true);
+
+            // Hide notification after 4 seconds
+            setTimeout(() => {
+                setShowNotification(false);
+            }, 4000);
+
+            // Reset form after 5 seconds
+            setTimeout(() => {
+                setEmail('');
+                setIsSubmitted(false);
+                setIsSubmitting(false);
+            }, 5000);
+
+        } catch (error) {
+            setEmailError('Something went wrong. Please try again.');
+            setIsSubmitting(false);
+        }
+    };
 
     const SocialLinks = [
         {
@@ -17,17 +76,17 @@ const Footer = () => {
         {
             icon: <FaTwitter />,
             link: "https://www.twitter.com",
-            title:"Twitter"
+            title: "Twitter"
         },
         {
             icon: <FaLinkedinIn />,
             link: "https://www.linkedin.com",
-            title:"Linkedin"
+            title: "Linkedin"
         },
         {
             icon: <FaInstagram />,
             link: "https://www.instagram.com",
-            title:"Instagram"
+            title: "Instagram"
         }
     ]
     return (
@@ -35,7 +94,7 @@ const Footer = () => {
             <div className="Container" style={{ width: "100%" }}>
                 <Row gutter={[16, 16]}>
                     {/* Newsletter and Contact Section */}
-                   
+
 
                     {/* Links and Logo Section */}
                     <Col lg={8} md={24} sm={24} xs={24}>
@@ -107,19 +166,55 @@ const Footer = () => {
                     <Col lg={16} md={24} sm={24} xs={24}>
                         <div className="newsletter-section">
                             <h2 className='white'>Subscribe to our newsletter</h2>
-                            <div className="newsletter-input">
-                                <Input type="email" placeholder="Enter your email address" />
-                                <button type="submit">
-                                    <IoSendSharp />
-                                </button>
-                            </div>
+                            <form onSubmit={handleNewsletterSubmit}>
+                                <div className="newsletter-input">
+                                    <Input
+                                        type="email"
+                                        placeholder="Enter your email address"
+                                        value={email}
+                                        onChange={handleEmailChange}
+                                        disabled={isSubmitting || isSubmitted}
+                                        className={emailError ? 'error' : ''}
+                                    />
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting || isSubmitted}
+                                        className={`newsletter-btn ${isSubmitted ? 'success' : ''} ${isSubmitting ? 'loading' : ''}`}
+                                    >
+                                        {isSubmitting ? (
+                                            <div className="spinner"></div>
+                                        ) : isSubmitted ? (
+                                            <IoCheckmarkCircle className="success-icon" />
+                                        ) : (
+                                            <IoSendSharp />
+                                        )}
+                                    </button>
+                                </div>
+                                {emailError && (
+                                    <div className="error-message">{emailError}</div>
+                                )}
+                            </form>
+
+                            {/* Success Notification */}
+                            {showNotification && (
+                                <div className="notification success-notification">
+                                    <div className="notification-content">
+                                        <IoCheckmarkCircle className="notification-icon" />
+                                        <div className="notification-text">
+                                            <h4>Successfully Subscribed!</h4>
+                                            <p>Thank you for subscribing to our newsletter.</p>
+                                        </div>
+                                    </div>
+                                    <div className="notification-progress"></div>
+                                </div>
+                            )}
 
                             <div className="contact-info">
                                 <div className="contact-item">
                                     <IoCallOutline className="contact-icon" />
                                     <div>
                                         <p>Call us on</p>
-                                        <a href="tel:+911234567890">+91 123 456 789</a>
+                                        <a href="tel:7069600260">+91-7069600260</a>
                                     </div>
                                 </div>
 
@@ -127,7 +222,7 @@ const Footer = () => {
                                     <MdOutlineEmail className="contact-icon" />
                                     <div>
                                         <p>Email us on</p>
-                                        <a href="mailto:hello@example.com">hello@example.com</a>
+                                        <a href="info@trustedgecapital.in">info@trustedgecapital.in</a>
                                     </div>
                                 </div>
 
@@ -135,7 +230,7 @@ const Footer = () => {
                                     <IoLocationOutline className="contact-icon" />
                                     <div>
                                         <p>Address</p>
-                                        <address>Chicago HQ Estica Cop. Macomb, MI 48042</address>
+                                        <address>Offices: Mumbai | Ahmedabad</address>
                                     </div>
                                 </div>
                             </div>
