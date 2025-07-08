@@ -8,6 +8,7 @@ import { Modal } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import Action from './Components/Action/Action'
 import About from './Components/AboutUs/About'
+import RouteWrapper from './Components/LoadingScreen/RouteWrapper'
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -19,8 +20,8 @@ const App = () => {
       <BrowserRouter>
         <NavigationCode onShowModal={showModal} />
         <Routes>
-          <Route path='/' element={<HomeComponents />} />
-          <Route path='/about' element={<About />} />
+          <Route path='/' element={<RouteWrapper><HomeComponents /></RouteWrapper>} />
+          <Route path='/about' element={<RouteWrapper><About /></RouteWrapper>} />
         </Routes>
         <Footer />
         <Action />
