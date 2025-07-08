@@ -57,9 +57,7 @@ const CompanyMission = () => {
                     <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/UpdatedBrandIcons.png" alt="" />
                 </div>
                 <h2 className="text-center mission-heading" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
-                    We provide businesses with agile, customized financing solutions that adapt to their unique needs.
-                    With a focus on innovation, operational excellence, and a customer-centric mindset, we enable
-                    enterprises to unlock new opportunities and achieve lasting growth.
+                We enable businesses to access timely and adaptable financing solutions customized to their unique requirements. By prioritizing innovation, operational efficiency, and a customer-centric mindset, we empower them to seize new opportunities and achieve long-term, sustainable growth.
                 </h2>
 
                 <div className="paddingTop paddingBottom">

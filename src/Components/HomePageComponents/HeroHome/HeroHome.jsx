@@ -72,7 +72,10 @@ const HeroHome = () => {
                         <div className="paddingLeft h-100 AdjustHeadingContainer">
                             <div className="AdjustGapContainer">
                                 <h1 data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
-                                    Innovative consulting for <span className="borderSpanStyle">sustainable</span> <br /> growth
+                                    {/* Innovative consulting for <span className="borderSpanStyle">sustainable</span> <br /> growth */}
+                                    <span className="borderSpanStyle"> Empowering</span> MSME Growth & Enabling Trust
+
+
                                 </h1>
                                 <p data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">From strategic guidance to actionable insights, we're committed to propelling your business forward. Let's collaborate and achieve your goals together.</p>
                                 {/* <div data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">

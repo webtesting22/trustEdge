@@ -208,6 +208,10 @@
 
 .ServiceContent p {
     text-align: start;
+    margin-top: 0px;
+}
+.ServiceContent p ul{
+    margin-top: 0px;
 }
 
 .StackContainersAnimation .ButtonContainer {

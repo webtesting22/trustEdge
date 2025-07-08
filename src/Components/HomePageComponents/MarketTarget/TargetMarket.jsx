@@ -5,21 +5,33 @@ import "./TargetMarket.css";
 const steps = [
   {
     number: "01",
-    title: "Consultation and assessment",
+    title: "Exclusively SME-Focused",
     content:
-      "Through comprehensive assessments and discussions, we gain insights into your specific needs and objectives, laying the foundation for our collaboration.",
+      "We understand the unique business cycles, capital constraints, and ambitions of SMEs",
   },
   {
     number: "02",
-    title: "Customized solutions",
+    title: "Flexible Structures",
     content:
-      "We design and propose solutions tailored to your business goals, ensuring maximum impact and value.",
+      "Loan offerings customized around cash flow patterns and business models.",
   },
   {
     number: "03",
-    title: "Implementation and support",
+    title: "Quick Turnarounds",
     content:
-      "We assist with seamless implementation and provide ongoing support to ensure lasting success.",
+      "Digitally enabled processes for faster assessment and disbursal.",
+  },
+  {
+    number: "04",
+    title: "Risk-Aligned Lending",
+    content:
+      "Proprietary credit scoring and in-depth due diligence for responsible credit deployment.",
+  },
+  {
+    number: "05",
+    title: "Relationship-Centric Approach",
+    content:
+      "Long-term partnerships, not just transactions.",
   },
 ];
 
@@ -32,9 +44,9 @@ const TargetMarket = () => {
         <Row gutter={[32, 32]} align="middle">
           <Col lg={14} md={24} sm={24} xs={24}>
             <div className="target-market-accordion">
-              <h2>Streamlining your journey to success</h2>
+              <h2>The TrustEdge Advantage</h2>
               <p>
-                Our process is designed to make consulting services accessible, effective, and tailored to your unique needs.
+              Purpose-Built for MSMEs. Powered by Expertise. Driven by Trust.
               </p>
               <div className="custom-step-accordion">
                 {steps.map((step, idx) => (

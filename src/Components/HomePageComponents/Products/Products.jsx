@@ -7,23 +7,32 @@ const Products = () => {
     const ProductsCardsData = [
         {
             sectionNumber: "01",
-            sectionTitle: "Business Loan (BL)",
+            sectionTitle: "SME Financing",
             backgroundText: "Business Loan",
             services: [
                 {
                     icon: "briefcase",
-                    title: "Purpose",
-                    description: "Business expansion, working capital, equipment purchase & margin funding."
+                    title: "Working Capital",
+                    description: <>
+                        <ul>
+                            <li>Purchase Finance: Secure funds for raw materials and inventory.</li>
+                            <li>Work Order Finance: Get financing to fulfill confirmed work orders.</li>
+                            <li>Invoice Discounting: Access cash by leveraging unpaid invoices.</li>
+                            <li>Supply Chain Finance: Enhance your supply chain with custom funding.</li>
+                            <li>Working Capital Loan: Meet daily operational needs with term-based funding.</li>
+                        </ul>
+                    </>
                 },
                 {
                     icon: "chart",
-                    title: "Target Market",
-                    description: "Businesses (with already existing banking limits) needing immediate funding to manage short term obligations."
-                },
-                {
-                    icon: "shield",
-                    title: "Risk Mitigation",
-                    description: "Our exposure in these businesses won't exceed 15% of their existing banking limits."
+                    title: "Term Loans",
+                    description: <>
+                        <ul>
+                            <li>Business Loan: Flexible loans for business growth and expansion.</li>
+                            <li>Machinery Finance: Funding for purchasing or upgrading plants and machinery.</li>
+                            <li>Loan Against Property: Raise capital using your property as collateral for business needs.</li>
+                        </ul>
+                    </>
                 },
                 //                 {
                 //     icon: "calculator",
@@ -34,35 +43,31 @@ const Products = () => {
         },
         {
             sectionNumber: "02",
-            sectionTitle: "Supply Chain Financing (SCF)",
+            sectionTitle: "Corporate Financing",
             backgroundText: "Supply Chain Financing",
             services: [
                 {
                     icon: "briefcase",
-                    title: "Purpose & Overview",
-                    description: "Anchor Based Dealer / Suppliers Finance providing short-term working capital finance to optimize cash flows & support to unlock trapped liquidity."
+                    title: "Growth Capital",
+                    description: <>
+                        <ul>
+                            <li>Growth Capital: Funding to scale operations, expand, or enter new markets.</li>
+                            <li>Strategic funding to accelerate business growth and expansion.</li>
+                        </ul>
+                    </>
                 },
                 {
                     icon: "chart",
-                    title: "Target Market & Tenure",
-                    description: "Businesses requiring funds for their working capital with flexible tenure options ranging from 30-180 days to meet diverse business needs."
+                    title: "Margin Funding",
+                    description: <>
+                        <ul>
+                            <li>Margin Funding: Finance for meeting promoter contributions or margin requirements in project financing.</li>
+                            <li>Financial support to cover margin requirements for asset-based projects.</li>
+                        </ul>
+                    </>
                 },
-                {
-                    icon: "handshake",
-                    title: "Anchor Partners",
-                    description: "Typically Mid Sized Enterprises which look forward to reduce their Receivables & Payables by freeing up trapped cash flows & help drive business productivity."
-                },
-                // {
-                //     icon: "shield",
-                //     title: "Dealer / Suppliers Benefits",
-                //     description: "They Buy/Supply goods from/to the Anchor & look forward to gain access to short term liquidity quickly in turn inducing cost reduction & efficiency in their daily operations."
-                // },
-                // {
-                //     icon: "calculator",
-                //     title: "TECL USP",
-                //     description: "Simplified Documentation, Scalability & Quick Disbursal - making the financing process efficient and hassle-free for all stakeholders."
-                // }
             ]
+
         }
     ]
 
@@ -159,7 +164,7 @@ const Products = () => {
                                             <div className="ServicesGrid">
                                                 <Row gutter={[32, 32]} justify="center">
                                                     {item.services.map((service, serviceIndex) => (
-                                                        <Col lg={8} md={12} sm={24} xs={24} key={serviceIndex}>
+                                                        <Col lg={12} md={12} sm={24} xs={24} key={serviceIndex}>
                                                             <div className="ServiceCard">
                                                                 <div className="ServiceIcon">
                                                                     {IconComponents[service.icon]}

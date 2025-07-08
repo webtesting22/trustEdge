@@ -191,7 +191,7 @@ p {
 .borderSpanStyle::after {
   content: '';
   position: absolute;
-  bottom: 5px;
+  bottom: -5px;
   height: 4px;
   background-color: var(--color--heading);
   left: 0px;
