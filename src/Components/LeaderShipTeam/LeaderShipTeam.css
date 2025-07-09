@@ -1,0 +1,302 @@
+/* Leadership Team Component - Professional Styling */
+
+/* Header Section */
+.leadership-header {
+    text-align: center;
+    margin-bottom: 80px;
+    padding: 40px 20px;
+}
+
+.leadership-subtitle {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: var(--color--body);
+    line-height: 1.6;
+}
+
+/* Team Section */
+.team-section {
+    margin-bottom: 100px;
+}
+
+.team-member-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+}
+
+.team-member-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Member Image Container */
+.member-image-container {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.team-member-card:hover .member-image {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(255, 255, 255, 0.8));
+    color: white;
+    padding: 30px 20px 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.team-member-card:hover .image-overlay {
+    transform: translateY(0);
+}
+
+.overlay-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.overlay-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #FF6518;
+    font-weight: 500;
+}
+
+/* Member Info */
+.member-info {
+    padding: 30px;
+}
+
+.member-name {
+    font-size: 1.4rem;
+    color: var(--color--heading);
+    margin: 0 0 8px 0;
+    font-weight: 600;
+}
+
+.member-position {
+    color: #FF6518;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 0 15px 0;
+}
+
+.member-description {
+    color: var(--color--body);
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    font-size: 0.95rem;
+}
+
+.member-expertise h4 {
+    color: var(--color--heading);
+    font-size: 1rem;
+    margin: 0 0 12px 0;
+    font-weight: 600;
+}
+
+.expertise-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.expertise-tag {
+    background: rgba(255, 101, 24, 0.1);
+    color: #FF6518;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 101, 24, 0.2);
+    transition: all 0.2s ease;
+}
+
+.team-member-card:hover .expertise-tag {
+    background: #FF6518;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Leadership Philosophy */
+.leadership-philosophy {
+    background: var(--color--heading);
+    border-radius: 20px;
+    padding: 60px 30px;
+    margin-top: 80px;
+}
+
+.philosophy-content h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+}
+
+.philosophy-content>p {
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto 50px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.philosophy-points {
+    margin-top: 40px;
+}
+
+.philosophy-item {
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.philosophy-item:hover {
+    transform: translateY(-5px);
+}
+
+.philosophy-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.philosophy-item h4 {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.philosophy-item p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .image-overlay {
+        display: none;
+    }
+
+    .team-section {
+        margin-bottom: 80px;
+    }
+
+    .member-image-container {
+        height: 280px;
+    }
+
+    .philosophy-content h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .member-image {
+        object-fit: contain !important;
+    }
+
+    .leadership-header {
+        margin-bottom: 60px;
+        padding: 30px 15px;
+    }
+
+    .leadership-subtitle {
+        font-size: 1rem;
+    }
+
+    .team-section {
+        margin-bottom: 60px;
+    }
+
+    .member-image-container {
+        height: 250px;
+    }
+
+    .member-info {
+        padding: 25px;
+    }
+
+    .member-name {
+        font-size: 1.2rem;
+    }
+
+    .member-position {
+        font-size: 0.9rem;
+    }
+
+    .member-description {
+        font-size: 0.9rem;
+    }
+
+    .expertise-tags {
+        justify-content: center;
+    }
+
+    .leadership-philosophy {
+        padding: 40px 20px;
+        margin-top: 60px;
+    }
+
+    .philosophy-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .philosophy-content>p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .leadership-header {
+        padding: 20px 10px;
+    }
+
+    .member-image-container {
+        height: 220px;
+    }
+
+    .member-info {
+        padding: 20px;
+    }
+
+    .member-name {
+        font-size: 1.1rem;
+    }
+
+    .leadership-philosophy {
+        padding: 30px 15px;
+        border-radius: 16px;
+    }
+
+    .philosophy-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .philosophy-icon {
+        font-size: 2rem;
+    }
+}

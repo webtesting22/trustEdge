@@ -3,6 +3,7 @@ import "./About.css";
 import FAQ from "../FAQ/FAQ";
 import Investors from "../Investors/Investors";
 import AboutUs from "./AboutUs";
+import LeaderShipTeam from "../LeaderShipTeam/LeaderShipTeam";
 const About = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -20,10 +21,11 @@ const About = () => {
                         <Investors />
                     </div>
                 </div>
-
+                <LeaderShipTeam />
                 <div className="Container">
                     <FAQ />
                 </div>
+                
             </div>
         </section>
     )

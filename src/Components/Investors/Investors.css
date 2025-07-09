@@ -159,6 +159,7 @@
 
     .investor-card {
         padding: 25px;
+        height: unset !important;
     }
 
     .card-icon {

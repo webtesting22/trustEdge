@@ -206,7 +206,15 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-
+    .highlight-content h4 {
+        text-align: start;
+    }
+    .highlight-content p{
+        text-align: start;
+    }
+    .investor-card>div{
+        padding: 0px !important;
+    }
 
   
     .mission-section {
