@@ -6,7 +6,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { MenuOutlined } from '@ant-design/icons';
 import { Link, useLocation } from 'react-router-dom';
 
-const NavigationCode = ({ onShowModal }) => {
+const NavigationCode = () => {
     const [scrolled, setScrolled] = useState(false);
     const [visible, setVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
@@ -68,11 +68,7 @@ const NavigationCode = ({ onShowModal }) => {
                             <ul>
                                 {NavigationLinks.map((link) => (
                                     <li key={link.id}>
-                                        {(link.link === 'Products') ? (
-                                            <a href="#" onClick={e => { e.preventDefault(); onShowModal && onShowModal(); }}>{link.link}</a>
-                                        ) : (
-                                            <Link to={link.path}>{link.link}</Link>
-                                        )}
+                                        <Link to={link.path}>{link.link}</Link>
                                     </li>
                                 ))}
                             </ul>
@@ -104,11 +100,7 @@ const NavigationCode = ({ onShowModal }) => {
                     <ul>
                         {NavigationLinks.map((link) => (
                             <li key={link.id}>
-                                {(link.link === 'Products') ? (
-                                    <a href="#" onClick={e => { e.preventDefault(); onShowModal && onShowModal(); }}>{link.link}</a>
-                                ) : (
-                                    <Link to={link.path} onClick={onClose}>{link.link}</Link>
-                                )}
+                                <Link to={link.path} onClick={onClose}>{link.link}</Link>
                             </li>
                         ))}
                     </ul>

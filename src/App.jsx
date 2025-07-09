@@ -10,6 +10,7 @@ import Action from './Components/Action/Action'
 import About from './Components/AboutUs/About'
 import RouteWrapper from './Components/LoadingScreen/RouteWrapper'
 import LendingPartners from './Components/LendingPartners/LendingPartners'
+import Product from './Components/Product/Product'
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -24,6 +25,7 @@ const App = () => {
           <Route path='/' element={<RouteWrapper><HomeComponents /></RouteWrapper>} />
           <Route path='/about' element={<RouteWrapper><About /></RouteWrapper>} />
           <Route path='/lending-partners' element={<RouteWrapper><LendingPartners /></RouteWrapper>} />
+          <Route path='/product' element={<RouteWrapper><Product /></RouteWrapper>} />
         </Routes>
         <Footer />
         <Action />

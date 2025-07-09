@@ -65,8 +65,8 @@ const HeroHome = () => {
         return () => clearInterval(interval);
     }, [sliderImages.length, imagesLoaded, isPaused]);
     return (
-        <section style={{paddingTop: '0rem'}}>
-            <div className="w-100 AdjustHeightContainer" >
+        <section style={{ paddingTop: '0rem' }}>
+            <div className="w-100 AdjustHeightContainer">
                 <Row className="w-100 h-100">
                     <Col lg={12}>
                         <div className="paddingLeft h-100 AdjustHeadingContainer">
