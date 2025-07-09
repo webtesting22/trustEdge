@@ -63,7 +63,7 @@ const NavigationCode = ({ onShowModal }) => {
                     </div>
 
                     {/* Navigation Links Container */}
-                    <div className={`nav-links-container ${scrolled ? 'scrolled' : ''} ${location.pathname === '/' && !scrolled ? 'paddingRight' : ''} ${location.pathname === '/' ? 'home-route' : 'other-route'}`}>
+                    <div className={`nav-links-container ${scrolled ? 'scrolled' : 'paddingRight'} ${location.pathname === '/' ? 'home-route' : 'other-route'}`}>
                         <div className="desktop-menu">
                             <ul>
                                 {NavigationLinks.map((link) => (

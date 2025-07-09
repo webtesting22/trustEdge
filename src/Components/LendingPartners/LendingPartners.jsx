@@ -303,7 +303,7 @@ const LendingPartners = () => {
                     </div>
                 </div>
                 <div style={{ backgroundColor: 'var(--brand--back)', width: '100%' }}>
-                    <div className="Container">
+            <div className="Container">
                         {/* Filter Section */}
                         <div className="filter-section paddingTop">
                             {filterOptions.map((option) => (
