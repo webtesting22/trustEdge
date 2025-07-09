@@ -25,9 +25,10 @@ body {
   font-family: "Nunito Sans", sans-serif;
 }
 
-span{
+span {
   font-family: "Nunito Sans", sans-serif;
 }
+
 ::selection {
   background-color: #FF6518;
   color: white;
@@ -97,6 +98,7 @@ h3 {
   font-weight: 400;
   line-height: 1.2em;
 }
+
 h3 {
 
   font-family: "Lora", serif;
@@ -297,12 +299,13 @@ p {
 }
 
 @media (max-width: 768px) {
-  .borderSpanStyle{
+  .borderSpanStyle {
     line-height: 65px;
   }
+
   section {
-overflow: hidden;
-padding-top: 1rem;
+    overflow: hidden;
+    padding-top: 1rem;
   }
 
   h1 {

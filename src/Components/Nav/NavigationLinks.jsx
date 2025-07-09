@@ -18,6 +18,11 @@ const NavigationLinks = [
         id: 4,
         link: "Lending Partners",
         path: "/lending-partners"
+    },
+    {
+        id: 5,
+        link: "Career",
+        path: "/career"
     }
 
 ]
