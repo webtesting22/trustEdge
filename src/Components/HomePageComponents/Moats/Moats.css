@@ -36,7 +36,7 @@
 }
 
 .moat-card .moat-card-img {
-    transform: translateX(-500px);
+    transform: translateX(-900px);
     transition: 1s;
     width: 00%;
     height: 100%;
@@ -95,7 +95,21 @@
     top: 0px;
 }
 
+.moat-card-content .moat-icon {
+    height: 100px;
+    width: 100px;
+    opacity: 1;
+    transition: 0.5s;
+    position: absolute;
+    top: 0px;
+}
+
 .moat-card:hover .moat-card-content img {
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.moat-card:hover .moat-card-content .moat-icon {
     opacity: 0;
     transition: 0.5s;
 }
@@ -142,6 +156,10 @@
     }
 
     .moat-card-content img {
+        display: none;
+    }
+
+    .moat-card-content .moat-icon {
         display: none;
     }
 

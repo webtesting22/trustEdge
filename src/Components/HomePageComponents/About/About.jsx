@@ -3,7 +3,7 @@ import "./About.css";
 import { Row, Col } from "antd";
 
 const About = () => {
-    const image = "https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/Growth & Transformation.jpg"
+    const image = "https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/Enabling Growth for India’s Next-Gen Enterprises.webp"
     const imageRef = useRef(null);
     const [parallax, setParallax] = useState(0);
     const [inView, setInView] = useState(false);

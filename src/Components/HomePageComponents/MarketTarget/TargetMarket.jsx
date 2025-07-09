@@ -7,7 +7,7 @@ const steps = [
     number: "01",
     title: "Exclusively SME-Focused",
     content:
-      "We understand the unique business cycles, capital constraints, and ambitions of SMEs",
+      "We understand the unique business cycles, capital constraints, and ambitions of SMEs.",
   },
   {
     number: "02",
