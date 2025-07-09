@@ -4,27 +4,16 @@ import { Row, Col } from "antd";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const HeroHome = () => {
+    // Reduced keywords for better performance
     const keywords = [
         "Business Loan",
         "NBFC",
         "BSE Listed",
         "Financial Services",
-        "Incorporated 1995",
-        "Adinath Exim",
-        "Non-Banking",
-        "Gujarat Company",
-        "Certificate of Commencement",
-        "Strategic Expansion",
         "CIBIL Score",
-        "CRIF Score",
-        "Score Card Rating Model",
-        "Fintech Lending",
-        "Credit Scoring",
-        "Short Term Funding",
         "Working Capital",
-        "Equipment Purchase Loan",
-        "Margin Funding",
-        "Banking Limits"
+        "Equipment Purchase",
+        "Margin Funding"
     ];
 
     const sliderImages = [
@@ -34,36 +23,41 @@ const HeroHome = () => {
     ];
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const [imagesLoaded, setImagesLoaded] = useState(false);
+    const [loadedImages, setLoadedImages] = useState(new Set([0])); // Start with first image
     const [isPaused, setIsPaused] = useState(false);
 
-    // Preload all images for smooth transitions
+    // Load images progressively (non-blocking)
     useEffect(() => {
-        const imagePromises = sliderImages.map(src => {
-            return new Promise((resolve, reject) => {
-                const img = new Image();
-                img.onload = resolve;
-                img.onerror = reject;
-                img.src = src;
-            });
+        // Load first image immediately, others in background
+        sliderImages.forEach((src, index) => {
+            if (index === 0) return; // Skip first image as it's already loading
+            
+            const img = new Image();
+            img.onload = () => {
+                setLoadedImages(prev => new Set([...prev, index]));
+            };
+            img.src = src;
         });
+    }, []);
 
-        Promise.all(imagePromises)
-            .then(() => setImagesLoaded(true))
-            .catch(console.error);
-    }, [sliderImages]);
-
+    // Auto-advance slider only after component is mounted
     useEffect(() => {
-        if (!imagesLoaded || isPaused) return;
+        if (isPaused) return;
 
         const interval = setInterval(() => {
-            setCurrentImageIndex((prevIndex) =>
-                prevIndex === sliderImages.length - 1 ? 0 : prevIndex + 1
-            );
-        }, 2000); // Change image every 2 seconds
+            setCurrentImageIndex((prevIndex) => {
+                const nextIndex = prevIndex === sliderImages.length - 1 ? 0 : prevIndex + 1;
+                return nextIndex;
+            });
+        }, 3000); // Increased to 3 seconds for better UX
 
         return () => clearInterval(interval);
-    }, [sliderImages.length, imagesLoaded, isPaused]);
+    }, [isPaused, sliderImages.length]);
+
+    const handleImageLoad = (index) => {
+        setLoadedImages(prev => new Set([...prev, index]));
+    };
+
     return (
         <section style={{ paddingTop: '0rem' }}>
             <div className="w-100 AdjustHeightContainer">
@@ -71,27 +65,24 @@ const HeroHome = () => {
                     <Col lg={12}>
                         <div className="paddingLeft h-100 AdjustHeadingContainer">
                             <div className="AdjustGapContainer">
-                                <h1 data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
-                                    {/* Innovative consulting for <span className="borderSpanStyle">sustainable</span> <br /> growth */}
+                                <h1 data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1000">
                                     <span className="borderSpanStyle"> Empowering</span> MSME Growth & Enabling Trust
-
-
                                 </h1>
-                                <p data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">From strategic guidance to actionable insights, we're committed to propelling your business forward. Let's collaborate and achieve your goals together.</p>
-                                {/* <div data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">
-                                    <button className="BtnCommonStyle">Book&nbsp;a&nbsp;call <FaArrowRightLong /></button>
-                                </div> */}
-                                <div className="InfiniteMarqueeContainer" >
+                                <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                                    From strategic guidance to actionable insights, we're committed to propelling your business forward. Let's collaborate and achieve your goals together.
+                                </p>
+                                
+                                <div className="InfiniteMarqueeContainer">
                                     <div className="marquee-container">
                                         <div className="marquee-content">
                                             {keywords.map((word, index) => (
                                                 <span key={index} className="marquee-word">
-                                                    {word}.
+                                                    {word}
                                                 </span>
                                             ))}
                                             {keywords.map((word, index) => (
                                                 <span key={`copy-${index}`} className="marquee-word">
-                                                    {word}.
+                                                    {word}
                                                 </span>
                                             ))}
                                         </div>
@@ -101,37 +92,36 @@ const HeroHome = () => {
                         </div>
                     </Col>
                     <Col lg={12}>
-                        <div className="h-100 adjustImageStyle" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
+                        <div className="h-100 adjustImageStyle" data-aos="blur-to-clear" data-aos-delay="300" data-aos-duration="1000">
                             <div
                                 className="image-slider-container"
                                 onMouseEnter={() => setIsPaused(true)}
                                 onMouseLeave={() => setIsPaused(false)}
                             >
-                                {!imagesLoaded && (
-                                    <div className="slider-loading">
-                                        <div className="loading-spinner"></div>
-                                    </div>
-                                )}
                                 {sliderImages.map((image, index) => (
                                     <img
                                         key={index}
                                         src={image}
-                                        alt={`Slide ${index + 1}`}
-                                        className={`slider-image ${index === currentImageIndex ? 'active' : ''} ${imagesLoaded ? 'loaded' : ''}`}
-                                        loading="eager"
+                                        alt={`Business Growth Slide ${index + 1}`}
+                                        className={`slider-image ${index === currentImageIndex ? 'active' : ''}`}
+                                        onLoad={() => handleImageLoad(index)}
+                                        loading={index === 0 ? "eager" : "lazy"}
+                                        style={{
+                                            opacity: index === currentImageIndex && loadedImages.has(index) ? 1 : 
+                                                   index === currentImageIndex && index === 0 ? 1 : 0
+                                        }}
                                     />
                                 ))}
-                                {imagesLoaded && (
-                                    <div className="slider-indicators">
-                                        {sliderImages.map((_, index) => (
-                                            <div
-                                                key={index}
-                                                className={`indicator ${index === currentImageIndex ? 'active' : ''}`}
-                                                onClick={() => setCurrentImageIndex(index)}
-                                            />
-                                        ))}
-                                    </div>
-                                )}
+                                
+                                <div className="slider-indicators">
+                                    {sliderImages.map((_, index) => (
+                                        <div
+                                            key={index}
+                                            className={`indicator ${index === currentImageIndex ? 'active' : ''}`}
+                                            onClick={() => setCurrentImageIndex(index)}
+                                        />
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </Col>

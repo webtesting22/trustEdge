@@ -11,7 +11,7 @@
     transition: width 0.1s ease-out;
     overflow: hidden;
     border-radius: 16px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .ParallaxImageContainer div {
@@ -120,7 +120,7 @@
 .product-service-card:hover {
     border-color: #FF6518;
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .service-card-header {
@@ -246,48 +246,49 @@
     background: #e55a16;
     transform: translateY(-2px);
 }
+
 /* Responsive Design */
 @media (max-width: 768px) {
 
-.product-section-wrapper {
-    margin-bottom: 0px;
-}
+    .product-section-wrapper {
+        margin-bottom: 0px;
+    }
 
     .product-main-title {
         font-size: 2.2rem;
     }
-    
+
     .ParallaxImageContainer {
         margin: 40px auto;
     }
-    
+
     .ParallaxImageContainer div {
         height: 300px;
     }
-    
+
     .product-section-header {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .section-number {
         margin-right: 0;
         margin-bottom: 15px;
     }
-    
+
     .section-title {
         font-size: 1.8rem;
     }
-    
+
     .product-service-card {
         padding: 25px;
         height: unset;
     }
-    
+
     .product-cta-section {
         padding: 40px 20px;
     }
-    
+
     .cta-content h2 {
         font-size: 1.8rem;
     }
@@ -297,23 +298,23 @@
     .product-main-title {
         font-size: 1.8rem;
     }
-    
+
     .ParallaxImageContainer {
         margin: 30px auto;
     }
-    
+
     .ParallaxImageContainer div {
         height: 250px;
     }
-    
+
     .section-title {
         font-size: 1.5rem;
     }
-    
+
     .service-title {
         font-size: 1.2rem;
     }
-    
+
     .product-service-card {
         padding: 20px;
     }

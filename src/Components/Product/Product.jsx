@@ -82,7 +82,9 @@ const Product = () => {
             </svg>
         )
     };
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <section className="paddingTop">
             <div className="Container">
@@ -130,11 +132,11 @@ const Product = () => {
                                                     <div className="service-description">
                                                         {service.description}
                                                     </div>
-                                                    <div className="service-action">
+                                                    {/* <div className="service-action">
                                                         <div className="desktop-menu">
                                                             <button className="BtnCommonStyle">Read&nbsp;More <FaArrowRightLong /></button>
                                                         </div>
-                                                    </div>
+                                                    </div> */}
                                                 </div>
                                             </div>
                                         </Col>

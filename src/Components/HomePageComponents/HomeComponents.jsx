@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeroHome from "./HeroHome/HeroHome";
 import CompanyMission from "./CompanyMission/CompanyMission";
 import About from "./About/About";
@@ -8,6 +8,9 @@ import Products from "./Products/Products";
 import TargetMarket from "./MarketTarget/TargetMarket";
 import FAQ from "../FAQ/FAQ";
 const HomeComponents = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div>
             <HeroHome />

@@ -145,7 +145,7 @@ const Footer = () => {
                                 <Row gutter={[16, 16]}>
                                     <Col lg={24} md={24} sm={24} xs={24}>
                                         <div className="footer-logo">
-                                            <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/HighQualityLogo.png" alt="Logo" />
+                                           <Link to="/"> <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/HighQualityLogo.png" alt="Logo" /></Link>
                                         </div>
                                     </Col>
                                     <Col lg={24} md={24} sm={24} xs={24}    >
@@ -237,7 +237,7 @@ const Footer = () => {
                         </div>
                     </Col>
                 </Row>
-                
+
                 {/* Attribution Footer */}
                 <div className="attribution-footer">
                     <div className="attribution-content">

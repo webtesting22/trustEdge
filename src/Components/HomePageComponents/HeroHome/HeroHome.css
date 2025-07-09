@@ -1,3 +1,4 @@
+/* Optimized HeroHome Styles for Performance */
 .AdjustHeightContainer {
     height: 800px;
     background-color: var(--brand--back);
@@ -14,7 +15,7 @@
     height: 100%;
 }
 
-/* Image Slider Styles */
+/* Optimized Image Slider */
 .image-slider-container {
     position: relative;
     width: 100%;
@@ -30,150 +31,46 @@
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    transition: opacity 0.8s ease-in-out;
+    transition: opacity 0.5s ease;
 }
 
 .slider-image.active {
     opacity: 1;
 }
 
-/* Ensure first image loads immediately */
-.slider-image:first-child {
-    opacity: 1;
-}
-
-/* Smooth loading for better performance */
-.slider-image {
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    will-change: opacity;
-}
-
-/* Loading state styles */
-.slider-loading {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-}
-
-.loading-spinner {
-    width: 40px;
-    height: 40px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-top: 3px solid #ffffff;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Hide images until loaded */
-.slider-image:not(.loaded) {
-    opacity: 0 !important;
-}
-
-.slider-image.loaded {
-    transition: opacity 0.8s ease-in-out;
-}
-
-/* Slider indicators */
+/* Optimized indicators */
 .slider-indicators {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
+    gap: 8px;
     z-index: 5;
 }
 
 .indicator {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.6);
     cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    transition: all 0.2s ease;
 }
 
 .indicator:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .indicator.active {
     background-color: #ffffff;
-    border-color: rgba(0, 0, 0, 0.3);
-    transform: scale(1.2);
-}
-
-/* Hover effect for slider container */
-.image-slider-container:hover .slider-indicators {
-    opacity: 1;
-}
-
-.slider-indicators {
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-}
-
-/* Responsive slider adjustments */
-@media (max-width: 768px) {
-    .image-slider-container {
-        height: 300px;
-    }
-    
-    .slider-image {
-        transition: opacity 0.6s ease-in-out;
-    }
-    
-    .slider-indicators {
-        bottom: 15px;
-        opacity: 1;
-    }
-    
-    .indicator {
-        width: 10px;
-        height: 10px;
-    }
-}
-
-@media (max-width: 576px) {
-    .image-slider-container {
-        height: 250px;
-    }
-    
-    .adjustImageStyle {
-        border-radius: 0px 0px 0px 50px;
-    }
-    
-    .slider-indicators {
-        bottom: 10px;
-        gap: 8px;
-    }
-    
-    .indicator {
-        width: 8px;
-        height: 8px;
-    }
-    
-    .loading-spinner {
-        width: 30px;
-        height: 30px;
-        border-width: 2px;
-    }
+    width: 12px;
+    height: 12px;
 }
 
 .AdjustHeadingContainer {
     display: flex;
     align-items: center;
-
 }
 
 .AdjustGapContainer {
@@ -183,122 +80,15 @@
     width: 100%;
 }
 
-/* Embedded Text Heading Styles */
-.embedded-text-heading {
-    font-size: 2.5rem;
-    line-height: 1.4;
-    color: #2c3e50;
-    font-weight: 600;
-    text-align: left;
-    margin: 2rem 0;
-    display: inline;
-    position: relative;
-}
-
-.embedded-icon {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 8px;
-    padding: 8px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 50%;
-    color: white;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-    transition: all 0.3s ease;
-    position: relative;
-    top: -2px;
-}
-
-.embedded-icon:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .embedded-text-heading {
-        font-size: 2.2rem;
-    }
-
-    .embedded-icon {
-        width: 35px;
-        height: 35px;
-        padding: 6px;
-        margin: 0 6px;
-    }
-}
-
-@media (max-width: 992px) {
-    .embedded-text-heading {
-        font-size: 2rem;
-        line-height: 1.5;
-    }
-
-    .embedded-icon {
-        width: 32px;
-        height: 32px;
-        padding: 5px;
-        margin: 0 5px;
-    }
-}
-
-@media (max-width: 768px) {
-    .embedded-text-heading {
-        font-size: 1.8rem;
-        line-height: 1.6;
-        text-align: center;
-    }
-
-    .embedded-icon {
-        width: 28px;
-        height: 28px;
-        padding: 4px;
-        margin: 0 4px;
-        top: -1px;
-    }
-}
-
-@media (max-width: 576px) {
-    .embedded-text-heading {
-        font-size: 1.5rem;
-        line-height: 1.7;
-        padding: 0 10px;
-    }
-
-    .embedded-icon {
-        width: 24px;
-        height: 24px;
-        padding: 3px;
-        margin: 0 3px;
-        top: 0px;
-    }
-}
-
-@media (max-width: 400px) {
-    .embedded-text-heading {
-        font-size: 1.3rem;
-        line-height: 1.8;
-    }
-
-    .embedded-icon {
-        width: 20px;
-        height: 20px;
-        padding: 2px;
-        margin: 0 2px;
-    }
-}
-
-/* Professional Marquee Styles */
+/* Optimized Marquee - Lightweight Version */
 .InfiniteMarqueeContainer {
     width: 100%;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.08);
     border-radius: 8px;
-    padding: 12px 0;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 0;
     position: absolute;
-    bottom: -38px;
+    bottom: -30px;
 }
 
 .marquee-container {
@@ -309,76 +99,105 @@
 
 .marquee-content {
     display: inline-block;
-    animation: marqueeScroll 100s linear infinite;
+    animation: marqueeScroll 40s linear infinite;
     white-space: nowrap;
 }
 
 .marquee-word {
     display: inline-block;
-    padding: 8px 16px;
-    margin: 0;
-    font-weight: 600;
-    font-size: 60px;
-    color: rgba(0, 31, 63, 0.091);
-    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
-    /* background-clip: text;
-     -webkit-background-clip: text;
-     -webkit-text-fill-color: transparent; */
+    padding: 4px 12px;
+    margin: 0 8px;
+    font-weight: 500;
+    font-size: 40px;
+    color: rgba(1, 24, 48, 0.1);
     text-transform: uppercase;
     letter-spacing: 1px;
-    position: relative;
 }
-
-/* .marquee-word::after {
-     content: '•';
-     margin: 0 8px;
-     color: #667eea;
-     -webkit-text-fill-color: #667eea;
-     background: none;
- }
- 
- .marquee-word:last-child::after {
-     display: none;
- } */
 
 @keyframes marqueeScroll {
     0% {
         transform: translateX(0%);
     }
-
     100% {
         transform: translateX(-50%);
     }
 }
 
-/* Responsive adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
+    .AdjustHeightContainer {
+        height: 100% !important;
+        padding-top: 6rem;
+        padding-bottom: 2rem;
+    }
+
+    .adjustImageStyle {
+        border-radius: 0px 0px 0px 50px;
+        height: 300px;
+    }
+
     .marquee-word {
-        font-size: 30px;
-        padding: 6px 12px;
+        font-size: 24px;
+        padding: 3px 8px;
+        margin: 0 4px;
     }
 
     .marquee-content {
-        animation-duration: 90s;
+        animation-duration: 30s;
     }
-    .InfiniteMarqueeContainer{
+
+    .InfiniteMarqueeContainer {
         position: static !important;
+        margin-top: 20px;
     }
-    .AdjustHeightContainer{
-        height: 100% !important;
-        padding-top: 5rem;
+
+    .slider-indicators {
+        bottom: 15px;
+        gap: 6px;
+    }
+
+    .indicator {
+        width: 8px;
+        height: 8px;
+    }
+
+    .indicator.active {
+        width: 10px;
+        height: 10px;
     }
 }
 
-/* Hover effect to pause animation */
+@media (max-width: 576px) {
+    .adjustImageStyle {
+        border-radius: 0px 0px 0px 30px;
+        height: 250px;
+    }
+
+    .marquee-word {
+        font-size: 18px;
+        padding: 2px 6px;
+        margin: 0 3px;
+    }
+
+    .slider-indicators {
+        bottom: 10px;
+        gap: 5px;
+    }
+}
+
+/* Large screens optimization */
+@media (min-width: 1500px) and (max-width: 2000px) {
+    .AdjustHeightContainer {
+        height: 900px;
+    }
+}
+
+/* Performance optimizations */
+.marquee-content {
+    will-change: transform;
+}
+
+/* Pause animation on hover for better UX */
 .InfiniteMarqueeContainer:hover .marquee-content {
     animation-play-state: paused;
-}
-
-
-@media (min-width:1500px) and (max-width:2000px) {
-    .AdjustHeightContainer{
-        height: 900px;
-      
-    }
 }
