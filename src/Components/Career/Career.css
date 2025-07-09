@@ -312,3 +312,197 @@
         font-size: 1.5rem;
     }
 }
+
+/* Job Application Modal */
+.job-application-modal .ant-modal-header {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 24px 24px 16px;
+}
+
+.job-application-modal .ant-modal-body {
+    padding: 24px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.modal-header h2 {
+    margin: 0 0 5px 0;
+    font-size: 1.5rem;
+    color: var(--color--heading);
+    font-weight: 600;
+}
+
+.modal-header p {
+    margin: 0;
+    color: #FF6518;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Form Styling */
+.job-application-modal .ant-form-item-label > label {
+    font-weight: 500;
+    color: var(--color--heading);
+}
+
+.job-application-modal .ant-input,
+.job-application-modal .ant-select-selector,
+.job-application-modal .ant-input-number {
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.job-application-modal .ant-input:focus,
+.job-application-modal .ant-select-selector:focus,
+.job-application-modal .ant-select-focused .ant-select-selector {
+    border-color: #FF6518;
+    box-shadow: 0 0 0 2px rgba(255, 101, 24, 0.1);
+}
+
+.job-application-modal .ant-input:hover,
+.job-application-modal .ant-select-selector:hover {
+    border-color: #FF6518;
+}
+
+.job-application-modal .ant-select-dropdown {
+    border-radius: 6px;
+}
+
+.job-application-modal .ant-select-item-option-selected {
+    background-color: rgba(255, 101, 24, 0.1);
+    color: #FF6518;
+}
+
+.job-application-modal .ant-select-item-option-active {
+    background-color: rgba(255, 101, 24, 0.05);
+}
+
+/* Upload Dragger */
+.job-application-modal .ant-upload-drag {
+    border: 2px dashed #e0e0e0;
+    border-radius: 6px;
+    background: #fafafa;
+    transition: all 0.3s ease;
+}
+
+.job-application-modal .ant-upload-drag:hover {
+    border-color: #FF6518;
+    background: rgba(255, 101, 24, 0.02);
+}
+
+.job-application-modal .ant-upload-drag-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.job-application-modal .ant-upload-text {
+    color: var(--color--heading);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.job-application-modal .ant-upload-hint {
+    color: var(--color--body);
+    font-size: 0.85rem;
+}
+
+/* Form Buttons */
+.modal-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.cancel-btn {
+    padding: 8px 24px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    background: white;
+    color: var(--color--body);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    border-color: #FF6518;
+    color: #FF6518;
+}
+
+.submit-btn {
+    padding: 8px 24px;
+    border: 1px solid #FF6518;
+    border-radius: 6px;
+    background: #FF6518;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #e55a17;
+    border-color: #e55a17;
+    transform: translateY(-1px);
+}
+
+/* Form Error Messages */
+.job-application-modal .ant-form-item-explain-error {
+    color: #ff4d4f;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+/* TextArea */
+.job-application-modal .ant-input {
+    resize: vertical;
+    min-height: 32px;
+}
+
+.job-application-modal textarea.ant-input {
+    min-height: 100px;
+    line-height: 1.5;
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+    .job-application-modal {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .job-application-modal .ant-modal {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .job-application-modal .ant-modal-content {
+        border-radius: 0;
+    }
+    
+    .job-application-modal .ant-modal-body {
+        padding: 16px;
+        max-height: 85vh;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .modal-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .cancel-btn,
+    .submit-btn {
+        width: 100%;
+    }
+}
