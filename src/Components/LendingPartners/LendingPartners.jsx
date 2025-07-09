@@ -27,8 +27,88 @@ const LendingPartners = () => {
         purpose: '',
         message: ''
     });
+    const [formErrors, setFormErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+
+    // Validation functions
+    const validateName = (name) => {
+        const nameRegex = /^[a-zA-Z\s]+$/;
+        if (!name.trim()) {
+            return 'Full name is required';
+        }
+        if (name.trim().length < 2) {
+            return 'Name must be at least 2 characters long';
+        }
+        if (!nameRegex.test(name)) {
+            return 'Name should contain only letters and spaces';
+        }
+        if (name.trim().length > 50) {
+            return 'Name should not exceed 50 characters';
+        }
+        return '';
+    };
+
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.trim()) {
+            return 'Email address is required';
+        }
+        if (!emailRegex.test(email)) {
+            return 'Please enter a valid email address';
+        }
+        if (email.length > 100) {
+            return 'Email address is too long';
+        }
+        return '';
+    };
+
+    const validatePhone = (phone) => {
+        const phoneRegex = /^[6-9]\d{9}$/; // Indian mobile number format
+        const cleanPhone = phone.replace(/\D/g, ''); // Remove non-digits
+        
+        if (!phone.trim()) {
+            return 'Phone number is required';
+        }
+        if (cleanPhone.length !== 10) {
+            return 'Phone number must be exactly 10 digits';
+        }
+        if (!phoneRegex.test(cleanPhone)) {
+            return 'Please enter a valid Indian mobile number';
+        }
+        return '';
+    };
+
+    const validateCompany = (company) => {
+        if (!company.trim()) {
+            return 'Company name is required';
+        }
+        if (company.trim().length < 2) {
+            return 'Company name must be at least 2 characters long';
+        }
+        if (company.trim().length > 100) {
+            return 'Company name should not exceed 100 characters';
+        }
+        return '';
+    };
+
+    const validateForm = () => {
+        const errors = {};
+        
+        // Validate all fields
+        const nameError = validateName(formData.name);
+        const emailError = validateEmail(formData.email);
+        const phoneError = validatePhone(formData.phone);
+        const companyError = validateCompany(formData.company);
+
+        if (nameError) errors.name = nameError;
+        if (emailError) errors.email = emailError;
+        if (phoneError) errors.phone = phoneError;
+        if (companyError) errors.company = companyError;
+
+        setFormErrors(errors);
+        return Object.keys(errors).length === 0;
+    };
 
     // Filter partners based on active filter
     const filteredPartners = activeFilter === 'ALL'
@@ -68,33 +148,89 @@ const LendingPartners = () => {
             purpose: '',
             message: ''
         });
+        setFormErrors({});
         setIsSubmitted(false);
     };
 
     // Handle form input changes
     const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        
+        // Format phone number as user types
+        let formattedValue = value;
+        if (name === 'phone') {
+            // Remove all non-digits
+            const cleanValue = value.replace(/\D/g, '');
+            // Limit to 10 digits
+            if (cleanValue.length <= 10) {
+                formattedValue = cleanValue;
+            } else {
+                formattedValue = formData.phone; // Keep previous value if exceeds 10 digits
+            }
+        }
+        
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            [name]: formattedValue
         });
+
+        // Clear error for this field when user starts typing
+        if (formErrors[name]) {
+            setFormErrors({
+                ...formErrors,
+                [name]: ''
+            });
+        }
+
+        // Real-time validation for specific fields
+        let error = '';
+        switch (name) {
+            case 'name':
+                error = validateName(formattedValue);
+                break;
+            case 'email':
+                error = validateEmail(formattedValue);
+                break;
+            case 'phone':
+                error = validatePhone(formattedValue);
+                break;
+            case 'company':
+                error = validateCompany(formattedValue);
+                break;
+            default:
+                break;
+        }
+
+        if (error) {
+            setFormErrors({
+                ...formErrors,
+                [name]: error
+            });
+        }
     };
 
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        // Validate form before submission
+        if (!validateForm()) {
+            return;
+        }
+
         setIsSubmitting(true);
 
         try {
             // Simulate API call
             await new Promise(resolve => setTimeout(resolve, 2000));
-
+            
             setIsSubmitted(true);
-
+            
             // Reset form after 3 seconds
             setTimeout(() => {
                 handleContactFormClose();
             }, 3000);
-
+            
         } catch (error) {
             console.error('Form submission error:', error);
         } finally {
@@ -197,7 +333,7 @@ const LendingPartners = () => {
                                             className="partner-card"
                                             onClick={() => handlePartnerClick(partner)}
                                         >
-                                            <div>
+                                            <div className="partner-info-container">
                                                 <img
                                                     src={partner.logo}
                                                     alt={partner.name}
@@ -359,6 +495,12 @@ const LendingPartners = () => {
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit}>
+                                    {Object.keys(formErrors).length > 0 && (
+                                        <div className="form-validation-message">
+                                            <p>Please correct the following errors:</p>
+                                        </div>
+                                    )}
+                                    
                                     <div className="form-row">
                                         <div className="form-group">
                                             <label htmlFor="name">Full Name *</label>
@@ -368,8 +510,11 @@ const LendingPartners = () => {
                                                 name="name"
                                                 value={formData.name}
                                                 onChange={handleInputChange}
+                                                className={formErrors.name ? 'error' : ''}
+                                                placeholder="Enter your full name"
                                                 required
                                             />
+                                            {formErrors.name && <p className="error-message">{formErrors.name}</p>}
                                         </div>
                                         <div className="form-group">
                                             <label htmlFor="email">Email Address *</label>
@@ -379,8 +524,11 @@ const LendingPartners = () => {
                                                 name="email"
                                                 value={formData.email}
                                                 onChange={handleInputChange}
+                                                className={formErrors.email ? 'error' : ''}
+                                                placeholder="Enter your email address"
                                                 required
                                             />
+                                            {formErrors.email && <p className="error-message">{formErrors.email}</p>}
                                         </div>
                                     </div>
 
@@ -393,8 +541,12 @@ const LendingPartners = () => {
                                                 name="phone"
                                                 value={formData.phone}
                                                 onChange={handleInputChange}
+                                                className={formErrors.phone ? 'error' : ''}
+                                                placeholder="Enter 10-digit mobile number"
+                                                maxLength="10"
                                                 required
                                             />
+                                            {formErrors.phone && <p className="error-message">{formErrors.phone}</p>}
                                         </div>
                                         <div className="form-group">
                                             <label htmlFor="company">Company Name *</label>
@@ -404,8 +556,11 @@ const LendingPartners = () => {
                                                 name="company"
                                                 value={formData.company}
                                                 onChange={handleInputChange}
+                                                className={formErrors.company ? 'error' : ''}
+                                                placeholder="Enter your company name"
                                                 required
                                             />
+                                            {formErrors.company && <p className="error-message">{formErrors.company}</p>}
                                         </div>
                                     </div>
 

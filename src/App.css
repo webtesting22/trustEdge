@@ -215,7 +215,7 @@ p {
 .borderSpanStyle::after {
   content: '';
   position: absolute;
-  bottom: -5px;
+  bottom: -2px;
   height: 4px;
   background-color: var(--color--heading);
   left: 0px;
@@ -296,6 +296,9 @@ p {
 }
 
 @media (max-width: 768px) {
+  .borderSpanStyle{
+    line-height: 65px;
+  }
   section {
     overflow: hidden;
   }

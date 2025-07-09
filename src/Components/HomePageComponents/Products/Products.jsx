@@ -19,7 +19,7 @@ const Products = () => {
                             <li>Work Order Finance: Get financing to fulfill confirmed work orders.</li>
                             <li>Invoice Discounting: Access cash by leveraging unpaid invoices.</li>
                             <li>Supply Chain Finance: Enhance your supply chain with custom funding.</li>
-                            <li>Working Capital Loan: Meet daily operational needs with term-based funding.</li>
+                            {/* <li>Working Capital Loan: Meet daily operational needs with term-based funding.</li> */}
                         </ul>
                     </>
                 },

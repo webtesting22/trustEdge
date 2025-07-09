@@ -54,41 +54,40 @@ const NavigationCode = ({ onShowModal }) => {
     return (
         <section className={`NavigationCode paddingLeft paddingRight ${scrolled ? 'scrolled' : ''} ${visible ? 'visible' : 'hidden'}`}>
             <div style={{ width: "100%" }}>
-                <div>
-                    <Row>
-                        <Col lg={location.pathname === '/' ? (scrolled ? 14 : 12) : 14} xs={12}>
-                            <div className="LogoAndLinksContainer paddingRight">
-                                <div>
-                                    <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                                        <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/HighQualityBlue.png" alt="logo" />
-                                    </Link>
-                                </div>
-                                <div className="desktop-menu">
-                                    <ul>
-                                        {NavigationLinks.map((link) => (
-                                            <li key={link.id}>
-                                                {(link.link === 'Products') ? (
-                                                    <a href="#" onClick={e => { e.preventDefault(); onShowModal && onShowModal(); }}>{link.link}</a>
-                                                ) : (
-                                                    <Link to={link.path}>{link.link}</Link>
-                                                )}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        </Col>
-                        <Col lg={location.pathname === '/' ? (scrolled ? 10 : 12) : 10} xs={12}>
-                            <div className="NavigationContactContainer">
-                                <div className="desktop-menu">
-                                    <button className="BtnCommonStyle">Book&nbsp;a&nbsp;call <FaArrowRightLong /></button>
-                                </div>
-                                <div className="mobile-menu-button">
-                                    <MenuOutlined onClick={showDrawer} />
-                                </div>
-                            </div>
-                        </Col>
-                    </Row>
+                <div className="nav-layout">
+                    {/* Logo Container */}
+                    <div className={`nav-logo-container ${scrolled ? 'scrolled' : ''} ${location.pathname === '/' ? 'home-route' : 'other-route'}`}>
+                        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                            <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/HighQualityBlue.png" alt="logo" />
+                        </Link>
+                    </div>
+
+                    {/* Navigation Links Container */}
+                    <div className={`nav-links-container ${scrolled ? 'scrolled' : ''} ${location.pathname === '/' && !scrolled ? 'paddingRight' : ''} ${location.pathname === '/' ? 'home-route' : 'other-route'}`}>
+                        <div className="desktop-menu">
+                            <ul>
+                                {NavigationLinks.map((link) => (
+                                    <li key={link.id}>
+                                        {(link.link === 'Products') ? (
+                                            <a href="#" onClick={e => { e.preventDefault(); onShowModal && onShowModal(); }}>{link.link}</a>
+                                        ) : (
+                                            <Link to={link.path}>{link.link}</Link>
+                                        )}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* Button Container */}
+                    <div className={`nav-button-container ${scrolled ? 'scrolled' : ''} ${location.pathname === '/' ? 'home-route' : 'other-route'}`}>
+                        <div className="desktop-menu">
+                            <button className="BtnCommonStyle">Book&nbsp;a&nbsp;call <FaArrowRightLong /></button>
+                        </div>
+                        <div className="mobile-menu-button">
+                            <MenuOutlined onClick={showDrawer} />
+                        </div>
+                    </div>
                 </div>
             </div>
 

@@ -8,10 +8,11 @@
     width: 100%;
 }
 
-.lending-partners-section .Container{
+.lending-partners-section .Container {
     /* padding-top: 0px !important; */
     margin: auto;
 }
+
 /* Section Header */
 .lending-partners-section .partners-header {
     text-align: center;
@@ -60,8 +61,15 @@
 
 
 @keyframes shimmer {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 .lending-partners-section .benefits-content {
@@ -168,8 +176,15 @@
 }
 
 @keyframes pulse-green {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
 }
 
 .lending-partners-section .commission-info p {
@@ -290,7 +305,7 @@
 /* Partners Grid */
 .lending-partners-section .partners-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     margin-bottom: 50px;
 }
@@ -299,7 +314,7 @@
 .lending-partners-section .partner-card {
     background: white;
     border-radius: 0px 80px 0px 0px;
-    padding: 30px;
+    padding: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     position: relative;
@@ -350,8 +365,8 @@
 
 .lending-partners-section .partner-category {
     display: inline-block;
-    background: rgba(255, 101, 24, 0.1);
-    color: #FF6518;
+    background: var(--color--heading);
+    color: white;
     padding: 4px 12px;
     border-radius: 12px;
     font-size: 12px;
@@ -681,6 +696,47 @@
     width: 100% !important;
     /* padding: 12px 10px !important; */
 }
+
+/* Form Validation Styles */
+.lending-partners-section .form-validation-message {
+    background-color: #f8d7da;
+    border: 1px solid #f1aeb5;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+.lending-partners-section .form-validation-message p {
+    color: #721c24;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.lending-partners-section .error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.lending-partners-section .form-group input.error,
+.lending-partners-section .form-group textarea.error,
+.lending-partners-section .form-group select.error {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.2);
+}
+
+.lending-partners-section .form-group input:focus.error,
+.lending-partners-section .form-group textarea:focus.error,
+.lending-partners-section .form-group select:focus.error {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.3);
+}
+
 .lending-partners-section .form-group input,
 .lending-partners-section .form-group textarea,
 .lending-partners-section .form-group select {
@@ -689,7 +745,7 @@
     border: 2px solid #e5e5e5;
     border-radius: 10px;
     font-size: 16px;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
     background: white;
 }
 
@@ -771,127 +827,142 @@
     font-size: 20px;
 }
 
-.partner-info{
-    display: flex;
-    align-items: center;
-}
+
 
 /* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes slideIn {
-    from { 
+    from {
         opacity: 0;
         transform: translateY(20px);
     }
-    to { 
+
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+.partner-info-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.partner-info h4 {
+    margin-top: 0px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+    .partner-info-container {
+        flex-direction: column;
+        align-items: start;
+    }
+
     .lending-partners-section .view-more-btn {
         padding: 12px 10px;
     }
-    .partner-info{
-        display: flex;
-        align-items: start;
-        flex-direction: column;
-    }
-    
-    
+
+
+
     /* Partnership Benefits Banner Responsive */
     .lending-partners-section .partnership-benefits-banner {
         padding: 30px 20px;
         margin: 40px 0;
     }
-    
+
 
     .lending-partners-section .commission-cards {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .lending-partners-section .commission-card {
         padding: 25px 20px;
         border-radius: 0px 40px 0px 0px;
     }
-    
+
     .lending-partners-section .commission-icon {
         width: 50px;
         height: 50px;
         font-size: 20px;
     }
-    
+
     .lending-partners-section .commission-info h4 {
         font-size: 18px;
     }
-    
+
     .lending-partners-section .commission-rate {
         font-size: 16px;
         padding: 6px 15px;
     }
-    
+
     .lending-partners-section .cta-button {
         padding: 15px 30px;
         font-size: 16px;
     }
-    
+
     .lending-partners-section .partners-grid {
         grid-template-columns: 1fr 1fr;
         gap: 15px;
     }
-    
+
     .lending-partners-section .partner-card {
         padding: 20px 15px;
     }
-    
+
     .lending-partners-section .partner-stats {
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .lending-partners-section .stat-item {
         text-align: left;
     }
-    
+
     .lending-partners-section .filter-section {
         gap: 10px;
     }
-    
+
     .lending-partners-section .filter-btn {
         padding: 10px 16px;
         font-size: 14px;
     }
-    
+
     .lending-partners-section .modal-content {
         width: 95%;
         max-height: 85vh;
     }
-    
+
     .lending-partners-section .modal-header,
     .lending-partners-section .modal-body {
         padding: 20px;
     }
-    
+
     .lending-partners-section .contact-form-header,
     .lending-partners-section .contact-form-body {
         padding: 20px;
     }
-    
+
     .lending-partners-section .form-row {
         grid-template-columns: 1fr;
         gap: 15px;
     }
-    
+
     .lending-partners-section .partner-logo {
         width: 50px;
         height: 50px;
+        margin-bottom: 15px;
     }
     
     .lending-partners-section .partner-info h4 {
@@ -901,13 +972,18 @@
     
     .lending-partners-section .partner-category {
         font-size: 11px;
-        padding: 3px 10px;
+        padding: 3px 8px;
     }
     
+    .lending-partners-section .view-more-btn {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+
     .lending-partners-section .partners-header h2 {
         font-size: 32px;
     }
-    
+
     .lending-partners-section .partners-header p {
         font-size: 16px;
     }
@@ -917,92 +993,92 @@
     .lending-partners-section .partners-header h2 {
         font-size: 28px;
     }
-    
+
     .lending-partners-section .partner-info h3 {
         font-size: 20px;
     }
-    
+
     .lending-partners-section .modal-header h3 {
         font-size: 24px;
     }
-    
+
     .lending-partners-section .contact-form-header h3 {
         font-size: 20px;
     }
-    
+
     .lending-partners-section .filter-btn {
         padding: 8px 12px;
         font-size: 13px;
     }
-    
+
     /* Partnership Benefits Banner - Small Mobile */
     .lending-partners-section .partnership-benefits-banner {
         padding: 25px 15px;
         margin: 30px 0;
         border-radius: 15px;
     }
-    
+
     .lending-partners-section .benefits-header h3 {
         font-size: 22px;
     }
-    
+
     .lending-partners-section .benefits-header p {
         font-size: 14px;
     }
-    
+
     .lending-partners-section .commission-card {
         padding: 20px 15px;
         border-radius: 0px 30px 0px 0px;
     }
-    
+
     .lending-partners-section .commission-icon {
         width: 45px;
         height: 45px;
         font-size: 18px;
     }
-    
+
     .lending-partners-section .commission-info h4 {
         font-size: 16px;
     }
-    
+
     .lending-partners-section .commission-rate {
         font-size: 14px;
         padding: 5px 12px;
     }
-    
+
     .lending-partners-section .cta-button {
         padding: 12px 25px;
         font-size: 14px;
         letter-spacing: 0.5px;
     }
-    
+
     .lending-partners-section .partners-grid {
-        gap: 10px;
+        gap: 8px;
     }
     
     .lending-partners-section .partner-card {
-        padding: 15px 10px;
-        border-radius: 0px 50px 0px 0px;
+        padding: 12px 6px;
+        border-radius: 0px 30px 0px 0px;
     }
     
     .lending-partners-section .partner-logo {
-        width: 45px;
-        height: 45px;
-        margin-bottom: 15px;
+        width: 35px;
+        height: 35px;
+        margin-bottom: 8px;
     }
     
     .lending-partners-section .partner-info h4 {
-        font-size: 14px;
-        margin-bottom: 6px;
+        font-size: 10px;
+        margin-bottom: 4px;
     }
     
     .lending-partners-section .partner-category {
-        font-size: 10px;
-        padding: 2px 8px;
+        font-size: 8px;
+        padding: 1px 4px;
     }
     
     .lending-partners-section .view-more-btn {
-        padding: 10px 15px;
-        font-size: 12px;
+        padding: 6px 8px;
+        font-size: 8px;
     }
 }
