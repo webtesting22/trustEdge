@@ -16,7 +16,7 @@ const FAQ = () => {
         },
         {
             question: "How do NBFCs offer an edge over banks when it comes to MSME loans?",
-            answer: "For MSMEs in India, NBFCs stand out by offering quicker approvals, customized financing plans, simpler documentation, and more adaptable lending terms than conventional banks, making them a preferred funding partner."
+            answer: "For MSMEs (Micro, Small, and Medium Enterprises) in India, NBFCs (Non-Banking Financial Company) stand out by offering quicker approvals, customized financing plans, simpler documentation, and more adaptable lending terms than conventional banks, making them a preferred funding partner."
         },
         {
             question: "Is collateral required for all types of loan?",

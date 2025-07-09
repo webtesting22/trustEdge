@@ -96,6 +96,7 @@ const Investors = () => {
                                     data-aos-delay={`${300 + index * 100}`}
                                     data-aos-duration="1500">
                                     <div className="investor-card">
+                                        <div>
                                         <div className="card-icon">
                                             {service.icon}
                                         </div>
@@ -107,6 +108,7 @@ const Investors = () => {
                                                     <FaArrowRightLong />
                                                 </div>
                                             </div> */}
+                                        </div>
                                         </div>
                                     </div>
                                 </Col>
