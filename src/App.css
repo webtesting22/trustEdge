@@ -300,7 +300,8 @@ p {
     line-height: 65px;
   }
   section {
-    overflow: hidden;
+overflow: hidden;
+padding-top: 1rem;
   }
 
   h1 {

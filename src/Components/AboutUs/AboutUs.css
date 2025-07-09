@@ -71,15 +71,6 @@
     margin-bottom: 60px;
 }
 
-.company-name {
-    color: var(--color--heading);
-    margin-bottom: 20px;
-    font-size: 48px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    position: relative;
-}
 
 .company-name::after {
     content: '';
