@@ -14,6 +14,11 @@ const NavigationLinks = [
         link: "Products",
         path: "/products"
     },
+    {
+        id: 4,
+        link: "Lending Partners",
+        path: "/lending-partners"
+    }
 
 ]
 export default NavigationLinks;

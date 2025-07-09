@@ -9,6 +9,7 @@ import { ExclamationCircleOutlined } from '@ant-design/icons';
 import Action from './Components/Action/Action'
 import About from './Components/AboutUs/About'
 import RouteWrapper from './Components/LoadingScreen/RouteWrapper'
+import LendingPartners from './Components/LendingPartners/LendingPartners'
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -22,6 +23,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<RouteWrapper><HomeComponents /></RouteWrapper>} />
           <Route path='/about' element={<RouteWrapper><About /></RouteWrapper>} />
+          <Route path='/lending-partners' element={<RouteWrapper><LendingPartners /></RouteWrapper>} />
         </Routes>
         <Footer />
         <Action />

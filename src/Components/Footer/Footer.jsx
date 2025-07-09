@@ -237,6 +237,13 @@ const Footer = () => {
                         </div>
                     </Col>
                 </Row>
+                
+                {/* Attribution Footer */}
+                <div className="attribution-footer">
+                    <div className="attribution-content">
+                        <p>Designed and Developed by <a href="https://www.outleadsolutions.com/" target="_blank" rel="noopener noreferrer">OutLead Solutions</a></p>
+                    </div>
+                </div>
             </div>
         </section>
     );
