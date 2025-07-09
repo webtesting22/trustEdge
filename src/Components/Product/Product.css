@@ -248,6 +248,11 @@
 }
 /* Responsive Design */
 @media (max-width: 768px) {
+
+.product-section-wrapper {
+    margin-bottom: 0px;
+}
+
     .product-main-title {
         font-size: 2.2rem;
     }
@@ -276,6 +281,7 @@
     
     .product-service-card {
         padding: 25px;
+        height: unset;
     }
     
     .product-cta-section {
