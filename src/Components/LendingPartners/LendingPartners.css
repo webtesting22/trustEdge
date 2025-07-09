@@ -36,7 +36,7 @@
     transform: translateX(-50%);
     width: 100px;
     height: 4px;
-    background: linear-gradient(90deg, #FF6518, #ff8a50);
+    background: var(--color--heading);
     border-radius: 2px;
 }
 

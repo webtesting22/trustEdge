@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Row, Col } from "antd";
 import {
     IoClose,
@@ -251,7 +251,9 @@ const LendingPartners = () => {
                 return 'Partner';
         }
     };
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <section className="lending-partners-section paddingTop">
             <div className="LendingPartnersContainer">
