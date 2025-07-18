@@ -225,7 +225,7 @@ const Footer = () => {
                                     <MdOutlineEmail className="contact-icon" />
                                     <div>
                                         <p>Email us on</p>
-                                        <a href="info@trustedgecapital.in">info@trustedgecapital.in</a>
+                                        <a href="mailto:info@trustedgecapital.in">info@trustedgecapital.in</a>
                                     </div>
                                 </div>
 

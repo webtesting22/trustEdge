@@ -144,7 +144,9 @@ const Moats = () => {
                                 </Col>
                                 <Col lg={6} md={12} sm={24} xs={24} data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                     <div className="ButtonContainer">
-                                        <button className="BtnCommonStyle addonStyles">Book&nbsp;a&nbsp;call <FaArrowRightLong /></button>
+                                    <a href="tel:7069600260" rel="noopener noreferrer">
+                                <button className="BtnCommonStyle">Book&nbsp;a&nbsp;call <FaArrowRightLong /></button>
+                            </a>
                                     </div>
                                 </Col>
                             </Row>

@@ -108,7 +108,9 @@ const NavigationCode = () => {
                     {/* Button Container */}
                     <div className={`nav-button-container ${scrolled ? 'scrolled' : ''} ${location.pathname === '/' ? 'home-route' : 'other-route'}`}>
                         <div className="desktop-menu">
-                            <button className="BtnCommonStyle">Book&nbsp;a&nbsp;call <FaArrowRightLong /></button>
+                            <a href="tel:7069600260" rel="noopener noreferrer">
+                                <button className="BtnCommonStyle">Book&nbsp;a&nbsp;call <FaArrowRightLong /></button>
+                            </a>
                         </div>
                         <div className="mobile-menu-button">
                             <MenuOutlined onClick={showDrawer} />
@@ -135,7 +137,9 @@ const NavigationCode = () => {
                         ))}
                     </ul>
                     <div className="mobile-button">
-                        <button className="BtnCommonStyle">Book&nbsp;a&nbsp;call <FaArrowRightLong /></button>
+                    <a href="tel:7069600260" rel="noopener noreferrer">
+                                <button className="BtnCommonStyle">Book&nbsp;a&nbsp;call <FaArrowRightLong /></button>
+                            </a>
                     </div>
                 </div>
             </Drawer>
