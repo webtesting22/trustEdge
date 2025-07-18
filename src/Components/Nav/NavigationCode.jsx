@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Drawer } from "antd";
 import NavigationLinks from "./NavigationLinks";
+import InvestorsMegaMenu from "./InvestorsMegaMenu";
 import "./NavigationCode.css";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { MenuOutlined } from '@ant-design/icons';
@@ -11,6 +12,8 @@ const NavigationCode = () => {
     const [visible, setVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const [megaMenuVisible, setMegaMenuVisible] = useState(false);
+    const [megaMenuTimer, setMegaMenuTimer] = useState(null);
     const location = useLocation();
 
     useEffect(() => {
@@ -51,6 +54,21 @@ const NavigationCode = () => {
         setDrawerOpen(false);
     };
 
+    const handleMegaMenuEnter = () => {
+        if (megaMenuTimer) {
+            clearTimeout(megaMenuTimer);
+            setMegaMenuTimer(null);
+        }
+        setMegaMenuVisible(true);
+    };
+
+    const handleMegaMenuLeave = () => {
+        const timer = setTimeout(() => {
+            setMegaMenuVisible(false);
+        }, 300);
+        setMegaMenuTimer(timer);
+    };
+
     return (
         <section className={`NavigationCode paddingLeft paddingRight ${scrolled ? 'scrolled' : ''} ${visible ? 'visible' : 'hidden'}`}>
             <div style={{ width: "100%" }}>
@@ -67,8 +85,20 @@ const NavigationCode = () => {
                         <div className="desktop-menu">
                             <ul>
                                 {NavigationLinks.map((link) => (
-                                    <li key={link.id}>
+                                    <li 
+                                        key={link.id}
+                                        className={link.hasMegaMenu ? 'has-mega-menu' : ''}
+                                        onMouseEnter={link.hasMegaMenu ? handleMegaMenuEnter : undefined}
+                                        onMouseLeave={link.hasMegaMenu ? handleMegaMenuLeave : undefined}
+                                    >
                                         <Link to={link.path}>{link.link}</Link>
+                                        {link.hasMegaMenu && (
+                                            <InvestorsMegaMenu 
+                                                isVisible={megaMenuVisible}
+                                                onMouseEnter={handleMegaMenuEnter}
+                                                onMouseLeave={handleMegaMenuLeave}
+                                            />
+                                        )}
                                     </li>
                                 ))}
                             </ul>

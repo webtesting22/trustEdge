@@ -313,3 +313,48 @@
 .mobile-menu ul li:nth-child(5) {
     animation-delay: 0.5s;
 }
+
+.mobile-menu ul li:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* Mega Menu Styles */
+.has-mega-menu {
+    position: relative;
+}
+
+.has-mega-menu > .investors-mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px;
+}
+
+/* Ensure the mega menu doesn't interfere with other navigation items */
+.nav-links-container ul li.has-mega-menu {
+    position: relative;
+}
+
+/* Adjust hover effects for mega menu parent */
+.nav-links-container ul li.has-mega-menu:hover > a {
+    color: #FF6518;
+}
+
+.nav-links-container ul li.has-mega-menu:hover > a::after {
+    width: 100%;
+}
+
+/* Ensure mega menu stays visible on hover */
+.nav-links-container ul li.has-mega-menu:hover .investors-mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Mobile adjustments for mega menu */
+@media (max-width: 768px) {
+    .has-mega-menu > .investors-mega-menu {
+        display: none;
+    }
+}

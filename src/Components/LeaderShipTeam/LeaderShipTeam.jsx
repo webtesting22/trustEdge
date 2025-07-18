@@ -39,7 +39,7 @@ const LeaderShipTeam = () => {
             <div className="Container">
                 {/* Leadership Header */}
                 <div className="CommonHeader paddingBottom">
-                    <h1 className="text-center">Our Leadership Team</h1>
+                    <h2 className="text-center">Our Leadership Team</h2>
                     <p className="text-center leadership-subtitle">
                         Meet the experienced professionals driving our mission to transform
                         MSME financing in India with innovation and excellence.

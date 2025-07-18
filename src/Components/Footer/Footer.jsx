@@ -97,7 +97,7 @@ const Footer = () => {
 
 
                     {/* Links and Logo Section */}
-                    <Col lg={8} md={24} sm={24} xs={24}>
+                    <Col lg={10} md={24} sm={24} xs={24}>
                         <div className="footer-links-section">
                             {/* <Row gutter={[30, 30]}>
                                 <Col lg={8} md={8} sm={24} xs={24}>
@@ -147,6 +147,9 @@ const Footer = () => {
                                         <div className="footer-logo">
                                            <Link to="/"> <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/HighQualityLogo.png" alt="Logo" /></Link>
                                         </div>
+                                        <p style={{marginTop:"0px",color:"rgba(255, 255, 255, 0.6)"}}>Building on its legacy as <span className='white'>Adinath Exim Resources Limited</span>, Trustedge Capital Limited embraces a new era of growth, integrity, and financial innovation.
+
+</p>
                                     </Col>
                                     <Col lg={24} md={24} sm={24} xs={24}    >
                                         <div className='social-links'>
@@ -163,7 +166,7 @@ const Footer = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col lg={16} md={24} sm={24} xs={24}>
+                    <Col lg={14} md={24} sm={24} xs={24}>
                         <div className="newsletter-section">
                             <h2 className='white'>Subscribe to our newsletter</h2>
                             <form onSubmit={handleNewsletterSubmit}>
