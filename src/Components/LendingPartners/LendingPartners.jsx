@@ -241,12 +241,12 @@ const LendingPartners = () => {
     // Get category label
     const getCategoryLabel = (category) => {
         switch (category) {
-            case 'DIGITAL_LENDING_APPS':
-                return 'Digital Lending';
-            case 'NON_DIGITAL_LENDING_APPS':
-                return 'Traditional Lending';
-            case 'CO_LENDING_PARTNERSHIPS':
-                return 'Co-Lending';
+            case 'Fintech partners':
+                return 'Fintech partners';
+            // case 'NON_DIGITAL_LENDING_APPS':
+            //     return 'Traditional Lending';
+            // case 'CO_LENDING_PARTNERSHIPS':
+            //     return 'Co-Lending';
             default:
                 return 'Partner';
         }
@@ -333,7 +333,7 @@ const LendingPartners = () => {
                                         <div
                                             key={partner.id}
                                             className="partner-card"
-                                            onClick={() => handlePartnerClick(partner)}
+                                            // onClick={() => handlePartnerClick(partner)}
                                         >
                                             <div className="partner-info-container">
                                                 <img
@@ -367,10 +367,10 @@ const LendingPartners = () => {
                                             <div className="stat-label">Active Loans</div>
                                         </div>
                                     </div> */}
-
+{/* 
                                             <button className="view-more-btn">
                                                 View More Details
-                                            </button>
+                                            </button> */}
                                         </div>
                                     ))}
                                 </div>

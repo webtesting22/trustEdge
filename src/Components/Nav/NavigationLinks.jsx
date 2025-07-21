@@ -14,12 +14,12 @@ const NavigationLinks = [
         link: "Products",
         path: "/product"
     },
-    // {
-    //     id: 4,
-    //     link: "Investors",
-    //     path: "/investors",
-    //     hasMegaMenu: true
-    // },
+    {
+        id: 4,
+        link: "Investors",
+        path: "/investors",
+        // hasMegaMenu: true
+    },
     {
         id: 5,
         link: "Lending Partners",

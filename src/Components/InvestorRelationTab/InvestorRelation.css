@@ -1,0 +1,75 @@
+/* --- Investor Relation Custom Styles --- */
+
+/* Floating Filter Button */
+.ant-btn-primary[shape='circle'] {
+  background: #1677ff;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s;
+}
+
+.ant-btn-primary[shape='circle']:hover {
+  background: #0958d9;
+}
+
+/* Modal Tree Styling */
+.ir-tree-modal .ant-modal-content {
+  border-radius: 12px;
+}
+
+.ir-tree-modal .ant-modal-title {
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+}
+
+.ir-tree-modal .ant-tree {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 12px 8px;
+  font-size: 16px;
+}
+
+.ir-tree-modal .ant-tree-node-content-wrapper {
+  border-radius: 6px;
+  padding: 4px 8px;
+  transition: background 0.2s;
+}
+
+.ir-tree-modal .ant-tree-node-content-wrapper.ant-tree-node-selected {
+  background: #e6f4ff;
+  color: #1677ff;
+  font-weight: 500;
+}
+
+.ir-tree-modal .ant-tree-switcher {
+  color: #1677ff;
+}
+
+/* Responsive tweaks for modal and cards */
+@media (max-width: 768px) {
+  .InvestorRelationSidebar {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 12px !important;
+  }
+
+  .InvestorRelationContent {
+    padding: 8px !important;
+  }
+
+  .pdf-card {
+    margin-bottom: 12px;
+  }
+
+  .ant-modal {
+    width: 95vw !important;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .InvestorRelation .ant-layout-sider {
+    display: none;
+  }
+
+}

@@ -47,7 +47,7 @@
     color: rgb(1, 24, 48);
     margin-bottom: 16px;
     padding-bottom: 8px;
-    border-bottom: 2px solid #FF6518;
+    /* border-bottom: 2px solid #FF6518; */
     position: relative;
     font-family: "Lora", serif;
 }
@@ -99,7 +99,7 @@
     top: 0;
     bottom: 0;
     width: 3px;
-    background: #FF6518;
+    /* background: #FF6518; */
     border-radius: 0 4px 4px 0;
     transform: scaleY(0);
     transition: transform 0.3s ease;

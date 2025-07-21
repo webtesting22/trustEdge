@@ -132,8 +132,9 @@ const Career = () => {
 
                 {/* Job Openings Section */}
                 <div className="jobs-section paddingTop">
-                    <h2 className="text-center paddingBottom">Current Openings</h2>
-                    <div className="jobs-container">
+                    {/* <h2 className="text-center paddingBottom">Current Openings</h2> */}
+                    {/* <h1>Coming Soon</h1> */}
+                    {/* <div className="jobs-container">
                         {jobOpenings.map((job) => (
                             <div 
                                 key={job.id}
@@ -185,7 +186,7 @@ const Career = () => {
                                 </div>
                             </div>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* Call to Action */}
