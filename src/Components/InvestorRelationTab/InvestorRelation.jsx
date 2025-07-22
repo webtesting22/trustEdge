@@ -177,7 +177,7 @@ const InvestorRelation = () => {
                     {folders.map((folder, idx) => (
                       <Col xs={24} sm={12} md={8} lg={6} key={folder.name + idx}>
                         <Card
-                          title={<span><FolderOpenOutlined style={{ color: '#52c41a' }} /> {folder.name}</span>}
+                          title={<span><FolderOpenOutlined style={{ color: '#FF6518' }} /> {folder.name}</span>}
                           hoverable
                           className='folder-card'
                           bodyStyle={{ padding: 8 }}
