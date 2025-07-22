@@ -147,7 +147,7 @@ const Footer = () => {
                                         <div className="footer-logo">
                                             <Link to="/"> <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/HighQualityLogo.png" alt="Logo" /></Link>
                                         </div>
-                                        <p style={{ marginTop: "0px", color: "rgba(255, 255, 255, 0.6)" }}>Building on its legacy as <span className='white'>Adinath Exim Resources Limited</span>, Trustedge Capital Limited embraces a new era of growth, integrity, and financial innovation.
+                                        <p style={{ marginTop: "0px", color: "rgba(255, 255, 255, 0.6)" }}>Formerly known as  <span className='white'>Adinath Exim Resources Limited</span>, Trustedge Capital Limited embraces a new era of growth, integrity, and financial innovation.
 
                                         </p>
                                     </Col>

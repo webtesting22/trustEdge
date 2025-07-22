@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Layout, Collapse, Card, Button, Typography, Row, Col, Space, Grid, Modal, Tree } from 'antd';
-import { FolderOpenOutlined, FilePdfOutlined, EyeOutlined, DownloadOutlined, FilterOutlined } from '@ant-design/icons';
+import { FolderOpenOutlined, FilePdfOutlined, EyeOutlined, DownloadOutlined, FilterOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import "./InvestorRelation.css"
 import investorRelationData from './InvestorRelationData'
 
@@ -45,6 +45,27 @@ const getAllContentForCategory = (data, selectedCategory) => {
   return { folders: allFolders, files: allFiles };
 };
 
+// Helper to get files for a specific folder
+const getFilesForFolder = (data, selectedCategory, selectedFolder) => {
+  const category = data.find(item => item.name === selectedCategory);
+  if (!category) return [];
+  
+  const findFolder = (children, folderName) => {
+    for (const child of children) {
+      if (child.name === folderName) {
+        return child.files || [];
+      }
+      if (child.children) {
+        const result = findFolder(child.children, folderName);
+        if (result.length > 0) return result;
+      }
+    }
+    return [];
+  };
+  
+  return category.children ? findFolder(category.children, selectedFolder) : [];
+};
+
 // Helper to build AntD Tree data from folder structure
 const buildTreeData = (data, parentPath = []) => {
   return data.map(folder => {
@@ -61,7 +82,11 @@ const InvestorRelation = () => {
   const [selectedCategory, setSelectedCategory] = useState(
     investorRelationData.length > 0 ? investorRelationData[0].name : null
   );
+  const [selectedFolder, setSelectedFolder] = useState(null);
+  const [currentView, setCurrentView] = useState('folders'); // 'folders' or 'documents'
+  
   const { folders, files } = getAllContentForCategory(investorRelationData, selectedCategory);
+  const folderFiles = selectedFolder ? getFilesForFolder(investorRelationData, selectedCategory, selectedFolder) : [];
   const screens = useBreakpoint();
 
   // Modal state for mobile filter
@@ -71,7 +96,19 @@ const InvestorRelation = () => {
 
   const handleApplyFilter = () => {
     setSelectedCategory(modalSelected);
+    setSelectedFolder(null);
+    setCurrentView('folders');
     setFilterModalOpen(false);
+  };
+
+  const handleFolderClick = (folder) => {
+    setSelectedFolder(folder.name);
+    setCurrentView('documents');
+  };
+
+  const handleBackToFolders = () => {
+    setSelectedFolder(null);
+    setCurrentView('folders');
   };
 
   return (
@@ -107,7 +144,11 @@ const InvestorRelation = () => {
                 <div
                   key={category.name}
                   className={`category-item ${selectedCategory === category.name ? 'selected' : ''}`}
-                  onClick={() => setSelectedCategory(category.name)}
+                  onClick={() => {
+                    setSelectedCategory(category.name);
+                    setSelectedFolder(null);
+                    setCurrentView('folders');
+                  }}
                   style={{
                     padding: '12px 16px',
                     marginBottom: 8,
@@ -126,48 +167,91 @@ const InvestorRelation = () => {
           </Sider>
           <Layout>
             <Content className='InvestorRelationContent' style={{ padding: screens.xs ? 8 : 24 }}>
-              <Title level={4} style={{ marginBottom: 16, fontSize: screens.xs ? 18 : 24 }}>
-                {selectedCategory} Documents
-              </Title>
-              <Row gutter={[16, 16]}>
-                {/* Show subfolders */}
-                {folders.map((folder, idx) => (
-                  <Col xs={24} sm={12} md={8} lg={6} key={folder.name + idx}>
-                    <Card
-                      title={<span><FolderOpenOutlined style={{ color: '#52c41a' }} /> {folder.name}</span>}
-                      hoverable
-                      className='folder-card'
-                      bodyStyle={{ padding: 8 }}
+              {currentView === 'folders' ? (
+                <>
+                  <Title level={4} style={{ marginBottom: 16, fontSize: screens.xs ? 18 : 24 }}>
+                    {selectedCategory} Folders
+                  </Title>
+                  <Row gutter={[16, 16]}>
+                    {/* Show subfolders */}
+                    {folders.map((folder, idx) => (
+                      <Col xs={24} sm={12} md={8} lg={6} key={folder.name + idx}>
+                        <Card
+                          title={<span><FolderOpenOutlined style={{ color: '#52c41a' }} /> {folder.name}</span>}
+                          hoverable
+                          className='folder-card'
+                          bodyStyle={{ padding: 8 }}
+                          onClick={() => handleFolderClick(folder)}
+                        >
+                          <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+                            {folder.files.length} document{folder.files.length !== 1 ? 's' : ''}
+                          </Typography.Text>
+                        </Card>
+                      </Col>
+                    ))}
+                    {/* Show direct files */}
+                    {files.map((file, idx) => (
+                      <Col xs={24} sm={12} md={8} lg={6} key={file.name + idx}>
+                        <Card
+                          title={<span><FilePdfOutlined style={{ color: '#cf1322' }} /> {file.name}</span>}
+                          actions={[
+                            <Button type="link" icon={<EyeOutlined />} href={file.path} target="_blank" rel="noopener noreferrer">Preview</Button>,
+                            <Button type="link" icon={<DownloadOutlined />} href={file.path} download>Download</Button>
+                          ]}
+                          hoverable
+                          className='pdf-card'
+                          bodyStyle={{ padding: screens.xs ? 8 : 16 }}
+                        >
+                          <Space direction="vertical" size="small">
+                            <Typography.Text type="secondary" style={{ fontSize: 12 }}>PDF Document</Typography.Text>
+                          </Space>
+                        </Card>
+                      </Col>
+                    ))}
+                    {folders.length === 0 && files.length === 0 && (
+                      <Col span={24}><Typography.Text type="secondary">No documents found in this category.</Typography.Text></Col>
+                    )}
+                  </Row>
+                </>
+              ) : (
+                <>
+                  <div style={{ marginBottom: 16 }}>
+                    <Button 
+                      icon={<ArrowLeftOutlined />} 
+                      onClick={handleBackToFolders}
+                      style={{ marginBottom: 16 }}
                     >
-                      <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-                        {folder.files.length} document{folder.files.length !== 1 ? 's' : ''}
-                      </Typography.Text>
-                    </Card>
-                  </Col>
-                ))}
-                {/* Show direct files */}
-                {files.map((file, idx) => (
-                  <Col xs={24} sm={12} md={8} lg={6} key={file.name + idx}>
-                    <Card
-                      title={<span><FilePdfOutlined style={{ color: '#cf1322' }} /> {file.name}</span>}
-                      actions={[
-                        <Button type="link" icon={<EyeOutlined />} href={file.path} target="_blank" rel="noopener noreferrer">Preview</Button>,
-                        <Button type="link" icon={<DownloadOutlined />} href={file.path} download>Download</Button>
-                      ]}
-                      hoverable
-                      className='pdf-card'
-                      bodyStyle={{ padding: screens.xs ? 8 : 16 }}
-                    >
-                      <Space direction="vertical" size="small">
-                        <Typography.Text type="secondary" style={{ fontSize: 12 }}>PDF Document</Typography.Text>
-                      </Space>
-                    </Card>
-                  </Col>
-                ))}
-                {folders.length === 0 && files.length === 0 && (
-                  <Col span={24}><Typography.Text type="secondary">No documents found in this category.</Typography.Text></Col>
-                )}
-              </Row>
+                      Back to Folders
+                    </Button>
+                    <Title level={4} style={{ marginBottom: 16, fontSize: screens.xs ? 18 : 24 }}>
+                      {selectedFolder} Documents
+                    </Title>
+                  </div>
+                  <Row gutter={[16, 16]}>
+                    {folderFiles.map((file, idx) => (
+                      <Col xs={24} sm={12} md={8} lg={6} key={file.name + idx}>
+                        <Card
+                          title={<span><FilePdfOutlined style={{ color: '#cf1322' }} /> {file.name}</span>}
+                          actions={[
+                            <Button type="link" icon={<EyeOutlined />} href={file.path} target="_blank" rel="noopener noreferrer">Preview</Button>,
+                            <Button type="link" icon={<DownloadOutlined />} href={file.path} download>Download</Button>
+                          ]}
+                          hoverable
+                          className='pdf-card'
+                          bodyStyle={{ padding: screens.xs ? 8 : 16 }}
+                        >
+                          <Space direction="vertical" size="small">
+                            <Typography.Text type="secondary" style={{ fontSize: 12 }}>PDF Document</Typography.Text>
+                          </Space>
+                        </Card>
+                      </Col>
+                    ))}
+                    {folderFiles.length === 0 && (
+                      <Col span={24}><Typography.Text type="secondary">No documents found in this folder.</Typography.Text></Col>
+                    )}
+                  </Row>
+                </>
+              )}
             </Content>
           </Layout>
           {/* Floating Filter Button for Mobile */}
