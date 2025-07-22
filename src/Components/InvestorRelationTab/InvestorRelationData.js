@@ -390,7 +390,7 @@ const investorRelationData = [
     ]
   },
   {
-    name: 'General Meeting Records',
+    name: 'AGM/EGM/Postal Ballot',
     children: [
       {
         name: '2024-25',
@@ -436,13 +436,18 @@ const investorRelationData = [
     name: 'Secretrial Audit Report',
     children: []
   },
-  {
-    name: 'Secretrial Audit Report 2',
-    children: []
-  },
+  // {
+  //   name: 'Secretrial Audit Report 2',
+  //   children: []
+  // },
   {
     name: 'Investor Support',
     children: []
+  },
+  {
+    name: 'Intimations/Disclosures',
+    children: []
+
   }
 ];
 

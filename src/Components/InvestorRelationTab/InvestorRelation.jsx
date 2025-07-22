@@ -240,8 +240,9 @@ const InvestorRelation = () => {
           <Modal
             title="Select Category"
             open={filterModalOpen}
-            onCancel={() => setFilterModalOpen(false)}
-            onOk={handleApplyFilter}
+            footer={null}
+            // onCancel={() => setFilterModalOpen(false)}
+            // onOk={handleApplyFilter}
             okText="Apply"
             cancelText="Cancel"
             centered
@@ -253,7 +254,11 @@ const InvestorRelation = () => {
                 <div
                   key={category.name}
                   className={`modal-category-item ${modalSelected === category.name ? 'selected' : ''}`}
-                  onClick={() => setModalSelected(category.name)}
+                  onClick={() => {
+                    setModalSelected(category.name);
+                    setFolderPath([category.name]);
+                    setFilterModalOpen(false);
+                  }}
                   style={{
                     padding: '12px 16px',
                     marginBottom: 8,
