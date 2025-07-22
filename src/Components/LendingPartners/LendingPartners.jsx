@@ -330,7 +330,7 @@ const LendingPartners = () => {
                             <Col span={24}>
                                 <div className="partners-grid">
                                     {filteredPartners.map((partner) => (
-                                        <Link to={partner.website} target="_blank" rel="noopener noreferrer">
+                                        <Link to={partner.website} target="_blank" rel="noopener noreferrer" style={{color:"black"}}>
                                         <div
                                             key={partner.id}
                                             className="partner-card"
