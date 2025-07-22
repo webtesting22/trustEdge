@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Layout, Collapse, Card, Button, Typography, Row, Col, Space, Grid, Modal, Tree, Tooltip } from 'antd';
 import { FolderOpenOutlined, FilePdfOutlined, EyeOutlined, DownloadOutlined, FilterOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import "./InvestorRelation.css"
@@ -110,6 +110,18 @@ const InvestorRelation = () => {
     setSelectedFolder(null);
     setCurrentView('folders');
   };
+
+  useEffect(() => {
+    if (selectedFolder) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [selectedFolder]);
+
+  useEffect(() => {
+    if (selectedCategory) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [selectedCategory]);
 
   return (
     <section className="paddingTop InvestorRelation">
