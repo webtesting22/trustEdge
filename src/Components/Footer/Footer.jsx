@@ -147,7 +147,7 @@ const Footer = () => {
                                         <div className="footer-logo">
                                             <Link to="/"> <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/HighQualityLogo.png" alt="Logo" /></Link>
                                         </div>
-                                        <p style={{ marginTop: "0px", color: "rgba(255, 255, 255, 0.6)",textAlign:"start" }}>Formerly known as  <span className='white'>Adinath Exim Resources Limited</span>, Trustedge Capital Limited embraces a new era of growth, integrity, and financial innovation.
+                                        <p style={{ marginTop: "0px", color: "rgba(255, 255, 255, 0.6)", textAlign: "start" }}>Formerly known as  <span className='white'>Adinath Exim Resources Limited</span>, Trustedge Capital Limited embraces a new era of growth, integrity, and financial innovation.
 
                                         </p>
                                     </Col>
@@ -233,7 +233,7 @@ const Footer = () => {
                                     <IoLocationOutline className="contact-icon" />
                                     <div>
                                         <p>Address</p>
-                                        <address>Offices: Mumbai | Ahmedabad</address>
+                                        <address>Offices: Mumbai | <Link to="https://maps.app.goo.gl/c8hnYUR5FdyBYEsQ6" target='_blank'>Ahmedabad</Link></address>
                                     </div>
                                 </div>
                             </div>
