@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col } from "antd";
 import {
     IoClose,
@@ -66,7 +66,7 @@ const LendingPartners = () => {
     const validatePhone = (phone) => {
         const phoneRegex = /^[6-9]\d{9}$/; // Indian mobile number format
         const cleanPhone = phone.replace(/\D/g, ''); // Remove non-digits
-        
+
         if (!phone.trim()) {
             return 'Phone number is required';
         }
@@ -94,7 +94,7 @@ const LendingPartners = () => {
 
     const validateForm = () => {
         const errors = {};
-        
+
         // Validate all fields
         const nameError = validateName(formData.name);
         const emailError = validateEmail(formData.email);
@@ -155,7 +155,7 @@ const LendingPartners = () => {
     // Handle form input changes
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        
+
         // Format phone number as user types
         let formattedValue = value;
         if (name === 'phone') {
@@ -168,7 +168,7 @@ const LendingPartners = () => {
                 formattedValue = formData.phone; // Keep previous value if exceeds 10 digits
             }
         }
-        
+
         setFormData({
             ...formData,
             [name]: formattedValue
@@ -212,7 +212,7 @@ const LendingPartners = () => {
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         // Validate form before submission
         if (!validateForm()) {
             return;
@@ -223,14 +223,14 @@ const LendingPartners = () => {
         try {
             // Simulate API call
             await new Promise(resolve => setTimeout(resolve, 2000));
-            
+
             setIsSubmitted(true);
-            
+
             // Reset form after 3 seconds
             setTimeout(() => {
                 handleContactFormClose();
             }, 3000);
-            
+
         } catch (error) {
             console.error('Form submission error:', error);
         } finally {
@@ -305,7 +305,7 @@ const LendingPartners = () => {
                     </div>
                 </div>
                 <div style={{ backgroundColor: 'var(--brand--back)', width: '100%' }}>
-            <div className="Container">
+                    <div className="Container">
                         {/* Filter Section */}
                         <div className="filter-section paddingTop">
                             {filterOptions.map((option) => (
@@ -330,31 +330,31 @@ const LendingPartners = () => {
                             <Col span={24}>
                                 <div className="partners-grid">
                                     {filteredPartners.map((partner) => (
-                                        <Link to={partner.website} target="_blank" rel="noopener noreferrer" style={{color:"black"}}>
-                                        <div
-                                            key={partner.id}
-                                            className="partner-card"
+                                        <Link to={partner.website} target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                                            <div
+                                                key={partner.id}
+                                                className="partner-card"
                                             // onClick={() => handlePartnerClick(partner)}
-                                        >
-                                            <div className="partner-info-container">
-                                                <img
-                                                    src={partner.logo}
-                                                    alt={partner.name}
-                                                    className="partner-logo"
-                                                />
+                                            >
+                                                <div className="partner-info-container">
+                                                    <img
+                                                        src={partner.logo}
+                                                        alt={partner.name}
+                                                        className="partner-logo"
+                                                    />
 
-                                                <div className="partner-info">
-                                                    <h4>{partner.name}</h4>
-                                                    <div className="partner-category">
-                                                        {getCategoryLabel(partner.category)}
-                                                    </div>
-                                                    {/* <p className="partner-description">
+                                                    <div className="partner-info">
+                                                        <h4>{partner.name}</h4>
+                                                        <div className="partner-category">
+                                                            {getCategoryLabel(partner.category)}
+                                                        </div>
+                                                        {/* <p className="partner-description">
                                             {partner.shortDescription}
                                         </p> */}
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            {/* <div className="partner-stats">
+                                                {/* <div className="partner-stats">
                                         <div className="stat-item">
                                             <div className="stat-value">{partner.processingTime}</div>
                                             <div className="stat-label">Processing Time</div>
@@ -368,11 +368,11 @@ const LendingPartners = () => {
                                             <div className="stat-label">Active Loans</div>
                                         </div>
                                     </div> */}
-{/* 
+                                                {/* 
                                             <button className="view-more-btn">
                                                 View More Details
                                             </button> */}
-                                        </div>
+                                            </div>
                                         </Link>
                                     ))}
                                 </div>
@@ -504,7 +504,7 @@ const LendingPartners = () => {
                                             <p>Please correct the following errors:</p>
                                         </div>
                                     )}
-                                    
+
                                     <div className="form-row">
                                         <div className="form-group">
                                             <label htmlFor="name">Full Name *</label>
