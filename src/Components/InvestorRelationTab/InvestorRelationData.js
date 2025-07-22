@@ -322,6 +322,73 @@ const investorRelationData = [
       },
     ],
   },
+  {
+    name: 'Shareholding Pattern',
+    children: [
+      {
+        name: '2024-25',
+        files: [
+          { name: 'Shareholding pattern_30-09-2024', path: '/Images/Icons/Documents/Shareholding Pattern/2024-25/Shareholding pattern_30-09-2024.pdf' },
+          { name: 'Shareholding pattern 31.03.2025', path: '/Images/Icons/Documents/Shareholding Pattern/2024-25/Shareholding pattern 31.03.2025.pdf' },
+          { name: 'Shareholding pattern 31.12.2024', path: '/Images/Icons/Documents/Shareholding Pattern/2024-25/Shareholding pattern 31.12.2024.pdf' },
+          { name: 'Shareholding pattern_30-06-2024', path: '/Images/Icons/Documents/Shareholding Pattern/2024-25/Shareholding pattern_30-06-2024.pdf' },
+          { name: 'Shareholding pattern 30.09.2024', path: '/Images/Icons/Documents/Shareholding Pattern/2024-25/Shareholding pattern 30.09.2024.pdf' },
+        ],
+      },
+      {
+        name: '2023-24',
+        files: [
+          { name: 'Shareholding pattern_31-12-2023', path: '/Images/Icons/Documents/Shareholding Pattern/2023-24/Shareholding pattern_31-12-2023.pdf' },
+          { name: 'Shareholding Pattern- 30-06-2023', path: '/Images/Icons/Documents/Shareholding Pattern/2023-24/Shareholding Pattern- 30-06-2023.pdf' },
+          { name: 'Shareholding pattern_31-03-2024', path: '/Images/Icons/Documents/Shareholding Pattern/2023-24/Shareholding pattern_31-03-2024.pdf' },
+          { name: 'Share holding pattern for 30.09.2023', path: '/Images/Icons/Documents/Shareholding Pattern/2023-24/Share holding pattern for 30.09.2023.pdf' },
+        ],
+      },
+      {
+        name: '2022-23',
+        files: [
+          { name: 'Shareholding-Pattern-30-06-2022', path: '/Images/Icons/Documents/Shareholding Pattern/2022-23/Shareholding-Pattern-30-06-2022.pdf' },
+          { name: 'Shareholding-Pattern-30-09-2022', path: '/Images/Icons/Documents/Shareholding Pattern/2022-23/Shareholding-Pattern-30-09-2022.pdf' },
+          { name: 'Shareholding-Pattern-31-03-2023', path: '/Images/Icons/Documents/Shareholding Pattern/2022-23/Shareholding-Pattern-31-03-2023.pdf' },
+          { name: 'Shareholding Pattern- 31-12-2022', path: '/Images/Icons/Documents/Shareholding Pattern/2022-23/Shareholding Pattern- 31-12-2022.pdf' },
+        ],
+      },
+      {
+        name: '2021-22',
+        files: [
+          { name: 'Shareholding Pattern- 30-09-2021', path: '/Images/Icons/Documents/Shareholding Pattern/2021-22/Shareholding Pattern- 30-09-2021.pdf' },
+          { name: 'Shareholding Pattern- 31-12-2021', path: '/Images/Icons/Documents/Shareholding Pattern/2021-22/Shareholding Pattern- 31-12-2021.pdf' },
+          { name: 'Shareholding-Pattern-31-03-2022', path: '/Images/Icons/Documents/Shareholding Pattern/2021-22/Shareholding-Pattern-31-03-2022.pdf' },
+          { name: 'Shareholding Pattern- 30-06-2021', path: '/Images/Icons/Documents/Shareholding Pattern/2021-22/Shareholding Pattern- 30-06-2021.pdf' },
+        ],
+      },
+      {
+        name: '2020-21',
+        files: [
+          { name: 'ShareholdingPattern-30-06-2020', path: '/Images/Icons/Documents/Shareholding Pattern/2020-21/ShareholdingPattern-30-06-2020.pdf' },
+          { name: 'Shareholding Pattern- 31-12-2020', path: '/Images/Icons/Documents/Shareholding Pattern/2020-21/Shareholding Pattern- 31-12-2020.pdf' },
+          { name: 'Shareholding Pattern- 31-03-2021', path: '/Images/Icons/Documents/Shareholding Pattern/2020-21/Shareholding Pattern- 31-03-2021.pdf' },
+          { name: 'Shareholding Pattern- 30-09-2020', path: '/Images/Icons/Documents/Shareholding Pattern/2020-21/Shareholding Pattern- 30-09-2020.pdf' },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Policies',
+    files: [
+      { name: 'Vigil Mechanism and Whistle Blower Policy', path: '/Images/Icons/Documents/Policies/Vigil Mechanism and Whistle Blower Policy.pdf' },
+      { name: 'Related Party Transaction Policy', path: '/Images/Icons/Documents/Policies/Related Party Transaction Policy.pdf' },
+      { name: 'Policy on Preservation of Documents', path: '/Images/Icons/Documents/Policies/Policy on Preservation of Documents.pdf' },
+      { name: 'Policy on Disclosure of Material Events Information', path: '/Images/Icons/Documents/Policies/Policy on Disclosure of Material Events Information.pdf' },
+      { name: 'Policy Determining Material Subsidiary', path: '/Images/Icons/Documents/Policies/Policy Determining Material Subsidiary.pdf' },
+      { name: 'Nomination and Remuneration Policy', path: '/Images/Icons/Documents/Policies/Nomination and Remuneration Policy.pdf' },
+      { name: 'Leak of Unpublished Price Sensitive Information', path: '/Images/Icons/Documents/Policies/Leak of Unpublished Price Sensitive Information.pdf' },
+      { name: 'Familiarization Programme of Indepedent Directors', path: '/Images/Icons/Documents/Policies/Familiarization Programme of Indepedent Directors.pdf' },
+      { name: 'Fair Practice Code Policy', path: '/Images/Icons/Documents/Policies/Fair Practice Code Policy.pdf' },
+      { name: 'Code of Conduct Insider Trading', path: '/Images/Icons/Documents/Policies/Code of Conduct Insider Trading.pdf' },
+      { name: 'Adinath_Revised_Code of Fair Disclosure', path: '/Images/Icons/Documents/Policies/1.Adinath_Revised_Code of Fair Disclosure.pdf' },
+    ],
+  },
 ];
 
 export default investorRelationData; 
