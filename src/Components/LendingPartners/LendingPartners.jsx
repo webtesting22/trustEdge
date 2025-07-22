@@ -12,7 +12,7 @@ import {
 } from "react-icons/io5";
 import { partnersData, filterOptions } from "./PartnersData";
 import "./LendingPartners.css";
-
+import { Link } from "react-router-dom";
 const LendingPartners = () => {
     const [activeFilter, setActiveFilter] = useState('ALL');
     const [selectedPartner, setSelectedPartner] = useState(null);
@@ -330,6 +330,7 @@ const LendingPartners = () => {
                             <Col span={24}>
                                 <div className="partners-grid">
                                     {filteredPartners.map((partner) => (
+                                        <Link to={partner.website} target="_blank" rel="noopener noreferrer">
                                         <div
                                             key={partner.id}
                                             className="partner-card"
@@ -372,6 +373,7 @@ const LendingPartners = () => {
                                                 View More Details
                                             </button> */}
                                         </div>
+                                        </Link>
                                     ))}
                                 </div>
                             </Col>

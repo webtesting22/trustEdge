@@ -2,9 +2,9 @@ export const partnersData = [
     // Digital Lending Apps
     {
         id: 1,
-        name: "InVision",
+        name: "accumn",
         category: "Fintech partners",
-        logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=200&fit=crop&crop=center",
+        logo: "https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/accumn-logoUpdate.jpg",
         description: "Modern digital lending platform providing quick personal and business loans with AI-powered risk assessment.",
         shortDescription: "AI-powered digital lending solutions for personal and business loans with instant approvals.",
         specialties: ["Personal Loans", "Business Loans", "Credit Assessment", "AI Risk Analysis"],
@@ -24,34 +24,34 @@ export const partnersData = [
         established: "2018",
         totalDisbursed: "₹2,500 Crores",
         activeLoans: "1,25,000+",
-        website: "https://invision.com"
+        website: "https://hello.accumn.ai/"
     },
-    {
-        id: 2,
-        name: "Zeplin Finance",
-        category: "Fintech partners",
-        logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=200&fit=crop&crop=center",
-        description: "Innovative fintech platform specializing in SME lending and working capital solutions.",
-        shortDescription: "SME focused lending platform with working capital and business expansion loans.",
-        specialties: ["SME Loans", "Working Capital", "Invoice Financing", "Equipment Loans"],
-        loanRange: "₹1,00,000 - ₹1,00,00,000",
-        processingTime: "48-72 hours",
-        interestRate: "14% - 28% per annum",
-        eligibility: "GST registered, 2+ years in business, Annual turnover ₹25L+",
-        features: [
-            "Quick SME Approvals",
-            "Working Capital Solutions",
-            "Invoice Financing",
-            "Equipment Financing",
-            "Business Analytics Dashboard"
-        ],
-        contactEmail: "business@zeplin.com",
-        contactPhone: "+91-9876543211",
-        established: "2019",
-        totalDisbursed: "₹1,800 Crores",
-        activeLoans: "85,000+",
-        website: "https://zeplin.com"
-    },
+    // {
+    //     id: 2,
+    //     name: "Zeplin Finance",
+    //     category: "Fintech partners",
+    //     logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=200&fit=crop&crop=center",
+    //     description: "Innovative fintech platform specializing in SME lending and working capital solutions.",
+    //     shortDescription: "SME focused lending platform with working capital and business expansion loans.",
+    //     specialties: ["SME Loans", "Working Capital", "Invoice Financing", "Equipment Loans"],
+    //     loanRange: "₹1,00,000 - ₹1,00,00,000",
+    //     processingTime: "48-72 hours",
+    //     interestRate: "14% - 28% per annum",
+    //     eligibility: "GST registered, 2+ years in business, Annual turnover ₹25L+",
+    //     features: [
+    //         "Quick SME Approvals",
+    //         "Working Capital Solutions",
+    //         "Invoice Financing",
+    //         "Equipment Financing",
+    //         "Business Analytics Dashboard"
+    //     ],
+    //     contactEmail: "business@zeplin.com",
+    //     contactPhone: "+91-9876543211",
+    //     established: "2019",
+    //     totalDisbursed: "₹1,800 Crores",
+    //     activeLoans: "85,000+",
+    //     website: "https://zeplin.com"
+    // },
     // {
     //     id: 3,
     //     name: "Asana Capital",
