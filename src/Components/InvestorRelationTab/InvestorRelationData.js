@@ -163,7 +163,7 @@ const investorRelationData = [
       { name: 'Form ISR-2 Confirmation of Signature of securities holder by the Banker', path: '/Images/Icons/Documents/Downloads/Form_ISR-2_Confirmation of Signature of securities holder by the Banker.pdf' },
       { name: 'Form ISR-3 Declaration Form for Opting-out of Nomination by holders of physical securities in Listed Companies', path: '/Images/Icons/Documents/Downloads/Form_ISR-3_Declaration Form for Opting-out of Nomination by holders of physical securities in Listed Companies.pdf' },
       { name: 'Form ISR-4 Request for issue of Duplicate Certificate and other Service Request', path: '/Images/Icons/Documents/Downloads/Form_ ISR-4_Request for issue of Duplicate Certificate and other Service Request.pdf' },
-      { name: 'Form ISR-1 Processing investor\'s service request by RTAs and norms for furnishing PAN, KYC details and Nomination', path: '/Images/Icons/Documents/Downloads/Form_ISR-1_Processing investor\'s service request by RTAs and norms for furnishing PAN, KYC details and Nomination..pdf' },
+      { name: 'Form ISR-1 Processing investor’s service request by RTAs and norms for furnishing PAN, KYC details and Nomination', path: '/Images/Icons/Documents/Downloads/Form_ISR-1_Processing investor’s service request by RTAs and norms for furnishing PAN, KYC details and Nomination..pdf' },
       { name: 'Circular Common Norms and Compulsory KYC', path: '/Images/Icons/Documents/Downloads/Circular Common Norms and Compulsory KYC.pdf' },
       { name: 'Form No. SH-13', path: '/Images/Icons/Documents/Downloads/Form No. SH-13.pdf' },
       { name: 'Form No. SH-14', path: '/Images/Icons/Documents/Downloads/Form No. SH-14.pdf' }
