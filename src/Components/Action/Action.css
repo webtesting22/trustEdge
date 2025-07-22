@@ -135,6 +135,7 @@
     width: 54px;
     height: 54px;
     font-size: 1.5rem;
+    display: none;
   }
   .fab-btn {
     width: 44px;

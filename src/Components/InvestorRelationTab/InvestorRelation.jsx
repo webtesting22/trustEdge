@@ -37,6 +37,25 @@ const getImmediateFolderCount = (folderNode) => {
   return folderNode.children.length;
 };
 
+// Helper to sort folders: year-like (e.g., '2024-25') descending, others A-Z
+const yearLike = name => /^(\d{4}-\d{2}|\d{4}-\d{4}|\d{4})$/.test(name) || /\d{4}-\d{2}/.test(name);
+const parseYear = name => {
+  // Extract the first 4 digits as year
+  const match = name.match(/(\d{4})/);
+  return match ? parseInt(match[1], 10) : null;
+};
+const folderSort = (a, b) => {
+  const aIsYear = yearLike(a.name);
+  const bIsYear = yearLike(b.name);
+  if (aIsYear && bIsYear) {
+    // Descending by year
+    return parseYear(b.name) - parseYear(a.name);
+  }
+  if (aIsYear) return -1;
+  if (bIsYear) return 1;
+  return a.name.localeCompare(b.name);
+};
+
 const InvestorRelation = () => {
   // Track the current folder path as an array
   const [folderPath, setFolderPath] = useState([
@@ -53,16 +72,18 @@ const InvestorRelation = () => {
   const children = currentNode && currentNode.children ? currentNode.children : [];
   const files = currentNode && currentNode.files ? currentNode.files : [];
 
-  // Sort categories, folders, and files A-Z
+  // Sort categories, folders, and files
   const sortedCategories = investorRelationData.slice().sort((a, b) => a.name.localeCompare(b.name));
-  const sortedChildren = children.slice().sort((a, b) => a.name.localeCompare(b.name));
+  const sortedChildren = children.slice().sort(folderSort);
   const sortedFiles = files.slice().sort((a, b) => a.name.localeCompare(b.name));
 
   // Scroll to top on folderPath change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [folderPath]);
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   // Handle sidebar category click
   const handleCategoryClick = (categoryName) => {
     setFolderPath([categoryName]);
@@ -211,13 +232,7 @@ const InvestorRelation = () => {
               shape="circle"
               icon={<FilterOutlined />}
               size="large"
-              style={{
-                position: 'fixed',
-                left: 20,
-                bottom: 20,
-                zIndex: 1000,
-                boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
-              }}
+              id='MobileFilterButton'
               onClick={() => setFilterModalOpen(true)}
             />
           )}

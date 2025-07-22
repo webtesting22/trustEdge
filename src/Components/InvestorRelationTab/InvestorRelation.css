@@ -50,9 +50,18 @@
 .InvestorRelation .pdf-card .ant-card-body {
   padding: 0px !important;
 }
-
+#MobileFilterButton{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  background: #FF6518 !important;
+  width: 50px;
+  height: 50px;
+}
 /* Responsive tweaks for modal and cards */
 @media (max-width: 768px) {
+
   .InvestorRelationSidebar {
     width: 100% !important;
     min-width: 0 !important;
