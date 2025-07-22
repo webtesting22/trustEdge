@@ -70,22 +70,22 @@ const Footer = () => {
     const SocialLinks = [
         {
             icon: <FaFacebookF />,
-            link: "https://www.facebook.com",
+            link: "",
             title: "Facebook"
         },
         {
             icon: <FaTwitter />,
-            link: "https://www.twitter.com",
+            link: "",
             title: "Twitter"
         },
         {
             icon: <FaLinkedinIn />,
-            link: "https://www.linkedin.com",
+            link: "",
             title: "Linkedin"
         },
         {
             icon: <FaInstagram />,
-            link: "https://www.instagram.com",
+            link: "",
             title: "Instagram"
         }
     ]
