@@ -1,127 +1,90 @@
 import React, { useState, useEffect } from 'react'
-import { Layout, Collapse, Card, Button, Typography, Row, Col, Space, Grid, Modal, Tree, Tooltip } from 'antd';
+import { Layout, Card, Button, Typography, Row, Col, Grid, Modal, Tooltip } from 'antd';
 import { FolderOpenOutlined, FilePdfOutlined, EyeOutlined, DownloadOutlined, FilterOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import "./InvestorRelation.css"
 import investorRelationData from './InvestorRelationData'
 
 const { Sider, Content } = Layout;
-const { Panel } = Collapse;
 const { Title } = Typography;
 const { useBreakpoint } = Grid;
 
-// Helper to get all files and subfolders for a selected category
-const getAllContentForCategory = (data, selectedCategory) => {
-  const category = data.find(item => item.name === selectedCategory);
-  if (!category) return { folders: [], files: [] };
-  
-  let allFolders = [];
-  let allFiles = [];
-  
-  // Add direct files
-  if (category.files) {
-    allFiles = [...category.files];
+// Helper to get folder node by path
+const getNodeByPath = (data, pathArr) => {
+  if (!pathArr || pathArr.length === 0) return null;
+  let node = data.find(item => item.name === pathArr[0]);
+  for (let i = 1; i < pathArr.length; i++) {
+    if (!node || !node.children) return null;
+    node = node.children.find(child => child.name === pathArr[i]);
   }
-  
-  // Add subfolders and their files
-  if (category.children) {
-    const processChildren = (children, parentPath = []) => {
-      children.forEach(child => {
-        const currentPath = [...parentPath, child.name];
-        allFolders.push({
-          name: child.name,
-          path: currentPath,
-          files: child.files || []
-        });
-        
-        if (child.children) {
-          processChildren(child.children, currentPath);
-        }
-      });
-    };
-    
-    processChildren(category.children);
-  }
-  
-  return { folders: allFolders, files: allFiles };
+  return node;
 };
 
-// Helper to get files for a specific folder
-const getFilesForFolder = (data, selectedCategory, selectedFolder) => {
-  const category = data.find(item => item.name === selectedCategory);
-  if (!category) return [];
-  
-  const findFolder = (children, folderName) => {
-    for (const child of children) {
-      if (child.name === folderName) {
-        return child.files || [];
-      }
-      if (child.children) {
-        const result = findFolder(child.children, folderName);
-        if (result.length > 0) return result;
-      }
+// Helper to recursively count all documents in a folder (including subfolders)
+const getDocumentCount = (folderNode) => {
+  if (!folderNode) return 0;
+  let count = Array.isArray(folderNode.files) ? folderNode.files.length : 0;
+  if (Array.isArray(folderNode.children)) {
+    for (const child of folderNode.children) {
+      count += getDocumentCount(child);
     }
-    return [];
-  };
-  
-  return category.children ? findFolder(category.children, selectedFolder) : [];
+  }
+  return count;
 };
 
-// Helper to build AntD Tree data from folder structure
-const buildTreeData = (data, parentPath = []) => {
-  return data.map(folder => {
-    const currentPath = [...parentPath, folder.name];
-    return {
-      title: folder.name,
-      key: JSON.stringify(currentPath),
-      children: folder.children ? buildTreeData(folder.children, currentPath) : undefined,
-    };
-  });
+// Helper to count immediate child folders
+const getImmediateFolderCount = (folderNode) => {
+  if (!folderNode || !Array.isArray(folderNode.children)) return 0;
+  return folderNode.children.length;
 };
 
 const InvestorRelation = () => {
-  const [selectedCategory, setSelectedCategory] = useState(
+  // Track the current folder path as an array
+  const [folderPath, setFolderPath] = useState([
     investorRelationData.length > 0 ? investorRelationData[0].name : null
-  );
-  const [selectedFolder, setSelectedFolder] = useState(null);
-  const [currentView, setCurrentView] = useState('folders'); // 'folders' or 'documents'
-  
-  const { folders, files } = getAllContentForCategory(investorRelationData, selectedCategory);
-  const folderFiles = selectedFolder ? getFilesForFolder(investorRelationData, selectedCategory, selectedFolder) : [];
+  ]);
   const screens = useBreakpoint();
 
   // Modal state for mobile filter
   const [filterModalOpen, setFilterModalOpen] = useState(false);
-  const treeData = buildTreeData(investorRelationData);
-  const [modalSelected, setModalSelected] = useState(selectedCategory);
+  const [modalSelected, setModalSelected] = useState(folderPath[0]);
 
+  // Get current node and its children/files
+  const currentNode = getNodeByPath(investorRelationData, folderPath);
+  const children = currentNode && currentNode.children ? currentNode.children : [];
+  const files = currentNode && currentNode.files ? currentNode.files : [];
+
+  // Sort categories, folders, and files A-Z
+  const sortedCategories = investorRelationData.slice().sort((a, b) => a.name.localeCompare(b.name));
+  const sortedChildren = children.slice().sort((a, b) => a.name.localeCompare(b.name));
+  const sortedFiles = files.slice().sort((a, b) => a.name.localeCompare(b.name));
+
+  // Scroll to top on folderPath change
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [folderPath]);
+
+  // Handle sidebar category click
+  const handleCategoryClick = (categoryName) => {
+    setFolderPath([categoryName]);
+  };
+
+  // Handle folder card click
+  const handleFolderClick = (folderName) => {
+    setFolderPath([...folderPath, folderName]);
+  };
+
+  // Handle back button
+  const handleBack = () => {
+    if (folderPath.length > 1) {
+      setFolderPath(folderPath.slice(0, -1));
+    }
+  };
+
+  // Modal filter apply
   const handleApplyFilter = () => {
-    setSelectedCategory(modalSelected);
-    setSelectedFolder(null);
-    setCurrentView('folders');
+    setFolderPath([modalSelected]);
     setFilterModalOpen(false);
   };
-
-  const handleFolderClick = (folder) => {
-    setSelectedFolder(folder.name);
-    setCurrentView('documents');
-  };
-
-  const handleBackToFolders = () => {
-    setSelectedFolder(null);
-    setCurrentView('folders');
-  };
-
-  useEffect(() => {
-    if (selectedFolder) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }, [selectedFolder]);
-
-  useEffect(() => {
-    if (selectedCategory) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }, [selectedCategory]);
 
   return (
     <section className="paddingTop InvestorRelation">
@@ -132,7 +95,6 @@ const InvestorRelation = () => {
             Access our latest reports, financial statements, and press releases. Stay informed about our company's performance and strategic direction.
           </p>
         </div>
-
         <Layout className='InvestorRelationContainer' style={{ minHeight: '60vh', background: '#fff' }}>
           <Sider
             width={screens.xs ? '100%' : 300}
@@ -152,26 +114,22 @@ const InvestorRelation = () => {
               Categories
             </Title>
             <div className="category-list">
-              {investorRelationData.map((category, idx) => (
+              {sortedCategories.map((category, idx) => (
                 <div
                   key={category.name}
-                  className={`category-item ${selectedCategory === category.name ? 'selected' : ''}`}
-                  onClick={() => {
-                    setSelectedCategory(category.name);
-                    setSelectedFolder(null);
-                    setCurrentView('folders');
-                  }}
+                  className={`category-item ${folderPath[0] === category.name ? 'selected' : ''}`}
+                  onClick={() => handleCategoryClick(category.name)}
                   style={{
                     padding: '12px 16px',
                     marginBottom: 8,
                     borderRadius: 8,
                     cursor: 'pointer',
-                    backgroundColor: selectedCategory === category.name ? '#e6f4ff' : 'transparent',
-                    border: selectedCategory === category.name ? '1px solid #1677ff' : '1px solid transparent',
+                    backgroundColor: folderPath[0] === category.name ? '#e6f4ff' : 'transparent',
+                    border: folderPath[0] === category.name ? '1px solid #1677ff' : '1px solid transparent',
                     transition: 'all 0.2s'
                   }}
                 >
-                  <FolderOpenOutlined style={{ marginRight: 8, color: selectedCategory === category.name ? '#1677ff' : '#666' }} />
+                  <FolderOpenOutlined style={{ marginRight: 8, color: folderPath[0] === category.name ? '#1677ff' : '#666' }} />
                   {category.name}
                 </div>
               ))}
@@ -179,93 +137,71 @@ const InvestorRelation = () => {
           </Sider>
           <Layout>
             <Content className='InvestorRelationContent' style={{ padding: screens.xs ? 8 : 24 }}>
-              {currentView === 'folders' ? (
-                <>
+              {folderPath.length > 1 && (
+                <div style={{ marginBottom: 16 }}>
+                  <Button
+                    icon={<ArrowLeftOutlined />}
+                    onClick={handleBack}
+                    style={{ marginBottom: 16 }}
+                  >
+                    Back
+                  </Button>
                   <Title level={4} style={{ marginBottom: 16, fontSize: screens.xs ? 18 : 24 }}>
-                    {selectedCategory} Folders
+                    {folderPath[folderPath.length - 1]} Folders
                   </Title>
-                  <Row gutter={[16, 16]}>
-                    {/* Show subfolders */}
-                    {folders.map((folder, idx) => (
-                      <Col xs={24} sm={12} md={8} lg={6} key={folder.name + idx}>
-                        <Tooltip title={folder.name} placement="top">
-                          <Card
-                            title={<span><FolderOpenOutlined style={{ color: '#FF6518' }} /> {folder.name}</span>}
-                            hoverable
-                            className='folder-card'
-                            bodyStyle={{ padding: 8 }}
-                            onClick={() => handleFolderClick(folder)}
-                          >
-                            <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-                              {folder.files.length} document{folder.files.length !== 1 ? 's' : ''}
-                            </Typography.Text>
-                          </Card>
-                        </Tooltip>
-                      </Col>
-                    ))}
-                    {/* Show direct files */}
-                    {files.map((file, idx) => (
-                      <Col xs={24} sm={12} md={8} lg={6} key={file.name + idx}>
-                        <Tooltip title={file.name} placement="top">
-                          <Card
-                            title={<span><FilePdfOutlined style={{ color: '#cf1322' }} /> {file.name}</span>}
-                            actions={[
-                              <Button type="link" icon={<EyeOutlined />} href={file.path} target="_blank" rel="noopener noreferrer" title="Preview" />,
-                              <Button type="link" icon={<DownloadOutlined />} href={file.path} download title="Download" />
-                            ]}
-                            hoverable
-                            className='pdf-card'
-                            bodyStyle={{ padding: screens.xs ? 8 : 16 }}
-                          >
-                            {/* Removed PDF Document text */}
-                          </Card>
-                        </Tooltip>
-                      </Col>
-                    ))}
-                    {folders.length === 0 && files.length === 0 && (
-                      <Col span={24}><Typography.Text type="secondary">No documents found in this category.</Typography.Text></Col>
-                    )}
-                  </Row>
-                </>
-              ) : (
-                <>
-                  <div style={{ marginBottom: 16 }}>
-                    <Button 
-                      icon={<ArrowLeftOutlined />} 
-                      onClick={handleBackToFolders}
-                      style={{ marginBottom: 16 }}
-                    >
-                      Back to Folders
-                    </Button>
-                    <Title level={4} style={{ marginBottom: 16, fontSize: screens.xs ? 18 : 24 }}>
-                      {selectedFolder} Documents
-                    </Title>
-                  </div>
-                  <Row gutter={[16, 16]}>
-                    {folderFiles.map((file, idx) => (
-                      <Col xs={24} sm={12} md={8} lg={6} key={file.name + idx}>
-                        <Tooltip title={file.name} placement="top">
-                          <Card
-                            title={<span><FilePdfOutlined style={{ color: '#cf1322' }} /> {file.name}</span>}
-                            actions={[
-                              <Button type="link" icon={<EyeOutlined />} href={file.path} target="_blank" rel="noopener noreferrer" title="Preview" />,
-                              <Button type="link" icon={<DownloadOutlined />} href={file.path} download title="Download" />
-                            ]}
-                            hoverable
-                            className='pdf-card'
-                            bodyStyle={{ padding: screens.xs ? 8 : 16 }}
-                          >
-                            {/* Removed PDF Document text */}
-                          </Card>
-                        </Tooltip>
-                      </Col>
-                    ))}
-                    {folderFiles.length === 0 && (
-                      <Col span={24}><Typography.Text type="secondary">No documents found in this folder.</Typography.Text></Col>
-                    )}
-                  </Row>
-                </>
+                </div>
               )}
+              {folderPath.length === 1 && (
+                <Title level={4} style={{ marginBottom: 16, fontSize: screens.xs ? 18 : 24 }}>
+                  {folderPath[0]} Folders
+                </Title>
+              )}
+              <Row gutter={[16, 16]}>
+                {/* Show immediate children folders */}
+                {sortedChildren.map((child, idx) => (
+                  <Col xs={24} sm={12} md={8} lg={6} key={child.name + idx}>
+                    <Tooltip title={child.name} placement="top">
+                      <Card
+                        title={<span><FolderOpenOutlined style={{ color: '#FF6518' }} /> {child.name}</span>}
+                        hoverable
+                        className='folder-card'
+                        bodyStyle={{ padding: 8 }}
+                        onClick={() => handleFolderClick(child.name)}
+                      >
+                        <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+                          {(() => {
+                            const folderCount = getImmediateFolderCount(child);
+                            const docCount = getDocumentCount(child);
+                            return `${folderCount} folder${folderCount !== 1 ? 's' : ''}, ${docCount} document${docCount !== 1 ? 's' : ''}`;
+                          })()}
+                        </Typography.Text>
+                      </Card>
+                    </Tooltip>
+                  </Col>
+                ))}
+                {/* Show files in the current folder */}
+                {sortedFiles.map((file, idx) => (
+                  <Col xs={24} sm={12} md={8} lg={6} key={file.name + idx}>
+                    <Tooltip title={file.name} placement="top">
+                      <Card
+                        title={<span><FilePdfOutlined style={{ color: '#cf1322' }} /> {file.name}</span>}
+                        actions={[
+                          <Button type="link" icon={<EyeOutlined />} href={file.path} target="_blank" rel="noopener noreferrer" title="Preview" />, 
+                          <Button type="link" icon={<DownloadOutlined />} href={file.path} download title="Download" />
+                        ]}
+                        hoverable
+                        className='pdf-card'
+                        bodyStyle={{ padding: screens.xs ? 8 : 16 }}
+                      >
+                        {/* Removed PDF Document text */}
+                      </Card>
+                    </Tooltip>
+                  </Col>
+                ))}
+                {sortedChildren.length === 0 && sortedFiles.length === 0 && (
+                  <Col span={24}><Typography.Text type="secondary">No documents found in this folder.</Typography.Text></Col>
+                )}
+              </Row>
             </Content>
           </Layout>
           {/* Floating Filter Button for Mobile */}
@@ -298,7 +234,7 @@ const InvestorRelation = () => {
             className="ir-tree-modal"
           >
             <div className="modal-category-list">
-              {investorRelationData.map((category, idx) => (
+              {sortedCategories.map((category, idx) => (
                 <div
                   key={category.name}
                   className={`modal-category-item ${modalSelected === category.name ? 'selected' : ''}`}

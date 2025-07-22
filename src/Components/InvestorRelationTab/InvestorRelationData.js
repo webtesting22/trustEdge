@@ -194,6 +194,16 @@ const investorRelationData = [
             ]
           }
         ]
+      },
+      {
+        name: 'Regulation 30 of SEBI (LODR) Regulation, 2015',
+        children: [
+          { name: '2024-25', files: [] },
+          { name: '2023-24', files: [] },
+          { name: '2022-23', files: [] },
+          { name: '2021-22', files: [] },
+          { name: '2020-21', files: [] }
+        ]
       }
     ]
   },
