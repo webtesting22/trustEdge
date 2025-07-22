@@ -46,6 +46,11 @@
   color: #1677ff;
 }
 
+/* Only apply 0px padding to document cards */
+.InvestorRelation .pdf-card .ant-card-body {
+  padding: 0px !important;
+}
+
 /* Responsive tweaks for modal and cards */
 @media (max-width: 768px) {
   .InvestorRelationSidebar {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Layout, Collapse, Card, Button, Typography, Row, Col, Space, Grid, Modal, Tree } from 'antd';
+import { Layout, Collapse, Card, Button, Typography, Row, Col, Space, Grid, Modal, Tree, Tooltip } from 'antd';
 import { FolderOpenOutlined, FilePdfOutlined, EyeOutlined, DownloadOutlined, FilterOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import "./InvestorRelation.css"
 import investorRelationData from './InvestorRelationData'
@@ -112,7 +112,7 @@ const InvestorRelation = () => {
   };
 
   return (
-    <section className="paddingTop">
+    <section className="paddingTop InvestorRelation">
       <div className="Container w-100">
         <div className="investor-header">
           <h1 className="text-center">Investor Relations</h1>
@@ -176,36 +176,38 @@ const InvestorRelation = () => {
                     {/* Show subfolders */}
                     {folders.map((folder, idx) => (
                       <Col xs={24} sm={12} md={8} lg={6} key={folder.name + idx}>
-                        <Card
-                          title={<span><FolderOpenOutlined style={{ color: '#FF6518' }} /> {folder.name}</span>}
-                          hoverable
-                          className='folder-card'
-                          bodyStyle={{ padding: 8 }}
-                          onClick={() => handleFolderClick(folder)}
-                        >
-                          <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-                            {folder.files.length} document{folder.files.length !== 1 ? 's' : ''}
-                          </Typography.Text>
-                        </Card>
+                        <Tooltip title={folder.name} placement="top">
+                          <Card
+                            title={<span><FolderOpenOutlined style={{ color: '#FF6518' }} /> {folder.name}</span>}
+                            hoverable
+                            className='folder-card'
+                            bodyStyle={{ padding: 8 }}
+                            onClick={() => handleFolderClick(folder)}
+                          >
+                            <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+                              {folder.files.length} document{folder.files.length !== 1 ? 's' : ''}
+                            </Typography.Text>
+                          </Card>
+                        </Tooltip>
                       </Col>
                     ))}
                     {/* Show direct files */}
                     {files.map((file, idx) => (
                       <Col xs={24} sm={12} md={8} lg={6} key={file.name + idx}>
-                        <Card
-                          title={<span><FilePdfOutlined style={{ color: '#cf1322' }} /> {file.name}</span>}
-                          actions={[
-                            <Button type="link" icon={<EyeOutlined />} href={file.path} target="_blank" rel="noopener noreferrer">Preview</Button>,
-                            <Button type="link" icon={<DownloadOutlined />} href={file.path} download>Download</Button>
-                          ]}
-                          hoverable
-                          className='pdf-card'
-                          bodyStyle={{ padding: screens.xs ? 8 : 16 }}
-                        >
-                          <Space direction="vertical" size="small">
-                            <Typography.Text type="secondary" style={{ fontSize: 12 }}>PDF Document</Typography.Text>
-                          </Space>
-                        </Card>
+                        <Tooltip title={file.name} placement="top">
+                          <Card
+                            title={<span><FilePdfOutlined style={{ color: '#cf1322' }} /> {file.name}</span>}
+                            actions={[
+                              <Button type="link" icon={<EyeOutlined />} href={file.path} target="_blank" rel="noopener noreferrer" title="Preview" />,
+                              <Button type="link" icon={<DownloadOutlined />} href={file.path} download title="Download" />
+                            ]}
+                            hoverable
+                            className='pdf-card'
+                            bodyStyle={{ padding: screens.xs ? 8 : 16 }}
+                          >
+                            {/* Removed PDF Document text */}
+                          </Card>
+                        </Tooltip>
                       </Col>
                     ))}
                     {folders.length === 0 && files.length === 0 && (
@@ -230,20 +232,20 @@ const InvestorRelation = () => {
                   <Row gutter={[16, 16]}>
                     {folderFiles.map((file, idx) => (
                       <Col xs={24} sm={12} md={8} lg={6} key={file.name + idx}>
-                        <Card
-                          title={<span><FilePdfOutlined style={{ color: '#cf1322' }} /> {file.name}</span>}
-                          actions={[
-                            <Button type="link" icon={<EyeOutlined />} href={file.path} target="_blank" rel="noopener noreferrer">Preview</Button>,
-                            <Button type="link" icon={<DownloadOutlined />} href={file.path} download>Download</Button>
-                          ]}
-                          hoverable
-                          className='pdf-card'
-                          bodyStyle={{ padding: screens.xs ? 8 : 16 }}
-                        >
-                          <Space direction="vertical" size="small">
-                            <Typography.Text type="secondary" style={{ fontSize: 12 }}>PDF Document</Typography.Text>
-                          </Space>
-                        </Card>
+                        <Tooltip title={file.name} placement="top">
+                          <Card
+                            title={<span><FilePdfOutlined style={{ color: '#cf1322' }} /> {file.name}</span>}
+                            actions={[
+                              <Button type="link" icon={<EyeOutlined />} href={file.path} target="_blank" rel="noopener noreferrer" title="Preview" />,
+                              <Button type="link" icon={<DownloadOutlined />} href={file.path} download title="Download" />
+                            ]}
+                            hoverable
+                            className='pdf-card'
+                            bodyStyle={{ padding: screens.xs ? 8 : 16 }}
+                          >
+                            {/* Removed PDF Document text */}
+                          </Card>
+                        </Tooltip>
                       </Col>
                     ))}
                     {folderFiles.length === 0 && (
