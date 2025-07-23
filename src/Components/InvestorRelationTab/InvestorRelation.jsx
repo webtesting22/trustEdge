@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Layout, Card, Button, Typography, Row, Col, Grid, Modal, Tooltip } from 'antd';
-import { FolderOpenOutlined, FilePdfOutlined, EyeOutlined, DownloadOutlined, FilterOutlined, ArrowLeftOutlined } from '@ant-design/icons';
+import { FolderOpenOutlined, FilePdfOutlined, EyeOutlined, DownloadOutlined, FilterOutlined, ArrowLeftOutlined, CopyOutlined } from '@ant-design/icons';
 import "./InvestorRelation.css"
 import investorRelationData from './InvestorRelationData'
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const { Sider, Content } = Layout;
 const { Title } = Typography;
@@ -62,10 +63,33 @@ const InvestorRelation = () => {
     investorRelationData.length > 0 ? investorRelationData[0].name : null
   ]);
   const screens = useBreakpoint();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   // Modal state for mobile filter
   const [filterModalOpen, setFilterModalOpen] = useState(false);
   const [modalSelected, setModalSelected] = useState(folderPath[0]);
+
+  // Modal for deep-linked folder
+  const [deepLinkModalOpen, setDeepLinkModalOpen] = useState(false);
+  const [deepLinkFolderPath, setDeepLinkFolderPath] = useState([]); // initial path from URL
+  const [modalNavPath, setModalNavPath] = useState([]); // navigation path inside modal
+
+  // On mount, check for modalPath in URL
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const modalPath = params.get('modalPath');
+    if (modalPath) {
+      const arr = modalPath.split('/');
+      setDeepLinkFolderPath(arr);
+      setModalNavPath(arr);
+      setDeepLinkModalOpen(true);
+    } else {
+      setDeepLinkModalOpen(false);
+      setDeepLinkFolderPath([]);
+      setModalNavPath([]);
+    }
+  }, [location.search]);
 
   // Get current node and its children/files
   const currentNode = getNodeByPath(investorRelationData, folderPath);
@@ -105,6 +129,35 @@ const InvestorRelation = () => {
   const handleApplyFilter = () => {
     setFolderPath([modalSelected]);
     setFilterModalOpen(false);
+  };
+
+  // Copy link handler for folder card
+  const handleCopyLink = (folderPathArr) => {
+    const pathString = folderPathArr.join('/');
+    const url = `${window.location.origin}${location.pathname}?modalPath=${encodeURIComponent(pathString)}`;
+    navigator.clipboard.writeText(url);
+  };
+
+  // Close modal and clear modalPath from URL
+  const handleDeepLinkModalClose = () => {
+    setDeepLinkModalOpen(false);
+    setDeepLinkFolderPath([]);
+    setModalNavPath([]);
+    const params = new URLSearchParams(location.search);
+    params.delete('modalPath');
+    navigate({ pathname: location.pathname, search: params.toString() }, { replace: true });
+  };
+
+  // Modal navigation: click folder inside modal
+  const handleModalFolderClick = (folderName) => {
+    setModalNavPath([...modalNavPath, folderName]);
+  };
+
+  // Modal navigation: back button
+  const handleModalBack = () => {
+    if (modalNavPath.length > deepLinkFolderPath.length) {
+      setModalNavPath(modalNavPath.slice(0, -1));
+    }
   };
 
   return (
@@ -180,7 +233,7 @@ const InvestorRelation = () => {
               <Row gutter={[16, 16]}>
                 {/* Show immediate children folders */}
                 {sortedChildren.map((child, idx) => (
-                  <Col xs={24} sm={12} md={8} lg={6} key={child.name + idx}>
+                  <Col xs={24} sm={12} md={8} lg={6} key={child.name + idx} style={{ position: 'relative' }}>
                     <Tooltip title={child.name} placement="top">
                       <Card
                         title={<span><FolderOpenOutlined style={{ color: '#FF6518' }} /> {child.name}</span>}
@@ -196,6 +249,18 @@ const InvestorRelation = () => {
                             return `${folderCount} folder${folderCount !== 1 ? 's' : ''}, ${docCount} document${docCount !== 1 ? 's' : ''}`;
                           })()}
                         </Typography.Text>
+                        {/* Copy Link Button (top right corner) */}
+                        <Button
+                          type="text"
+                          icon={<CopyOutlined />}
+                          size="small"
+                          style={{ position: 'absolute', top: 8, right: 8, zIndex: 2 }}
+                          onClick={e => {
+                            e.stopPropagation();
+                            handleCopyLink([...folderPath, child.name]);
+                          }}
+                          title="Copy link to this folder"
+                        />
                       </Card>
                     </Tooltip>
                   </Col>
@@ -274,6 +339,86 @@ const InvestorRelation = () => {
                 </div>
               ))}
             </div>
+          </Modal>
+          {/* Deep Link Modal for folder */}
+          <Modal
+            open={deepLinkModalOpen}
+            onCancel={handleDeepLinkModalClose}
+            footer={null}
+            centered
+            width={900}
+            className="ir-deeplink-modal"
+            bodyStyle={{ padding: 24 }}
+            maskClosable={false}
+          >
+            {/* Modal Title: Show folder path and back button */}
+            <div className='ir-deeplink-modal-title'>
+              {modalNavPath.length > deepLinkFolderPath.length && (
+                <Button
+                  icon={<ArrowLeftOutlined />}
+                  onClick={handleModalBack}
+                  style={{ marginRight: 12 }}
+                  size="small"
+                >
+                  Back
+                </Button>
+              )}
+              <Title level={4} style={{ margin: 0 }}>
+                {modalNavPath.join(' / ')}
+              </Title>
+            </div>
+            {/* Modal Content: Show folder's children and files, allow navigation */}
+            {(() => {
+              const modalNode = getNodeByPath(investorRelationData, modalNavPath);
+              if (!modalNode) return <Typography.Text type="secondary">Folder not found.</Typography.Text>;
+              const modalChildren = modalNode.children ? modalNode.children.slice().sort(folderSort) : [];
+              const modalFiles = modalNode.files ? modalNode.files.slice().sort((a, b) => a.name.localeCompare(b.name)) : [];
+              return (
+                <Row gutter={[16, 16]} style={{marginTop: 16}}>
+                  {modalChildren.map((child, idx) => (
+                    <Col xs={24} sm={12} md={8} lg={6} key={child.name + idx} style={{ position: 'relative' }}>
+                      <Tooltip title={child.name} placement="top">
+                        <Card
+                          title={<span><FolderOpenOutlined style={{ color: '#FF6518' }} /> {child.name}</span>}
+                          hoverable
+                          className='folder-card'
+                          bodyStyle={{ padding: 8 }}
+                          onClick={() => handleModalFolderClick(child.name)}
+                        >
+                          <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+                            {(() => {
+                              const folderCount = getImmediateFolderCount(child);
+                              const docCount = getDocumentCount(child);
+                              return `${folderCount} folder${folderCount !== 1 ? 's' : ''}, ${docCount} document${docCount !== 1 ? 's' : ''}`;
+                            })()}
+                          </Typography.Text>
+                        </Card>
+                      </Tooltip>
+                    </Col>
+                  ))}
+                  {modalFiles.map((file, idx) => (
+                    <Col xs={24} sm={12} md={8} lg={6} key={file.name + idx}>
+                      <Tooltip title={file.name} placement="top">
+                        <Card
+                          title={<span><FilePdfOutlined style={{ color: '#cf1322' }} /> {file.name}</span>}
+                          actions={[
+                            <Button type="link" icon={<EyeOutlined />} href={file.path} target="_blank" rel="noopener noreferrer" title="Preview" />, 
+                            <Button type="link" icon={<DownloadOutlined />} href={file.path} download title="Download" />
+                          ]}
+                          hoverable
+                          className='pdf-card'
+                          bodyStyle={{ padding: 8 }}
+                        >
+                        </Card>
+                      </Tooltip>
+                    </Col>
+                  ))}
+                  {modalChildren.length === 0 && modalFiles.length === 0 && (
+                    <Col span={24}><Typography.Text type="secondary">No documents found in this folder.</Typography.Text></Col>
+                  )}
+                </Row>
+              );
+            })()}
           </Modal>
         </Layout>
       </div>
