@@ -68,6 +68,7 @@
 .ir-deeplink-modal-title button{
   width: 100px;
 }
+
 /* Responsive tweaks for modal and cards */
 @media (max-width: 768px) {
 

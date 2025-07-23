@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Layout, Card, Button, Typography, Row, Col, Grid, Modal, Tooltip } from 'antd';
+import { Layout, Card, Button, Typography, Row, Col, Grid, Modal, Tooltip, message } from 'antd';
 import { FolderOpenOutlined, FilePdfOutlined, EyeOutlined, DownloadOutlined, FilterOutlined, ArrowLeftOutlined, CopyOutlined } from '@ant-design/icons';
 import "./InvestorRelation.css"
 import investorRelationData from './InvestorRelationData'
@@ -135,7 +135,13 @@ const InvestorRelation = () => {
   const handleCopyLink = (folderPathArr) => {
     const pathString = folderPathArr.join('/');
     const url = `${window.location.origin}${location.pathname}?modalPath=${encodeURIComponent(pathString)}`;
-    navigator.clipboard.writeText(url);
+    navigator.clipboard.writeText(url)
+      .then(() => {
+        message.success('Link copied to clipboard!', 1.5);
+      })
+      .catch(() => {
+        message.error('Failed to copy link. Please copy manually.');
+      });
   };
 
   // Close modal and clear modalPath from URL
@@ -239,7 +245,7 @@ const InvestorRelation = () => {
                         title={<span><FolderOpenOutlined style={{ color: '#FF6518' }} /> {child.name}</span>}
                         hoverable
                         className='folder-card'
-                        bodyStyle={{ padding: 8 }}
+                        styles={{ body: { padding: 8 } }}
                         onClick={() => handleFolderClick(child.name)}
                       >
                         <Typography.Text type="secondary" style={{ fontSize: 12 }}>
@@ -277,7 +283,7 @@ const InvestorRelation = () => {
                         ]}
                         hoverable
                         className='pdf-card'
-                        bodyStyle={{ padding: screens.xs ? 8 : 16 }}
+                        styles={{ body: { padding: screens.xs ? 8 : 16 } }}
                       >
                         {/* Removed PDF Document text */}
                       </Card>
@@ -311,7 +317,7 @@ const InvestorRelation = () => {
             okText="Apply"
             cancelText="Cancel"
             centered
-            bodyStyle={{ padding: 16 }}
+            bodyStyle={{ padding: 0 }}
             className="ir-tree-modal"
           >
             <div className="modal-category-list">
@@ -348,7 +354,7 @@ const InvestorRelation = () => {
             centered
             width={900}
             className="ir-deeplink-modal"
-            bodyStyle={{ padding: 24 }}
+            styles={{ body: { padding: 0 } }}
             maskClosable={false}
           >
             {/* Modal Title: Show folder path and back button */}
@@ -382,7 +388,7 @@ const InvestorRelation = () => {
                           title={<span><FolderOpenOutlined style={{ color: '#FF6518' }} /> {child.name}</span>}
                           hoverable
                           className='folder-card'
-                          bodyStyle={{ padding: 8 }}
+                          styles={{ body: { padding: 8 } }}
                           onClick={() => handleModalFolderClick(child.name)}
                         >
                           <Typography.Text type="secondary" style={{ fontSize: 12 }}>
@@ -407,7 +413,7 @@ const InvestorRelation = () => {
                           ]}
                           hoverable
                           className='pdf-card'
-                          bodyStyle={{ padding: 8 }}
+                          styles={{ body: { padding: 0 } }}
                         >
                         </Card>
                       </Tooltip>
