@@ -2,6 +2,7 @@
 const investorRelationData = [
   {
     name: 'Annual Report',
+    files: [],
     children: [
       {
         name: '2023-24',
@@ -167,13 +168,16 @@ const investorRelationData = [
       { name: 'Circular Common Norms and Compulsory KYC', path: '/Images/Icons/Documents/Downloads/Circular Common Norms and Compulsory KYC.pdf' },
       { name: 'Form No. SH-13', path: '/Images/Icons/Documents/Downloads/Form No. SH-13.pdf' },
       { name: 'Form No. SH-14', path: '/Images/Icons/Documents/Downloads/Form No. SH-14.pdf' }
-    ]
+    ],
+    children: []
   },
   {
     name: 'Corporate Annoucements',
+    files: [],
     children: [
       {
         name: 'Newspaper advertisments',
+        files: [],
         children: [
           {
             name: '2024-25',
@@ -197,6 +201,7 @@ const investorRelationData = [
       },
       {
         name: 'Regulation 30 of SEBI (LODR) Regulation, 2015',
+        files: [],
         children: [
           { name: '2024-25', files: [] },
           { name: '2023-24', files: [] },
@@ -212,13 +217,16 @@ const investorRelationData = [
     files: [
       { name: 'Memorandum of Association', path: '/Images/Icons/Documents/Constitutional Documents/Memorandum of Association.pdf' },
       { name: 'Article of Association', path: '/Images/Icons/Documents/Constitutional Documents/Article of Association.pdf' }
-    ]
+    ],
+    children: []
   },
   {
     name: 'Financial Result',
+    files: [],
     children: [
       {
         name: 'Quarterly Financial Result',
+        files: [],
         children: [
           {
             name: '2024-25',
@@ -273,6 +281,7 @@ const investorRelationData = [
   },
   {
     name: 'Notice of Board Meeting',
+    files: [],
     children: [
       {
         name: '2024-25',
@@ -324,6 +333,7 @@ const investorRelationData = [
   },
   {
     name: 'Shareholding Pattern',
+    files: [],
     children: [
       {
         name: '2024-25',
@@ -387,10 +397,12 @@ const investorRelationData = [
       { name: 'Fair Practice Code Policy', path: '/Images/Icons/Documents/Policies/Fair Practice Code Policy.pdf' },
       { name: 'Code of Conduct Insider Trading', path: '/Images/Icons/Documents/Policies/Code of Conduct Insider Trading.pdf' },
       { name: 'Adinath_Revised_Code of Fair Disclosure', path: '/Images/Icons/Documents/Policies/1.Adinath_Revised_Code of Fair Disclosure.pdf' }
-    ]
+    ],
+    children: []
   },
   {
-    name: 'AGM/EGM/Postal Ballot',
+    name: 'AGM-EGM-Postal Ballot',
+    files: [],
     children: [
       {
         name: '2024-25',
@@ -434,21 +446,34 @@ const investorRelationData = [
   },
   {
     name: 'Secretrial Audit Report',
+    files: [],
     children: []
   },
   // {
   //   name: 'Secretrial Audit Report 2',
+  //   files: [],
   //   children: []
   // },
   {
     name: 'Investor Support',
+    files: [],
     children: []
   },
   {
     name: 'Intimations/Disclosures',
+    files: [],
     children: []
-
   }
 ];
+
+// For each node in the array, recursively ensure both properties exist
+function ensureFilesAndChildren(node) {
+  if (!node.files) node.files = [];
+  if (!node.children) node.children = [];
+  if (Array.isArray(node.children)) {
+    node.children.forEach(ensureFilesAndChildren);
+  }
+}
+investorRelationData.forEach(ensureFilesAndChildren);
 
 export default investorRelationData; 

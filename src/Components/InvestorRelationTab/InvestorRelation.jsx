@@ -17,6 +17,11 @@ const getNodeByPath = (data, pathArr) => {
     if (!node || !node.children) return null;
     node = node.children.find(child => child.name === pathArr[i]);
   }
+  // Ensure node always has files and children arrays
+  if (node) {
+    if (!node.files) node.files = [];
+    if (!node.children) node.children = [];
+  }
   return node;
 };
 
@@ -206,11 +211,28 @@ const InvestorRelation = () => {
                     cursor: 'pointer',
                     backgroundColor: folderPath[0] === category.name ? '#e6f4ff' : 'transparent',
                     border: folderPath[0] === category.name ? '1px solid #1677ff' : '1px solid transparent',
-                    transition: 'all 0.2s'
+                    transition: 'all 0.2s',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
                   }}
                 >
-                  <FolderOpenOutlined style={{ marginRight: 8, color: folderPath[0] === category.name ? '#1677ff' : '#666' }} />
-                  {category.name}
+                  <span style={{ display: 'flex', alignItems: 'center' }}>
+                    <FolderOpenOutlined style={{ marginRight: 8, color: folderPath[0] === category.name ? '#1677ff' : '#666' }} />
+                    {category.name}
+                  </span>
+                  {/* Copy Link Button for parent tab */}
+                  <Button
+                    type="text"
+                    icon={<CopyOutlined />}
+                    size="small"
+                    style={{ marginLeft: 8 }}
+                    onClick={e => {
+                      e.stopPropagation();
+                      handleCopyLink([category.name]);
+                    }}
+                    title="Copy link to this category"
+                  />
                 </div>
               ))}
             </div>
