@@ -5,6 +5,12 @@ const investorRelationData = [
     files: [],
     children: [
       {
+        name: '2024-25',
+        files: [
+       
+        ]
+      },
+      {
         name: '2023-24',
         files: [
           { name: 'Annual Report.pdf', path: '/Images/Icons/Documents/Annual Report/2023-24/Annual Report.pdf' }
