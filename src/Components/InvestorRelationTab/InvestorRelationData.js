@@ -453,7 +453,7 @@ const investorRelationData = [
   {
     name: 'Change in name of company',
     files: [
-      { name: 'Newspaper publication Public Notice as per COR of RBI', path: '/Images/Icons/Documents/Investor Relation/Newspaper publication Public Notice as per COR of RBI.pdf' }
+      { name: 'Final Intimation Public Notice COR 1.pdf', path: '/Images/Icons/Documents/Change in name of company/Final Intimation Public Notice COR 1.pdf' }
     ],
     children: []
   },
