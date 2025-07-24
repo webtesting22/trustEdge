@@ -80,7 +80,7 @@ const TargetMarket = () => {
             <div className="target-market-image-container">
               <img
                 src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/sachin-01.png"
-                alt="Target Market"
+                alt="Target Market for TrustEdge Capital - MSME and Business Financing"
                 className="target-market-image"
               />
             </div>

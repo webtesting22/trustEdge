@@ -54,7 +54,7 @@ const CompanyMission = () => {
         <section style={{ overflow: "hidden" }}>
             <div className="w-100 Container">
                 <div className="IconsContainer">
-                    <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/UpdatedBrandIcons.png" alt="" />
+                    <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/UpdatedBrandIcons.png" alt="TrustEdge Capital Brand Icons - Company Mission" />
                 </div>
                 <h2 className="text-center mission-heading" data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                     We provide comprehensive financing solutions tailored to your business needs. From business loans and working capital to invoice financing and equipment funding, we empower MSMEs with flexible, accessible credit to fuel their growth and operational excellence.

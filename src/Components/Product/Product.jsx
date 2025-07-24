@@ -102,7 +102,7 @@ const Product = () => {
                 {/* </div> */}
                 <div className="ParallaxImageContainer" style={{ width: `${imageWidth}%` }}>
                     <div>
-                        <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/ProductSectionImage.jpg" alt="" />
+                        <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/ProductSectionImage.jpg" alt="TrustEdge Capital Financial Products Section" />
                     </div>
                 </div>
                 {/* Product Sections */}

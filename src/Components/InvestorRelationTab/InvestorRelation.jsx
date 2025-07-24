@@ -4,6 +4,7 @@ import { FolderOpenOutlined, FilePdfOutlined, EyeOutlined, DownloadOutlined, Fil
 import "./InvestorRelation.css"
 import investorRelationData from './InvestorRelationData'
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const { Sider, Content } = Layout;
 const { Title } = Typography;
@@ -173,6 +174,16 @@ const InvestorRelation = () => {
 
   return (
     <section className="paddingTop InvestorRelation">
+      <Helmet>
+        <title>Investor Relations | TrustEdge Capital</title>
+        <meta name="description" content="Access the latest reports, financial statements, and press releases from TrustEdge Capital. Stay informed about our company's performance and strategic direction." />
+        <meta property="og:title" content="Investor Relations | TrustEdge Capital" />
+        <meta property="og:description" content="Access the latest reports, financial statements, and press releases from TrustEdge Capital." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.trustedgecapital.in/investor-relations" />
+        <meta property="og:image" content="/public/favicon.ico" />
+        <link rel="canonical" href="https://www.trustedgecapital.in/investor-relations" />
+      </Helmet>
       <div className="Container w-100">
         <div className="investor-header">
           <h1 className="text-center">Investor Relations</h1>

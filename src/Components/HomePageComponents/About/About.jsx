@@ -57,7 +57,7 @@ const About = () => {
                                     overflow: "hidden"
                                 }}
                             >
-                                <img src={image} alt="" ref={imageRef} style={{
+                                <img src={image} alt="About TrustEdge Capital - Enabling Growth for India’s Next-Gen Enterprises" ref={imageRef} style={{
                                     transform: `translateY(${parallax}px)`,
                                     transition: "transform 0.2s cubic-bezier(0.22, 1, 0.36, 1)",
                                     willChange: "transform",

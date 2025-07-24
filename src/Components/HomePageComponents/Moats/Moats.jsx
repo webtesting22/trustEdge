@@ -109,7 +109,7 @@ const Moats = () => {
                             <Col lg={8} md={8} sm={24} xs={24} key={index} data-aos="blur-to-clear" data-aos-delay="100" data-aos-duration="1500">
                                 <div className="moat-card">
                                     <div className="moat-card-img" >
-                                        <img src={moat.img} alt="" />
+                                        <img src={moat.img} alt={`Moat: ${moat.title} - ${moat.description}`} />
 
                                     </div>
                                     <div className="moat-card-content">

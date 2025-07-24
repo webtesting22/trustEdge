@@ -102,7 +102,7 @@ const HeroHome = () => {
                                     <img
                                         key={index}
                                         src={image}
-                                        alt={`Business Growth Slide ${index + 1}`}
+                                        alt={`TrustEdge Capital Business Growth Slide ${index + 1}`}
                                         className={`slider-image ${index === currentImageIndex ? 'active' : ''}`}
                                         onLoad={() => handleImageLoad(index)}
                                         loading={index === 0 ? "eager" : "lazy"}

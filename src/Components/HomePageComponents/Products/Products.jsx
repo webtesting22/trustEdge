@@ -73,7 +73,7 @@ const Products = () => {
                     <div className="Container">
                         <div className="ProductsIntroContent">
                             <div className="IconsContainer">
-                                <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/UpdatedBrandIcons.png" alt="" />
+                                <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/UpdatedBrandIcons.png" alt="TrustEdge Capital Brand Icons - Products" />
                             </div>
                             <h2 className="text-center">Tailored Financial Solutions for Business Growth</h2>
                             <p className="text-center">Empowering businesses with comprehensive financial services designed to fuel expansion, optimize cash flows, and unlock growth potential. From business loans to supply chain financing, our solutions are crafted to meet your unique capital requirements and drive sustainable success.</p>

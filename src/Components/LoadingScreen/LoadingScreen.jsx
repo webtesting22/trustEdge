@@ -40,7 +40,7 @@ const LoadingScreen = ({ onComplete }) => {
             {/* Single centered image container */}
             <div className={`loading-image-container  ${stage !== "loading" ? "fade-out" : ""}`}>
                 <div className="IconsContainer">
-                    <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/UpdatedBrandIcons.png" alt="" />
+                    <img src="https://s3.ap-south-1.amazonaws.com/prepseed/prod/ldoc/media/UpdatedBrandIcons.png" alt="TrustEdge Capital Loading Screen Brand Icons" />
                 </div>
             </div>
         </div>
