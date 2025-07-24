@@ -7,7 +7,7 @@ const investorRelationData = [
       {
         name: '2024-25',
         files: [
-       
+
         ]
       },
       {
@@ -449,6 +449,20 @@ const investorRelationData = [
         ]
       }
     ]
+  },
+  {
+    name: 'Change in name of company',
+    files: [
+      { name: 'Newspaper publication Public Notice as per COR of RBI', path: '/Images/Icons/Documents/Investor Relation/Newspaper publication Public Notice as per COR of RBI.pdf' }
+    ],
+    children: []
+  },
+  {
+    name: 'Trustedge Employee Stock Option Scheme 2025',
+    files: [
+      { name: 'BSE intimation for ESOP grant 24.07.2025 1', path: '/Images/Icons/Documents/Trustedge Employee Stock Option/BSE intimation for ESOP grant.pdf' }
+    ],
+    children: []
   },
   {
     name: 'Secretrial Audit Report',
