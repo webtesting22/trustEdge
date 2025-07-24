@@ -131,9 +131,9 @@ const Career = () => {
                 </div>
 
                 {/* Job Openings Section */}
-                <div className="jobs-section paddingTop">
-                    {/* <h2 className="text-center paddingBottom">Current Openings</h2> */}
-                    {/* <h1>Coming Soon</h1> */}
+                {/* <div className="jobs-section paddingTop">
+                    <h2 className="text-center paddingBottom">Current Openings</h2>
+                    <h1>Coming Soon</h1>
                     <div className="jobs-container">
                         {jobOpenings.map((job) => (
                             <div 
@@ -187,7 +187,7 @@ const Career = () => {
                             </div>
                         ))}
                     </div>
-                </div>
+                </div> */}
 
                 {/* Call to Action */}
                 {/* <div className="career-cta">
