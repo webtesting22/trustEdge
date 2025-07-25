@@ -7,7 +7,7 @@ const investorRelationData = [
       {
         name: '2024-25',
         files: [
-
+          { name: 'Trustedge Capital Limited _ AR _ 2024-25 _ final.pdf', path: '/Images/Icons/Documents/Annual Report/2024-25/Trustedge Capital Limited _ AR _ 2024-25 _ final.pdf' }
         ]
       },
       {
