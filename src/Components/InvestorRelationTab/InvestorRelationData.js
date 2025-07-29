@@ -411,6 +411,12 @@ const investorRelationData = [
     files: [],
     children: [
       {
+        name: '2025-26',
+        files: [
+          { name: 'AGM Notice 2025-26', path: '/Images/Icons/Documents/General Meeting Records/2025-26/Notice 31st AGM.pdf' },
+        ]
+      },
+      {
         name: '2024-25',
         files: [
           { name: '31st AGM Post notice in newspaper', path: '/Images/Icons/Documents/General Meeting Records/2024-25/31st AGM Post notice in newspaper.pdf' },
