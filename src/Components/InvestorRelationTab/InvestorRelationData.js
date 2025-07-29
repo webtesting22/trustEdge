@@ -414,13 +414,14 @@ const investorRelationData = [
         name: '2025-26',
         files: [
           { name: 'AGM Notice 2025-26', path: '/Images/Icons/Documents/General Meeting Records/2025-26/Notice 31st AGM.pdf' },
+          { name: '31st AGM Post notice in newspaper', path: '/Images/Icons/Documents/General Meeting Records/2024-25/31st AGM Post notice in newspaper.pdf' },
+          { name: 'Pre Dispatch Newspaper', path: '/Images/Icons/Documents/General Meeting Records/2024-25/Pre Dispatch Newspaper dated 18.07.2025 for AGM.pdf' },
         ]
       },
       {
         name: '2024-25',
         files: [
-          { name: '31st AGM Post notice in newspaper', path: '/Images/Icons/Documents/General Meeting Records/2024-25/31st AGM Post notice in newspaper.pdf' },
-          { name: 'Pre Dispatch Newspaper', path: '/Images/Icons/Documents/General Meeting Records/2024-25/Pre Dispatch Newspaper dated 18.07.2025 for AGM.pdf' },
+
           { name: 'Postal Ballot Notice Dec 2024', path: '/Images/Icons/Documents/General Meeting Records/2024-25/Postal Ballot Notice Dec 2024.pdf' },
           { name: 'Notice of 30th annual general meeting', path: '/Images/Icons/Documents/General Meeting Records/2024-25/Notice of 30th annual general meeting.pdf' },
           { name: 'Newspaper Advertisment for Dispatch of Notice of AGM', path: '/Images/Icons/Documents/General Meeting Records/2024-25/Newspaper Advertisment for Dispatch of Notice of AGM.pdf' },
