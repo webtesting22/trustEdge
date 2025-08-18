@@ -419,6 +419,7 @@ const investorRelationData = [
       {
         name: '2025-26',
         files: [
+          { name: 'ESOP Certificate 2025', path: '/Images/Icons/Documents/General Meeting Records/2025-26/ESOP Certificate 2025' },
           { name: 'AGM Notice 2025-26', path: '/Images/Icons/Documents/General Meeting Records/2025-26/Notice 31st AGM.pdf' },
           { name: '31st AGM Post notice in newspaper', path: '/Images/Icons/Documents/General Meeting Records/2024-25/31st AGM Post notice in newspaper.pdf' },
           { name: 'Pre Dispatch Newspaper', path: '/Images/Icons/Documents/General Meeting Records/2024-25/Pre Dispatch Newspaper dated 18.07.2025 for AGM.pdf' },
