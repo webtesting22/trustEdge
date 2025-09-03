@@ -500,6 +500,19 @@ const investorRelationData = [
     name: 'Intimations/Disclosures',
     files: [],
     children: []
+  },
+  {
+    name: 'Rights Issue',
+    files: [],
+    children: [
+      {
+        name: 'Draft letter of offer',
+        files: [
+          { name: 'Final DLOF_TCL02092025', path: '/Images/Icons/Documents/RightsIssue/Final DLOF_TCL02092025.pdf' }
+        ],
+        children: []
+      }
+    ]
   }
 ];
 
