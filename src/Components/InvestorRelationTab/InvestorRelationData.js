@@ -508,7 +508,7 @@ const investorRelationData = [
       {
         name: 'Draft letter of offer',
         files: [
-          { name: 'Final DLOF_TCL02092025', path: '/Images/Icons/Documents/RightsIssue/Final DLOF_TCL02092025.pdf' }
+          { name: 'Final DLOF_TCL02092025', path: '/Images/Icons/Documents/RightsIssue/Final DLOF_TCL02092025 (1).pdf' }
         ],
         children: []
       }
