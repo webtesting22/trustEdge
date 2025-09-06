@@ -515,14 +515,14 @@ const investorRelationData = [
         children: []
       },
       {
-        name: 'Outcomeofboard',
+        name: 'Outcome of board meeting/rights issue committee meeting',
         files: [
           { name: 'Outcome 1st BM-Rights issue 02.09.2025 1', path: '/Images/Icons/Documents/RightsIssue/Outcomeofboard/Outcome 1st BM-Rights issue 02.09.2025 1.pdf' }
         ],
         children: []
       },
       {
-        name: 'PriorIntemation',
+        name: 'Prior intimation of board meeting/rights issue committee meeting',
         files: [
           { name: 'Prior intimation RI committee 06.09.2025 1', path: '/Images/Icons/Documents/RightsIssue/PriorIntemation/Prior intimation RI committee 06.09.2025 1.pdf' },
           { name: 'TECL Prior intimation of Board meeting-02.09.2025 1', path: '/Images/Icons/Documents/RightsIssue/PriorIntemation/TECL Prior intimation of Board meeting-02.09.2025 1.pdf' },
