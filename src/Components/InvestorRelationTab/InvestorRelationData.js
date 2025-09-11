@@ -221,8 +221,10 @@ const investorRelationData = [
   {
     name: 'Constitutional Documents',
     files: [
-      { name: 'Memorandum of Association', path: '/Images/Icons/Documents/Constitutional Documents/Memorandum of Association.pdf' },
-      { name: 'Article of Association', path: '/Images/Icons/Documents/Constitutional Documents/Article of Association.pdf' }
+      { name: 'TECL Amended MOA', path: '/Images/Icons/Documents/Constitutional Documents/TECL Amended MOA.pdf' },
+      { name: 'TECL Amended-AOA', path: '/Images/Icons/Documents/Constitutional Documents/TECL Amended-AOA.pdf' },
+      // { name: 'Memorandum of Association', path: '/Images/Icons/Documents/Constitutional Documents/Memorandum of Association.pdf' },
+      // { name: 'Article of Association', path: '/Images/Icons/Documents/Constitutional Documents/Article of Association.pdf' }
     ],
     children: []
   },
@@ -524,7 +526,7 @@ const investorRelationData = [
       {
         name: 'Prior intimation of board meeting/rights issue committee meeting',
         files: [
-          {name: 'TECL 2nd postponement and rescheduling of RI committee meeting', path: '/Images/Icons/Documents/RightsIssue/PriorIntemation/TECL 2nd postponement and rescheduling of RI committee meeting 1.pdf'},
+          { name: 'TECL 2nd postponement and rescheduling of RI committee meeting', path: '/Images/Icons/Documents/RightsIssue/PriorIntemation/TECL 2nd postponement and rescheduling of RI committee meeting 1.pdf' },
           { name: 'Prior intimation RI committee 06.09.2025 1', path: '/Images/Icons/Documents/RightsIssue/PriorIntemation/Prior intimation RI committee 06.09.2025 1.pdf' },
           { name: 'TECL Prior intimation of Board meeting-02.09.2025 1', path: '/Images/Icons/Documents/RightsIssue/PriorIntemation/TECL Prior intimation of Board meeting-02.09.2025 1.pdf' },
           { name: 'TECL postponement and rescheduling of RI committee meeting 1', path: '/Images/Icons/Documents/RightsIssue/PriorIntemation/TECL postponement and rescheduling of RI committee meeting 1.pdf' }
