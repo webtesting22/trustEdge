@@ -526,7 +526,7 @@ const investorRelationData = [
       {
         name: 'Prior intimation of board meeting/rights issue committee meeting',
         files: [
-          { name: 'TECL postponement and rescheduling of RI committee meeting 17.09.2025', path: '/Images/Icons/Documents/RightsIssue/PriorIntemation/TECL postponement and rescheduling of RI committee meeting 17.09.2025.pdf' },
+          { name: 'TECL postponement and rescheduling of RI committee meeting 17.09.2025 1', path: '/Images/Icons/Documents/RightsIssue/PriorIntemation/TECL postponement and rescheduling of RI committee meeting 17.09.2025 1.pdf' },
           { name: 'TECL postponement and rescheduling of RI committee meeting 19.09.2025 1', path: '/Images/Icons/Documents/RightsIssue/PriorIntemation/TECL postponement and rescheduling of RI committee meeting 19.09.2025 1.pdf' },
           { name: 'TECL 2nd postponement and rescheduling of RI committee meeting', path: '/Images/Icons/Documents/RightsIssue/PriorIntemation/TECL 2nd postponement and rescheduling of RI committee meeting 1.pdf' },
           { name: 'Prior intimation RI committee 06.09.2025 1', path: '/Images/Icons/Documents/RightsIssue/PriorIntemation/Prior intimation RI committee 06.09.2025 1.pdf' },
